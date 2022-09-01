@@ -1,0 +1,13 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: calc(100vh - 164px);
+
+}
+
+.bag-badge {
+position: absolute;
+transform: translateY(-50%);
+}
