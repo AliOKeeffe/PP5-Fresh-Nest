@@ -6,6 +6,11 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     """Model for Category"""
+
+    class Meta:
+        """Set verbose name"""
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
@@ -23,6 +28,7 @@ class Product(models.Model):
     sku = models.CharField(
         max_length=254, null=False, blank=False, unique=True)
     name = models.CharField(max_length=254)
+    excerpt = models.TextField(blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(null=True, blank=True)
