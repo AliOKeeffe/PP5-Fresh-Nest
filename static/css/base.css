@@ -8,11 +8,20 @@ body {
 
 }
 
+
+
+
 .bag-badge {
 position: absolute;
 transform: translateY(-50%);
 }
 
+
+/* Nav */
+
+.navbar ul a {
+    text-transform: uppercase;
+}
 
 
 
