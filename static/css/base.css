@@ -24,6 +24,15 @@ transform: translateY(-50%);
 }
 
 
+/* Product Cards */
+.card-img-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+    min-height: 250px;
+}
+
+
 
 /* -------------------------------- Media Queries */
 

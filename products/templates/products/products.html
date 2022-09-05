@@ -2,19 +2,45 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                {{ products }}
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="page-title">Products</h1>
         </div>
     </div>
+    <hr>
+    <br>
+    <!-- Product Cards -->
+    <div class="row card-deck">
+        {% for product in products  %}
+        <div class="col-sm-6 col-md-4 px-1 d-flex">
+            <div class="card card-detail border-0 mb-3 mx-auto mx-sm-2">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" alt="placeholder image">
+                {% else %}
+                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top">
+                {% endif %}
+                <div class="row card-body pb-1">
+                    <div class="col pl-0">
+                        <h2 class="card-title">{{ product.name }}</h2>
+                    </div>
+                    <div class="col text-right pr-0">{{ product.price }}</div>
+                    <a href="" class="" aria-label="product-detail"></a>
+                </div>
+                <div class="card-text">
+                    {{ product.excerpt }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
