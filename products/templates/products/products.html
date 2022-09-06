@@ -28,16 +28,17 @@
                 {% else %}
                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top">
                 {% endif %}
-                <div class="row card-body pb-1">
-                    <div class="col pl-0">
-                        <h2 class="card-title">{{ product.name }}</h2>
+                <div class="row card-body py-2">
+                    <div class="col pl-0 card-text">
+                        <strong>{{ product.name }}</strong>
                     </div>
-                    <div class="col text-right pr-0">{{ product.price }}</div>
-                    <a href="" class="" aria-label="product-detail"></a>
+                    <div class="col text-right pr-0">€{{ product.price }}</div>
+                    <a href="{% url 'product_detail' product.id %}" class="stretched-link" aria-label="product-detail"></a>
                 </div>
-                <div class="card-text">
+                <div class="row card-body py-0 mb-4">
                     {{ product.excerpt }}
                 </div>
+               
             </div>
         </div>
         {% endfor %}

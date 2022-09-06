@@ -33,6 +33,20 @@ transform: translateY(-50%);
 }
 
 
+/* Product Detail */
+
+.product-detail-image {
+    width: 100%;
+    height: 40vw;
+    object-fit: cover;
+    min-height: 400px
+}
+
+
+.product-description {
+    background-color: #F5F6F4;
+    height: 15vw;
+}
 
 /* -------------------------------- Media Queries */
 
@@ -55,5 +69,17 @@ transform: translateY(-50%);
 
     .header-container {
         padding-top: 164px;
+    }
+}
+
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
     }
 }
