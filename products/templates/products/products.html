@@ -18,6 +18,36 @@
     </div>
     <hr>
     <br>
+    <!-- sort box -->
+    <div class="row mb-2">
+        <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+            <div class="sort-select-wrapper w-50">
+                <select id="sort-selector"
+                    class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                    </option>
+                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+                        (low to high)</option>
+                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                        (high to low)</option>
+                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
+                        (A-Z)</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 order-md-first">
+            <p class="text-muted mt-3 text-center text-md-left">
+                {% if search_term or current_categories or current_sorting != 'None_None' %}
+                {% for c in current_categories %}
+                <span class="small"><a href="{% url 'products' %}?category={{ c.name }}">{{ c.friendly_name }}</a> |
+                </span>
+                {% endfor %}
+                {% endif %}
+                {{ products|length }} Products{% if search_term %} found for
+                <strong>"{{ search_term }}"</strong>{% endif %}
+            </p>
+        </div>
+    </div>
     <!-- Product Cards -->
     <div class="row card-deck">
         {% for product in products  %}
@@ -33,12 +63,13 @@
                         <strong>{{ product.name }}</strong>
                     </div>
                     <div class="col text-right pr-0">€{{ product.price }}</div>
-                    <a href="{% url 'product_detail' product.id %}" class="stretched-link" aria-label="product-detail"></a>
+                    <a href="{% url 'product_detail' product.id %}" class="stretched-link"
+                        aria-label="product-detail"></a>
                 </div>
                 <div class="row card-body py-0 mb-4">
                     {{ product.excerpt }}
                 </div>
-               
+
             </div>
         </div>
         {% endfor %}
