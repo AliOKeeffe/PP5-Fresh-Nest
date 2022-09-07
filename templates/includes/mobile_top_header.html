@@ -55,7 +55,9 @@
         <a class="nav-link px-1 d-block d-lg-none" href="{% url 'view_bag' %}">
             <div class="text-center">
                 <div><i class="fas fa-shopping-bag fa-lg"></i>
-                    <span class='badge badge-info bag-badge px-1'>3</span>
+                    {% if product_count %}
+                    <span class='badge badge-info bag-badge px-1'>{{ product_count }}</span>
+                    {% endif %}
                 </div>
             </div>
         </a>
