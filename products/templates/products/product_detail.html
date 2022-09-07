@@ -45,11 +45,28 @@
                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
-                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                        <div class="input-group-prepend">
+                                            <button class="decrease-qty btn rounded-0 decrease-qty_{{ product.id }}"
+                                                data-item_id="{{ product.id }}">
+                                                <span>
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control qty_input id_qty_{{ product.id }}" type="number" name="quantity" value="1"
+                                            min="1" max="99" data-item_id="{{ product.id }}">
+                                        <div class="input-group-append">
+                                            <button class="increase-qty btn rounded-0 increase-qty_{{ product.id }}"
+                                                data-item_id="{{ product.id }}">
+                                                <span>
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div class="col-12">
                                 <a href="{% url 'products' %}" class="btn btn-outline rounded-0 mt-5">
                                     <span class="icon">
@@ -68,4 +85,9 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
