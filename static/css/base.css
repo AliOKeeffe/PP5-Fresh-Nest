@@ -69,6 +69,20 @@ transform: translateY(-50%);
     cursor: pointer;
 }
 
+/* bag */
+
+/* disable arrow buttons on number input Credit W3 Schools  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /* Messages */
 
 .message-container {
