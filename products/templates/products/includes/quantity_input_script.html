@@ -23,13 +23,24 @@
     });
 
     // Increase quantity
+    // $('.increase-qty').click(function(e) {
+    //    e.preventDefault();
+    //    var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+    //    var currentValue = parseInt($(closestInput).val());
+    //    $(closestInput).val(currentValue + 1);
+    //    var itemId = $(this).data('item_id');
+    //    handleEnableDisable(itemId);
+    // });
+
     $('.increase-qty').click(function(e) {
        e.preventDefault();
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
        var currentValue = parseInt($(closestInput).val());
        $(closestInput).val(currentValue + 1);
+       var updatedValue = parseInt($(closestInput).val());
        var itemId = $(this).data('item_id');
        handleEnableDisable(itemId);
+       updateBag(itemId, updatedValue);
     });
 
     // Decrease quantity
@@ -38,7 +49,26 @@
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
        var currentValue = parseInt($(closestInput).val());
        $(closestInput).val(currentValue - 1);
+       var updatedValue = parseInt($(closestInput).val())
        var itemId = $(this).data('item_id');
        handleEnableDisable(itemId);
+       updateBag(itemId, updatedValue);
     });
+
+    // update bag automatically
+    function updateBag(item_id, quantity) {
+        var csrfToken = "{{ csrf_token }}";
+
+        $.post({ 
+            url: `/bag/adjust/${item_id}/`,
+            data: {
+                'quantity': quantity,
+                'csrfmiddlewaretoken': csrfToken
+            },
+            success: function() {
+                location.reload();
+            }
+        });
+    };
+
 </script>
