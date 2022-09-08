@@ -139,6 +139,24 @@
         form.submit();
     })
 
+    // $('.update-cart').click(function (e) {
+    //     e.preventDefault();
+
+    //     var form = $(this).prev('.update-form')
+    //     form.submit();
+    //     var data = {
+    //         'csrfmiddlewaretoken': csrfToken
+    //     };
+
+    //     $.ajax({
+    //         method: POST,
+    //         url: "/bag/adjust/",
+    //         csrfmiddlewaretoken: data
+    //     })
+    // })
+
+
+
     // Remove item and reload on click
     $('.remove-btn').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
