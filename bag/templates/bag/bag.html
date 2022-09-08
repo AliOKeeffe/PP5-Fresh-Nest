@@ -133,29 +133,28 @@
 {% include 'products/includes/quantity_input_script.html' %}
 
 <script>
-    // update quantity on click
-    $('.update-link').click(function (e) {
-        var form = $(this).prev('.update-form')
-        form.submit();
-    })
-
-    // $('.update-cart').click(function (e) {
-    //     e.preventDefault();
-
+    // // update quantity on click
+    // $('.update-link').click(function (e) {
     //     var form = $(this).prev('.update-form')
     //     form.submit();
-    //     var data = {
-    //         'csrfmiddlewaretoken': csrfToken
-    //     };
-
-    //     $.ajax({
-    //         method: POST,
-    //         url: "/bag/adjust/",
-    //         csrfmiddlewaretoken: data
-    //     })
     // })
 
+    $('.increase-qty, .decrease-qty').click(function(e) {
+        var quantity = $('.qty_input').val();
+        var item_id = $('.qty_input').data('item_id');
+        var csrfToken = "{{ csrf_token }}";
 
+        $.post({ 
+            url: `/bag/adjust/${item_id}/`,
+            data: {
+                'quantity': quantity,
+                'csrfmiddlewaretoken': csrfToken
+            },
+            success: function() {
+                location.reload();
+            }
+        });
+    })
 
     // Remove item and reload on click
     $('.remove-btn').click(function (e) {
