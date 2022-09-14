@@ -36,6 +36,19 @@
     border: 1px solid #000;
 }
 
+/* Country select field on order form  */
+
+select,
+select option {
+  color: #000;
+}
+
+select:invalid,
+select option[value='']{
+  color: #aab7c4 !important;
+}
+
+
 #loading-overlay {
 	display: none;
 	position: fixed;
