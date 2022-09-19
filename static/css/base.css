@@ -41,6 +41,11 @@ transform: translateY(-50%);
     color: white
 }
 
+
+.edit-delete-btns {
+    z-index: 5000;
+}
+
 /* Product Detail */
 
 .product-detail-image {
