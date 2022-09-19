@@ -1,10 +1,17 @@
 """Product Views"""
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category
 from django.db.models.functions import Lower
+
+from .models import Product, Category, User
 from .forms import ProductForm
+
+
+def superuser_check(user):
+    """ checks if user if superuser """
+    return user.is_superuser
 
 
 def all_products(request):
@@ -70,6 +77,8 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required
+@user_passes_test(superuser_check, login_url='products')
 def add_product(request):
     """ Add a product to the store """
     if request.method == 'POST':
@@ -93,6 +102,8 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required
+@user_passes_test(superuser_check)
 def edit_product(request, product_id):
     """ Edit a product in the store """
     product = get_object_or_404(Product, pk=product_id)
@@ -117,7 +128,8 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
-
+@login_required
+@user_passes_test(superuser_check)
 def delete_product(request, product_id):
     """ Delete a product from the store """
     product = get_object_or_404(Product, pk=product_id)
