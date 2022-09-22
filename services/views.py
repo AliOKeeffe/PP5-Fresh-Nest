@@ -115,4 +115,4 @@ class DeleteService(
 class Testimonials(generic.ListView):
     """ This view is used to display all testimonials """
     model = Testimonial
-    template_name = 'services/testimonial.html'
+    template_name = 'services/testimonials.html'

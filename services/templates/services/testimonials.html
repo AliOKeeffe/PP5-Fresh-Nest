@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="display-4 logo-font text-black">
+                Testimonials
+            </h1>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="card-columns">
+            {% for testimonial in testimonial_list  %}
+            <div class="card">
+
+                <div class="card-body">
+                    <strong>{{ testimonial.service.type }}</strong>
+                    {{ testimonial.body }}
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
