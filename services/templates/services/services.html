@@ -2,43 +2,53 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
-                    Services Page
-                </h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="display-4 logo-font text-black">
+                Services Page
+            </h1>
+        </div>
+    </div>
+
+
+
+    {% for service in service_list  %}
+    <div class="row alt-colour card-deck">
+        <div class="col-12 px-1 d-flex">
+            <div class="card card-detail border-0 mb-3 mx-auto mx-sm-2">
+                {% if service.image %}
+                <img src="{{ service.image.url }}" class="card-img-top" alt="placeholder image">
+                {% else %}
+                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ service.name }}" class="card-img-top">
+                {% endif %}
+
+                <div class="row card-body py-2">
+                    <div class="col pl-0 card-text">
+                        <strong>{{ service.type }}</strong>
+                    </div>
+                    <div class="col text-right pr-0">{{ service.description }}</div>
+
+                </div>
+
+                {% if request.user.is_superuser %}
+                <small class="col text-right pr-0 edit-delete-btns">
+                    <a href="{% url 'edit_service' service.id %}">Edit</a> |
+                    <a class="text-danger" href="{% url 'delete_service' service.id %}">Delete</a>
+                </small>
+                {% endif %}
             </div>
         </div>
-        <div class="row card-deck">
-            {% for service in service_list  %}
-            <div class="col-sm-6 col-md-4 px-1 d-flex">
-                <div class="card card-detail border-0 mb-3 mx-auto mx-sm-2">
-                    {% if service.image %}
-                    <img src="{{ service.image.url }}" class="card-img-top" alt="placeholder image">
-                    {% else %}
-                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ service.name }}" class="card-img-top">
-                    {% endif %}
-    
-                    <div class="row card-body py-2">
-                        <div class="col pl-0 card-text">
-                            <strong>{{ service.type }}</strong>
-                        </div>
-                        <div class="col text-right pr-0">{{ service.description }}</div>
-
-                    </div>
-
-    
-                </div>
-            </div>
-            {% endfor %}
     </div>
+    {% endfor %}
+</div>
+
 {% endblock %}

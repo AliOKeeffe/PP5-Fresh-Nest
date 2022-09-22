@@ -20,6 +20,14 @@ transform: translateY(-50%);
     text-transform: uppercase;
 }
 
+/* Service Cards */
+
+.alt-colour {
+    background: green;
+}
+.alt-colour:nth-child(odd) {
+  background: blue;
+}
 
 /* Product Cards */
 .card-img-top {
