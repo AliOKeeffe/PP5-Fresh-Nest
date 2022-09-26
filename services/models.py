@@ -47,5 +47,9 @@ class PreviousProject(models.Model):
     image = models.ImageField(null=True, blank=True)
     location = models.CharField(max_length=254)
 
+    def get_absolute_url(self):
+        """Get url after user adds project image"""
+        return reverse('project_gallery')
+
     def __str__(self):
         return f"Project: {self.service} in {self.location}"

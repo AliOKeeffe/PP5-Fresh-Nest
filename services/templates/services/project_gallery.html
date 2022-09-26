@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="display-4 logo-font text-black">
+                Previous Projects
+            </h1>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="card-columns">
+            {% for project in previousproject_list  %}
+            <div class="card">
+                <img src="{{ project.image.url }}" class="card-img-top" alt="placeholder image">
+                <div class="card-body">
+                    <strong>{{ project.service.type }}</strong>
+                    {{ project.location }}
+                </div>
+                {% if user.is_superuser %}
+                <span>
+                    <a class="btn btn-info" href="{% url 'delete_project_image' project.id %}"
+                        aria-label="delete-project-image">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </span>
+                {% endif %}
+            </div> 
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

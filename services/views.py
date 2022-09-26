@@ -6,7 +6,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Service, Testimonial, PreviousProject
 from django.urls import reverse_lazy
-from .forms import ServiceForm, TestimonialForm
+from .forms import ServiceForm, TestimonialForm, AddProjectImageForm
 
 
 class Services(generic.ListView):
@@ -159,3 +159,47 @@ class DeleteTestimonial(
         """
         testimonial = self.get_object()
         return testimonial.name == self.request.user.username
+
+
+class ProjectGallery(generic.ListView):
+    """ This view is used to display photo gallery of previous projects """
+    model = PreviousProject
+    template_name = 'services/project_gallery.html'
+
+
+class AddProjectImage(
+        LoginRequiredMixin, UserPassesTestMixin,
+        SuccessMessageMixin, generic.CreateView):
+    """
+    This view is used to allow the site owner to add
+    images of previous projects to the gallery 
+    """
+    form_class = AddProjectImageForm
+    template_name = 'services/add_project_image.html'
+    success_message = "Your image was added successfully"
+
+    def test_func(self):
+        """
+       Ensure only superuser can add an image
+        """
+        if self.request.user.is_superuser:
+            return True
+
+
+class DeleteProjectImage(
+        LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    """
+    This view is used to allow the superuser to delete images from the gallery
+    """
+    model = PreviousProject
+    template_name = 'services/delete_project_image.html'
+    success_message = "Image successfully deleted"
+    success_url = reverse_lazy('project_gallery')
+
+    def test_func(self):
+        """
+       Ensure only superuser can delete an image
+        """
+        if self.request.user.is_superuser:
+            return True
+
