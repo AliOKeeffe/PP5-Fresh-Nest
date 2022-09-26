@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from django.core.mail import send_mail
 from django.views import generic, View
 from django.conf import settings
@@ -60,11 +61,13 @@ class ContactUs(View):
             )
 
             contact_form.save()
+            messages.success(self.request, 'Your enquiry has been sent')
+
+        else:
+            contact_form = ContactForm()
 
         return render(
             request,
-            "contact/contact.html",
-            {
-                "contact_form": ContactForm(),
-            },
+            "home/index.html",
         )
+

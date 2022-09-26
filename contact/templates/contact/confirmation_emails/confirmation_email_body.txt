@@ -2,7 +2,7 @@ Hello {{ cust_name }}!
 
 We have received the below enquiry:
 
-{{ subject }}
+{{ message }}
 
 We will get back to you as soon as we can
 
