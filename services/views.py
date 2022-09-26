@@ -6,7 +6,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Service, Testimonial, PreviousProject
 from django.urls import reverse_lazy
-from .forms import ServiceForm
+from .forms import ServiceForm, TestimonialForm
 
 
 class Services(generic.ListView):
@@ -23,12 +23,6 @@ class AddService(
     form_class = ServiceForm
     template_name = 'services/add_service.html'
     success_message = "%(calculated_field)s was created successfully"
-
-    def form_valid(self, form):
-        """
-        This method is called when valid form data has been posted.
-        """
-        return super().form_valid(form)
 
     def get_success_message(self, cleaned_data):
         """
@@ -60,12 +54,6 @@ class EditService(
     template_name = 'services/edit_service.html'
     success_message = "%(calculated_field)s was edited successfully"
 
-    def form_valid(self, form):
-        """
-        This method is called when valid form data has been posted.
-        """
-        return super().form_valid(form)
-
     def test_func(self):
         """
         Ensure only superuser can edit service details
@@ -87,7 +75,7 @@ class EditService(
 class DeleteService(
         LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     """
-    This view is used to allow logged in users to delete their own recipes
+    This view is used to allow the superuser to delete a service
     """
     model = Service
     template_name = 'services/delete_service.html'
@@ -116,3 +104,58 @@ class Testimonials(generic.ListView):
     """ This view is used to display all testimonials """
     model = Testimonial
     template_name = 'services/testimonials.html'
+
+
+class AddTestimonial(
+        LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+
+    """This view is used to allow a user to add a testimonial"""
+    form_class = TestimonialForm
+    template_name = 'services/add_testimonial.html'
+    success_message = "Your testimonial was added successfully"
+
+    def form_valid(self, form):
+        """
+        Override the form_valid() method in model form view
+        in order to set the signed in user as the name on the testimonial.
+        """
+        form.instance.name = self.request.user
+        return super().form_valid(form)
+
+
+class EditTestimonial(
+        LoginRequiredMixin, UserPassesTestMixin,
+        SuccessMessageMixin, generic.UpdateView):
+
+    """
+    This view is used to allow logged in users to edit their own testimonials
+    """
+    model = Testimonial
+    form_class = TestimonialForm
+    template_name = 'services/edit_testimonial.html'
+    success_message = "Testminonial edited successfully"
+
+    def test_func(self):
+        """
+        Prevent another user from editing user's testminonial
+        """
+        testimonial = self.get_object()
+        return testimonial.name == self.request.user.username
+
+
+class DeleteTestimonial(
+        LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    """
+    This view is used to allow logged in users to delete their own testimonials
+    """
+    model = Testimonial
+    template_name = 'services/delete_testimonial.html'
+    success_message = "Testminonial successfully deleted"
+    success_url = reverse_lazy('testimonials')
+
+    def test_func(self):
+        """
+        Prevent another user from deleting another user's testminonial
+        """
+        testimonial = self.get_object()
+        return testimonial.name == self.request.user.username

@@ -13,7 +13,7 @@ class Service(models.Model):
 
     def __str__(self):
         return self.type
-    
+
     def get_absolute_url(self):
         """Get url after superuser adds/edits service"""
         return reverse('services')
@@ -24,13 +24,16 @@ class Testimonial(models.Model):
     service = models.ForeignKey(
         Service, on_delete=models.CASCADE, related_name='testimonial')
     name = models.CharField(max_length=80)
-    email = models.EmailField()
     body = models.TextField()
     created_on = models.DateTimeField(auto_now=True)
 
     class Meta:
         """ To display the testimonials by created_on in ascending order """
         ordering = ['created_on']
+
+    def get_absolute_url(self):
+        """Get url after user adds/edits testimonial"""
+        return reverse('testimonials')
 
     def __str__(self):
         return f"Testimonial {self.body} by {self.name}"
@@ -46,4 +49,3 @@ class PreviousProject(models.Model):
 
     def __str__(self):
         return f"Project: {self.service} in {self.location}"
-
