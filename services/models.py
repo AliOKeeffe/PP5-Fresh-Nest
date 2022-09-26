@@ -36,7 +36,7 @@ class Testimonial(models.Model):
         return reverse('testimonials')
 
     def __str__(self):
-        return f"Testimonial {self.body} by {self.name}"
+        return f"Testimonial: {self.service} by {self.name}"
 
 
 class PreviousProject(models.Model):
