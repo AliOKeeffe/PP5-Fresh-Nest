@@ -10,46 +10,27 @@
 {% endblock %}
 
 {% block content %}
-    <!-- <div class="container h-100 home-container">
-        <div class="home-image-container">
-            <div class="overlap-image">
-                <img src="/media/pexels-andrea-davis-2829030_xTcyqNX.jpg" alt="">
-            </div>
-            <div class="overlap-image">
-                <img src="/media/pexels-houzlook-com-3356416.jpg" alt="">
+<div class="container h-md-100 home-container">
+    <div class="row h-75 mt-md-5 flex-md-row-reverse px-2 px-md-0">
+        <div class="col-12 col-md-6 gold-border pt-3 pt-md-5">
+            <h1 class="logo-font pt- pt-md-5 pl-3 pl-md-5">
+                Style 
+                <br>
+                Your
+                <br> 
+                Space
+            </h1>
+            <p class="px-3 px-md-5 pt-2 pt-md-5 tagline">Browse our range of interior products or book a design service today</p>
+            <div class="pl-3 pl-md-5 pt-3 pt-md-5 pb-3">
+                    <a href="{% url 'products' %}" class="btn gold-button py-3">Shop Now</a>
+                    <a href="{% url 'services' %}" class="btn gold-button py-3 ml-3">Design Services</a>
             </div>
         </div>
-
-     
-    </div> -->
-    <div class="container h-100 home-container">
-        <div class="row h-75">
-            <div class="col-6 home-image-container gold-border">
-                <img class="home-image" src="/media/pexels-houzlook-com-3356416.jpg" alt="">
-            </div>
-            <div class="col-6 gold-border">
-                <h1 class="display-4">
-                    Style Your Space
-                </h1>
-                <div class="my-5">
-                    <h4>
-                        <a href="{% url 'products' %}" class="btn btn-lg gold-button py-3">Shop Now</a>
-                    </h4>
-                </div>
-            </div>
+        <div class="col-12 col-md-6 home-image-container d-none d-md-flex tester">
+        </div>
+        <div class="col-12 col-md-6 gold-border d-md-none mobile-image-container p-0">
+            <img class="img-fluid" src="/media/pexels-andrea-davis-2829030.jpg" alt="living-room-image">
         </div>
     </div>
+</div>
 {% endblock %}
-
-   <!-- <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
-                    Style Your Space
-                </h1>
-                <div class="my-5">
-                    <h4>
-                        <a href="{% url 'products' %}" class="btn btn-lg gold-button py-3">Shop Now</a>
-                    </h4>
-                </div>
-            </div>
-        </div> -->

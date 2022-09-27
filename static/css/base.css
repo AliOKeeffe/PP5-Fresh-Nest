@@ -5,7 +5,7 @@ html {
 body {
     height: calc(100vh - 164px);
     font-family: 'Raleway', sans-serif;
-    color: #343434;
+    color: #4D4E54;
 
 }
 
@@ -20,10 +20,14 @@ transform: translateY(-50%);
 
 .gold-button {
     background: #A99166;
-    color: white;
+    color: black;
     font-weight: 300!important;
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+
+.gold-button:hover {
+    color: white;
 }
 
 /* Nav */
@@ -58,28 +62,43 @@ transform: translateY(-50%);
     border: 2px solid #A99166;
 
 }
+.logo-font {
+    font-size: 4rem;
+    line-height: 100px;
+}
 
-.home-container {
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* .home-container {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .home-image-container {
+    display: flex;
     overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/media/pexels-houzlook-com-3356416.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 800px;
+    border-top: 2px solid #A99166;
+    border-bottom: 2px solid #A99166;
+    border-left: 2px solid #A99166;
 }
 
-
-
-/* .overlap-image:first-of-type {
-    grid-column: 4 / span 4;
-    grid-row: 1 / span 4;
-}
-
-.overlap-image:last-of-type {
-    grid-column: 1 / span 4;
-    grid-row: 4 / span 4;
-} */ */
+/* .mobile-image-container {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+} */
 
 /* Product Cards */
 .card-img-top {
@@ -269,13 +288,13 @@ input[type=number] {
   
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
-    /* .fixed-top-desktop-only {
+    .fixed-top-desktop-only {
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
         z-index: 1030;
-    } */
+    }
 
     .header-container {
         padding-top: 115px;
@@ -286,7 +305,7 @@ input[type=number] {
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 70px;
     }
 
     body {
@@ -306,6 +325,15 @@ input[type=number] {
         font-size: 1rem;
     }
 
+    .logo-font {
+        font-size: 3rem;
+        line-height: 75px;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+
     #delivery-banner h4 {
         font-size: .9rem;
     }
@@ -316,7 +344,7 @@ input[type=number] {
     }
 
     .btn.btn-outline-black.rounded-0.btn-lg,
-    .btn.gold-button.btn-lg {
+    .btn.gold-button {
         padding: .375rem .375rem;
         font-size: .75rem;
     }
