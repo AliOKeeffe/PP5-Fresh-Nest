@@ -5,7 +5,12 @@ html {
 body {
     height: calc(100vh - 164px);
     font-family: 'Raleway', sans-serif;
+    color: #343434;
 
+}
+
+.text-jet {
+    color: #4D4E54 !important;
 }
 
 .bag-badge {
@@ -13,12 +18,30 @@ position: absolute;
 transform: translateY(-50%);
 }
 
+.gold-button {
+    background: #A99166;
+    color: white;
+    font-weight: 300!important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
 /* Nav */
 
 .navbar ul a {
     text-transform: uppercase;
+    color: #4D4E54;
+    font-size: 14px;
+    font-weight: 400 !important;
 }
+
+/* .navbar ul a {
+    color: #442E10;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+} */
+
 
 /* Service Cards */
 
@@ -28,6 +51,35 @@ transform: translateY(-50%);
 .alt-colour:nth-child(odd) {
   background: blue;
 }
+
+/* home page */
+
+.gold-border {
+    border: 2px solid #A99166;
+
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-image-container {
+    overflow: hidden;
+}
+
+
+
+/* .overlap-image:first-of-type {
+    grid-column: 4 / span 4;
+    grid-row: 1 / span 4;
+}
+
+.overlap-image:last-of-type {
+    grid-column: 1 / span 4;
+    grid-row: 4 / span 4;
+} */ */
 
 /* Product Cards */
 .card-img-top {
@@ -226,7 +278,7 @@ input[type=number] {
     } */
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 115px;
     }
 }
 
@@ -259,12 +311,12 @@ input[type=number] {
     }
 
     .btn.btn-outline-black.rounded-0,
-    .btn.btn-black.rounded-0 {
+    .btn.gold-button {
         padding: .375rem .375rem;
     }
 
     .btn.btn-outline-black.rounded-0.btn-lg,
-    .btn.btn-black.rounded-0.btn-lg {
+    .btn.gold-button.btn-lg {
         padding: .375rem .375rem;
         font-size: .75rem;
     }

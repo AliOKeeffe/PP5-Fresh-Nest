@@ -48,7 +48,7 @@
     <header class="container fixed-top">
         <div class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link">
+                <a href="{% url 'home' %}" class="text-jet nav-link">
                     <h2 class="my-0">Fresh Nest</h2>
                 </a>
             </div>
@@ -69,7 +69,7 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-right my-0">
                     <li class="list-inline-item dropdown">
-                        <a class="nav-link px-1" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="text-jet nav-link px-1" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="far fa-user fa-lg"></i></div>
                             </div>
@@ -89,14 +89,14 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link px-1" href="#">
+                        <a class="text-jet nav-link px-1" href="#">
                             <div class="text-center">
                                 <div><i class="far fa-heart fa-lg"></i></div>
                             </div>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link px-1" href="{% url 'view_bag' %}">
+                        <a class="text-jet nav-link px-1" href="{% url 'view_bag' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i>
                                     {% if product_count %}
@@ -110,19 +110,19 @@
             </div>
         </div>
         <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-lg text-jet w-100">
+                <button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 {% include 'includes/mobile_top_header.html' %}
                 {% include 'includes/main_nav.html' %}
             </nav>
         </div>
-        <div id="delivery-banner" class="row text-center">
+        <!-- <div id="delivery-banner" class="row text-center">
             <div class="col">
                 <h4 class="my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>                
             </div>            
-        </div>
+        </div> -->
 
     </header>
 

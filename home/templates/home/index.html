@@ -10,18 +10,46 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
+    <!-- <div class="container h-100 home-container">
+        <div class="home-image-container">
+            <div class="overlap-image">
+                <img src="/media/pexels-andrea-davis-2829030_xTcyqNX.jpg" alt="">
+            </div>
+            <div class="overlap-image">
+                <img src="/media/pexels-houzlook-com-3356416.jpg" alt="">
+            </div>
+        </div>
+
+     
+    </div> -->
+    <div class="container h-100 home-container">
+        <div class="row h-75">
+            <div class="col-6 home-image-container gold-border">
+                <img class="home-image" src="/media/pexels-houzlook-com-3356416.jpg" alt="">
+            </div>
+            <div class="col-6 gold-border">
+                <h1 class="display-4">
                     Style Your Space
                 </h1>
                 <div class="my-5">
                     <h4>
-                        <a href="{% url 'products' %}" class="btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+                        <a href="{% url 'products' %}" class="btn btn-lg gold-button py-3">Shop Now</a>
                     </h4>
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
+
+   <!-- <div class="row h-100">
+            <div class="col-7 col-md-6 my-auto">
+                <h1 class="display-4 logo-font text-black">
+                    Style Your Space
+                </h1>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'products' %}" class="btn btn-lg gold-button py-3">Shop Now</a>
+                    </h4>
+                </div>
+            </div>
+        </div> -->
