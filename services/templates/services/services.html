@@ -10,45 +10,49 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-7 col-md-6 my-auto">
-            <h1 class="display-4 logo-font text-black">
-                Services Page
-            </h1>
+        <div class="col-12">
+            <h1 class="text-center pt-4">Interior Design Services</h1>
         </div>
     </div>
-
-
-
+    <br>
     {% for service in service_list  %}
-    <div class="row alt-colour card-deck">
-        <div class="col-12 px-1 d-flex">
-            <div class="card card-detail border-0 mb-3 mx-auto mx-sm-2">
-                {% if service.image %}
-                <img src="{{ service.image.url }}" class="card-img-top" alt="placeholder image">
-                {% else %}
-                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ service.name }}" class="card-img-top">
-                {% endif %}
-
-                <div class="row card-body py-2">
-                    <div class="col pl-0 card-text">
-                        <strong>{{ service.type }}</strong>
+    <div class="row alt-colour">
+        <div class="col-12">
+            <div class="card my-5 border-0 bg-transparent mb-3">
+                <div class="row no-gutters">
+                    <div class="col-12 col-md-4">
+                        {% if service.image %}
+                        <img src="{{ service.image.url }}" class="service-img" alt="placeholder image">
+                        {% else %}
+                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ service.name }}" class="">
+                        {% endif %}
                     </div>
-                    <div class="col text-right pr-0">{{ service.description }}</div>
-
+                    <div class="col-12 col-md-8">
+                        <div class="card-body py-2">
+                            <div>
+                                <h2 class="card-title text-left">{{ service.type }}</h2>
+                            </div>
+                            <div class="mb-5">
+                                <p>
+                                    {{ service.description }}
+                                </p>
+                            </div>
+                            {% if request.user.is_superuser %}
+                            <small class="col text-right pr-0 edit-delete-btns">
+                                <a href="{% url 'edit_service' service.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_service' service.id %}">Delete</a>
+                            </small>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
-
-                {% if request.user.is_superuser %}
-                <small class="col text-right pr-0 edit-delete-btns">
-                    <a href="{% url 'edit_service' service.id %}">Edit</a> |
-                    <a class="text-danger" href="{% url 'delete_service' service.id %}">Delete</a>
-                </small>
-                {% endif %}
             </div>
         </div>
     </div>
     {% endfor %}
 </div>
+
 
 {% endblock %}
