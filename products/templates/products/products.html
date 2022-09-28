@@ -13,17 +13,21 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="page-title">Products</h1>
+            {% if current_categories != 'None_None' %}
+            {% for c in current_categories %}
+            <h1 class="text-center pt-4">{{ c.friendly_name }}</h1>
+            {% endfor %}
+            {% else %}
+            <h1 class="text-center pt-4">All Products</h1>
+            {% endif %}
         </div>
     </div>
-    <hr>
     <br>
     <!-- sort box -->
     <div class="row mb-2">
         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
             <div class="sort-select-wrapper w-50">
-                <select id="sort-selector"
-                    class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border-gold">
                     <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
                     </option>
                     <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
@@ -36,13 +40,7 @@
             </div>
         </div>
         <div class="col-12 col-md-6 order-md-first">
-            <p class="text-muted mt-3 text-center text-md-left">
-                {% if search_term or current_categories or current_sorting != 'None_None' %}
-                {% for c in current_categories %}
-                <span class="small"><a href="{% url 'products' %}?category={{ c.name }}">{{ c.friendly_name }}</a> |
-                </span>
-                {% endfor %}
-                {% endif %}
+            <p class="mt-3 text-center text-md-left">
                 {{ products|length }} Products{% if search_term %} found for
                 <strong>"{{ search_term }}"</strong>{% endif %}
             </p>
@@ -51,10 +49,10 @@
     <!-- Product Cards -->
     <div class="row card-deck">
         {% for product in products  %}
-        <div class="col-sm-6 col-md-4 px-1 d-flex">
-            <div class="card card-detail border-0 mb-3 mx-auto mx-sm-2">
+        <div class="col-sm-6 col-md-4 px-1 d-flex align-items-stretch">
+            <div class="card card-detail product-card border-0 mb-3 mx-auto mx-sm-2">
                 <span class="like-btn">
-                    <a href="{% url 'home' %}" class="like-btn-icon"><i class="far fa-heart fa-lg"></i></a>
+                    <a href="{% url 'home' %}"><i class="far fa-heart fa-lg"></i></a>
                 </span>
                 {% if product.image %}
                 <img src="{{ product.image.url }}" class="card-img-top" alt="placeholder image">
@@ -77,7 +75,7 @@
                     {% if request.user.is_superuser %}
                     <small class="col text-right pr-0 edit-delete-btns">
                             <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            <a href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
                     {% endif %}
                 </div>
@@ -87,9 +85,9 @@
         {% endfor %}
     </div>
 </div>
-<div class="btt-button shadow-sm rounded-0 border border-black">
+<div class="btt-button shadow-sm rounded-0 border-gold">
     <a class="btt-link d-flex h-100">
-        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        <i class="fas fa-arrow-up text-jet mx-auto my-auto"></i>
     </a>
 </div>
 {% endblock %}
