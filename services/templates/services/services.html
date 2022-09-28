@@ -10,41 +10,48 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <h1 class="text-center pt-4">Interior Design Services</h1>
         </div>
     </div>
     <br>
+
     {% for service in service_list  %}
     <div class="row alt-colour">
-        <div class="col-12">
-            <div class="card my-5 border-0 bg-transparent mb-3">
-                <div class="row no-gutters">
-                    <div class="col-12 col-md-4">
-                        {% if service.image %}
-                        <img src="{{ service.image.url }}" class="service-img" alt="placeholder image">
-                        {% else %}
-                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ service.name }}" class="">
-                        {% endif %}
-                    </div>
-                    <div class="col-12 col-md-8">
-                        <div class="card-body py-2">
-                            <div>
-                                <h2 class="card-title text-left">{{ service.type }}</h2>
-                            </div>
-                            <div class="mb-5">
-                                <p>
-                                    {{ service.description }}
-                                </p>
-                            </div>
-                            {% if request.user.is_superuser %}
-                            <small class="col text-right pr-0 edit-delete-btns">
-                                <a href="{% url 'edit_service' service.id %}">Edit</a> |
-                                <a class="text-danger" href="{% url 'delete_service' service.id %}">Delete</a>
-                            </small>
+        <div class="container">
+            <div class="col-12 pl-4">
+                <div class="card my-5 border-0 bg-transparent">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-md-5 col-lg-4">
+                            {% if service.image %}
+                            <img src="{{ service.image.url }}" class="service-img" alt="placeholder image">
+                            {% else %}
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ service.name }}" class="">
                             {% endif %}
+                        </div>
+                        <div class="col-12 col-md-7 col-lg-8">
+                            <div class="card-body px-0 px-md-4 py-2">
+                                <div>
+                                    <h2 class="pt-2 pt-md-0 card-title text-left">{{ service.type }}</h2>
+                                </div>
+                                <div class="mb-5">
+                                    <p>
+                                        {{ service.description }}
+                                    </p>
+                                </div>
+                                {% if request.user.is_superuser %}
+                                <small class="edit-delete-btns align-bottom">
+                                    <a href="{% url 'edit_service' service.id %}">Edit</a> |
+                                    <a href="{% url 'delete_service' service.id %}">Delete</a>
+                                </small>
+                                {% else %}
+                                <div class="align-bottom">
+                                    <a href="{% url 'contact' %}" class="btn btn-sm gold-button py-2">Enquire Now</a>
+                                </div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -52,6 +59,7 @@
         </div>
     </div>
     {% endfor %}
+
 </div>
 
 

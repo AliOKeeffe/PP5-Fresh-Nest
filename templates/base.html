@@ -26,7 +26,8 @@
 
     {% block corejs %}
     <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
     </script>
@@ -45,103 +46,109 @@
 </head>
 
 <body>
-    <header class="container fixed-top">
-        <div class="row pt-lg-2 d-none d-lg-flex">
-            <div class="col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="text-jet nav-link">
-                    <h2 class="my-0">Fresh Nest</h2>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group w-100">
-                        <input class="form-control border-gold rounded-0" type="text" name="q" placeholder="Search our site">
-                        <div class="input-group-append">
-                            <button class="form-control btn btn-black border-gold rounded-0" type="submit">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-right my-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-gold nav-link px-1" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="far fa-user fa-lg"></i></div>
+    <header class="container-fluid bg-white fixed-top">
+        <div class="container">
+            <div class="row pt-lg-2 d-none d-lg-flex">
+                <div class="col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                    <a href="{% url 'home' %}" class="text-jet nav-link">
+                        <h2 class="my-0">Fresh Nest</h2>
+                    </a>
+                </div>
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <form method="GET" action="{% url 'products' %}">
+                        <div class="input-group w-100">
+                            <input class="form-control border-gold rounded-0" type="text" name="q"
+                                placeholder="Search our site">
+                            <div class="input-group-append">
+                                <button class="form-control btn btn-black border-gold rounded-0" type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
                             </div>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <ul class="list-inline list-unstyled text-right my-0">
+                        <li class="list-inline-item dropdown">
+                            <a class="text-gold nav-link px-1" href="#" id="user-options" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i class="far fa-user fa-lg"></i></div>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                                    <a href="{% url 'add_service' %}" class="dropdown-item">Service Management</a>
+                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                <a href="{% url 'add_service' %}" class="dropdown-item">Service Management</a>
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
+                                {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Signup</a>
                                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="text-gold nav-link px-1" href="#">
-                            <div class="text-center">
-                                <div><i class="far fa-heart fa-lg"></i></div>
+                                {% endif %}
                             </div>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="text-gold nav-link px-1" href="{% url 'view_bag' %}">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i>
-                                    {% if product_count %}
-                                    <span class='badge badge-info bag-badge px-1'>{{ product_count }}</span>
-                                    {% endif %}
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="text-gold nav-link px-1" href="#">
+                                <div class="text-center">
+                                    <div><i class="far fa-heart fa-lg"></i></div>
                                 </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="text-gold nav-link px-1" href="{% url 'view_bag' %}">
+                                <div class="text-center">
+                                    <div><i class="fas fa-shopping-bag fa-lg"></i>
+                                        {% if product_count %}
+                                        <span class='badge badge-info bag-badge px-1'>{{ product_count }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg text-jet w-100">
-                <button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {% include 'includes/mobile_top_header.html' %}
-                {% include 'includes/main_nav.html' %}
-            </nav>
-        </div>
-        <!-- <div id="delivery-banner" class="row text-center">
+
+            <div class="row bg-white">
+                <nav class="navbar navbar-expand-lg text-jet w-100">
+                    <button class="navbar-light navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% include 'includes/mobile_top_header.html' %}
+                    {% include 'includes/main_nav.html' %}
+                </nav>
+            </div>
+            <!-- <div id="delivery-banner" class="row text-center">
             <div class="col">
                 <h4 class="my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>                
             </div>            
         </div> -->
-
+        </div>
     </header>
 
     {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                    {% else %}
-                        {% include 'includes/toasts/toast_info.html' %}
-                    {% endif %}
-                {% endwith %}
-            {% endfor %}
-        </div>
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
 
     {% block page_header %}
@@ -156,5 +163,6 @@
     </script>
     {% endblock %}
 
-  </body>
+</body>
+
 </html>

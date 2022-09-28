@@ -13,10 +13,10 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            {% if current_categories != 'None_None' %}
-            {% for c in current_categories %}
-            <h1 class="text-center pt-4">{{ c.friendly_name }}</h1>
-            {% endfor %}
+            {% if current_categories %}
+                {% for c in current_categories %}
+                <h1 class="text-center pt-4">{{ c.friendly_name }}</h1>
+                {% endfor %}
             {% else %}
             <h1 class="text-center pt-4">All Products</h1>
             {% endif %}

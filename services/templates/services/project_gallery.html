@@ -10,22 +10,21 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-7 col-md-6 my-auto">
-            <h1 class="display-4 logo-font text-black">
-                Previous Projects
-            </h1>
+        <div class="col-12">
+            <h1 class="text-center pt-4">Design Projects</h1>
         </div>
     </div>
-
-
+    <br>
     <div class="container">
         <div class="card-columns">
             {% for project in previousproject_list  %}
             <div class="card">
-                <img src="{{ project.image.url }}" class="card-img-top" alt="placeholder image">
-                <div class="card-body">
+                <div id="hover">
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="placeholder image">
+                </div>
+                <div class="card-body" id="stuff">
                     <strong>{{ project.service.type }}</strong>
                     {{ project.location }}
                 </div>
@@ -37,9 +36,9 @@
                     </a>
                 </span>
                 {% endif %}
-            </div> 
+            </div>
             {% endfor %}
-            
+
         </div>
     </div>
 </div>

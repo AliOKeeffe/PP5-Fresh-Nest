@@ -1,12 +1,12 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto pl-1">
         <li class="nav-item d-block d-md-none">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
+            <a class="logo-font font-weight-bold nav-link mr-5" href="{% url 'home' %}" id="home-link">
                 Home
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="font-weight-bold nav-link text-black mr-3" href="#" id="shop-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="font-weight-bold nav-link mr-3" href="#" id="shop-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Shop
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="shop-link">
@@ -20,31 +20,23 @@
                 <a href="{% url 'products' %}?category=decor" class="dropdown-item">Decor</a>
             </div>
         </li>
-        <li class="nav-item dropdown">
-            <a class="font-weight-bold nav-link text-black mr-3" href="#" id="Design-Services-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item">
+            <a class="font-weight-bold nav-link mr-3" href="{% url 'services' %}">
                 Design Services
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="Design-Services-link">
-                <a href="{% url 'services' %}" class="dropdown-item">All</a>
-                <a href="" class="dropdown-item ">Colour Consultation</a>
-                <a href="" class="dropdown-item">Interior Design</a>
-                <a href="" class="dropdown-item">Commercial Interiors</a>
-                <a href="" class="dropdown-item">Lighting Consultation</a>
-                <a href="" class="dropdown-item">Project Management</a>
-            </div>
         </li>
         <li class="nav-item">
-            <a class="font-weight-bold nav-link text-black mr-3" href="{% url 'project_gallery' %}">
+            <a class="font-weight-bold nav-link mr-3" href="{% url 'project_gallery' %}">
                 Design Projects
             </a>
         </li>
         <li class="nav-item">
-            <a class="font-weight-bold nav-link text-black mr-3" href="{% url 'testimonials' %}">
+            <a class="font-weight-bold nav-link mr-3" href="{% url 'testimonials' %}">
                 Testimonials
             </a>
         </li>
         <li class="nav-item">
-            <a class="font-weight-bold nav-link text-black mr-3" href="{% url 'contact' %}">
+            <a class="font-weight-bold nav-link mr-3" href="{% url 'contact' %}">
                 Contact
             </a>
         </li>
