@@ -21,7 +21,17 @@
             <h1 class="text-center pt-4">All Products</h1>
             {% endif %}
         </div>
+        {% if user.is_superuser %}
+        <div class="col-12">
+            <div class="pt-3 text-center">
+                <a href="{% url 'add_product' %}" class="btn btn-sm gold-button py-2" aria-label="add-new-product">
+                    Add New Product
+                </a>
+            </div>
+        </div>
+        {% endif %}
     </div>
+    
     <br>
     <!-- sort box -->
     <div class="row mb-2">

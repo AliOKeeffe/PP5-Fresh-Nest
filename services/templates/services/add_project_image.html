@@ -14,14 +14,23 @@
 {% load crispy_forms_tags %}
 
 <div class="container">
-    <h1>Add Project to Gallery</h1>
-    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center pt-4">Add Project Image to Gallery</h1>
+        </div>
+    </div>
     <br>
     <div class="row justify-content-center ">
-        <div class="col-11 col-md-8 col-lg-6 mt-3 add-recipe-outer">
+        <div class="col-11 col-md-8 col-lg-6 mt-3">
             <form method="post" enctype="multipart/form-data">
-                {{ form | crispy }}
                 {% csrf_token %}
+                {% for field in form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
                 <button type="submit" class="btn btn-outline-dark">Submit</button>
                 <a class="btn btn btn-outline-dark m-2" href="{%  url 'project_gallery' %}">Cancel</a>
             </form>

@@ -89,12 +89,6 @@ transform: translateY(-50%);
     font-weight: 400;
 }
 
-/* .home-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
 .home-image-container {
     display: flex;
     overflow: hidden;
@@ -211,6 +205,7 @@ transform: translateY(-50%);
     border-color: #dc3545;
     border-radius: 0;
 }
+
 
 
 

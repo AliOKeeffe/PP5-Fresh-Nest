@@ -14,8 +14,11 @@
 {% load crispy_forms_tags %}
 
 <div class="container">
-    <h1>Add Testimonial</h1>
-    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center pt-4">Edits Testimonial</h1>
+        </div>
+    </div>
     <br>
     <div class="row justify-content-center ">
         {% if user.is_authenticated and testimonial.name == user.username  %}
@@ -25,7 +28,7 @@
                 {{ form | crispy }}
                 {% csrf_token %}
                 <button type="submit" class="btn btn-outline-dark">Submit</button>
-                <a class="btn btn btn-outline-dark m-2" href="{%  url 'services' %}">Cancel</a>
+                <a class="btn btn btn-outline-dark m-2" href="{%  url 'testimonials' %}">Cancel</a>
             </form>
         </div>
         {% endif %}

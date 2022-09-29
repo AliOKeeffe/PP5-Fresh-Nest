@@ -3,22 +3,25 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 {% load crispy_forms_tags %}
 
 <div class="container">
-    <h1>Make an Enquiry</h1>
-    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center pt-4">Make an Enquiry</h1>
+        </div>
+    </div>
     <br>
     <div class="row justify-content-center ">
-        <div class="col-11 col-md-8 col-lg-6 mt-3 add-recipe-outer">
+        <div class="col-11 col-md-8 col-lg-6 mt-3">
             <form method="post">
                 {{ contact_form | crispy }}
                 {% csrf_token %}
