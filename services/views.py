@@ -14,6 +14,11 @@ class Services(generic.ListView):
     model = Service
     template_name = 'services/services.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['plain_message'] = True
+        return context
+
 
 class AddService(
         LoginRequiredMixin, UserPassesTestMixin,
@@ -105,6 +110,11 @@ class Testimonials(generic.ListView):
     model = Testimonial
     template_name = 'services/testimonials.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['plain_message'] = True
+        return context
+
 
 class AddTestimonial(
         LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
@@ -160,12 +170,26 @@ class DeleteTestimonial(
         testimonial = self.get_object()
         return testimonial.name == self.request.user.username
 
+    def delete(self, request, *args, **kwargs):
+        """
+        This function is used to display sucess message given
+        SucessMessageMixin cannot be used in generic.DeleteView.
+        Credit: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        messages.success(self.request, self.success_message)
+        return super(DeleteTestimonial, self).delete(request, *args, **kwargs)
+
 
 class ProjectGallery(generic.ListView):
     """ This view is used to display photo gallery of previous projects """
     model = PreviousProject
     template_name = 'services/project_gallery.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['plain_message'] = True
+        return context
 
 class AddProjectImage(
         LoginRequiredMixin, UserPassesTestMixin,
@@ -202,4 +226,15 @@ class DeleteProjectImage(
         """
         if self.request.user.is_superuser:
             return True
+
+    def delete(self, request, *args, **kwargs):
+        """
+        This function is used to display sucess message given
+        SucessMessageMixin cannot be used in generic.DeleteView.
+        Credit: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        messages.success(self.request, self.success_message)
+        return super(DeleteProjectImage, self).delete(request, *args, **kwargs)
+
 

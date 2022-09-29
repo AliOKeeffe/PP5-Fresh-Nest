@@ -29,7 +29,7 @@ def profile(request):
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_page': True
+        'plain_message': True
     }
 
     return render(request, template, context)

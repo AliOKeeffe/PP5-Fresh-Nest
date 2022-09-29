@@ -69,5 +69,8 @@ class ContactUs(View):
         return render(
             request,
             "home/index.html",
+            {
+                "plain_message": True,
+            },
         )
 
