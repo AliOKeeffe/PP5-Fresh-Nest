@@ -15,29 +15,67 @@
         <div class="col-12">
             <h1 class="text-center pt-4">Design Projects</h1>
         </div>
+        {% if user.is_superuser %}
+        <div class="col-12">
+            <div class="pt-3 text-center">
+                <button type="button" class="btn btn btn-outline-dark rounded-pill">
+                    <span><i class="fas fa-plus pr-1"></i></span>
+                    <a href="{% url 'add_project_image' %}" class="stretched-link" aria-label="add-picture"></a>
+                    Add Picture
+                </button>
+            </div>
+        </div>
+        {% endif %}
     </div>
     <br>
     <div class="container">
-        <div class="card-columns">
+        <div class="row card-deck">
             {% for project in previousproject_list  %}
-            <div class="card">
-                <div id="hover">
-                    <img src="{{ project.image.url }}" class="card-img-top" alt="placeholder image">
+            <div class="col-sm-6 col-md-4">
+                <div class="card border-0 mx-0">
+                    {% if user.is_superuser %}
+                    <span class="x-btn">
+                        <a href="{% url 'delete_project_image' project.id %}"><i class="fas fa-times fa-lg"></i></a>
+                    </span>
+                    {% endif %}
+                    <div id="hover">
+                        <img src="{{ project.image.url }}" class="card-img-top" alt="placeholder image">
+                        <a href="{{ project.image.url }}" target="_blank" class="stretched-link"
+                            aria-label="product-image"></a>
+
+                    </div>
+                    <div class="d-none p-2 my-auto d-lg-block pic-text bg-white" id="stuff">
+                        <strong>{{ project.service.type }}</strong>
+                        <br>
+                        {{ project.location }}
+                    </div>
+
+                    <div class="card-body text-center d-lg-none">
+                        <strong>{{ project.service.type }}</strong>
+                        {{ project.location }}
+                    </div>
+
+
+
                 </div>
-                <div class="card-body" id="stuff">
-                    <strong>{{ project.service.type }}</strong>
-                    {{ project.location }}
-                </div>
-                {% if user.is_superuser %}
-                <span>
-                    <a class="btn btn-info" href="{% url 'delete_project_image' project.id %}"
-                        aria-label="delete-project-image">
-                        <i class="fas fa-times"></i>
-                    </a>
-                </span>
-                {% endif %}
             </div>
             {% endfor %}
+            <!-- {% if user.is_superuser %}
+            <div class="col-sm-6 col-md-4">
+                <div class="card h-100 text-jet">
+                    <span class="x-btn">
+                        <a href=""><i class="fas fa-times fa-lg"></i></a>
+                    </span>
+                   
+                    <div class="card-img-overlay d-flex">
+                        <i class="text-center align-self-center fas fa-plus fa-6x card-img"></i>
+
+                        <a href="{% url 'add_project_image' %}" class="stretched-link" aria-label="add-picture"></a>
+                    </div>
+                </div>
+            </div>
+            {% endif %} -->
+
 
         </div>
     </div>

@@ -120,7 +120,7 @@ transform: translateY(-50%);
     /* box-shadow: 0px 0px 4px #A99166 !important; */
 }
 
-.like-btn {
+.like-btn, .x-btn {
     z-index: 5000;
     position: relative;
     top: 40px;
@@ -131,6 +131,12 @@ transform: translateY(-50%);
 .like-btn a {
     color: white
 }
+
+.x-btn a {
+    color: white
+}
+
+
 
 
 .edit-delete-btns {
@@ -276,6 +282,16 @@ input[type=number] {
 }
 
 /* Project Gallery */
+
+.pic-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+
+}
 
 #stuff {
     opacity: 0.0;
