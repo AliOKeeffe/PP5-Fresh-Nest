@@ -15,12 +15,21 @@
         <div class="col-12">
             <h1 class="text-center pt-4">Interior Design Services</h1>
         </div>
+        {% if user.is_superuser %}
+        <div class="col-12">
+            <div class="pt-3 text-center">
+                <a href="{% url 'add_service' %}" class="btn btn-sm gold-button py-2" aria-label="add-new-service">
+                    Add New Service
+                </a>
+            </div>
+        </div>
+        {% endif %}
     </div>
     <br>
 
     {% for service in service_list  %}
     <div class="row alt-colour">
-        <div class="container">
+        <div class="container services-inner">
             <div class="col-12 pl-4">
                 <div class="card my-5 border-0 bg-transparent">
                     <div class="row no-gutters">

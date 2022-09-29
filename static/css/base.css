@@ -1,3 +1,5 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 html {
     height: 100%;
 }
@@ -26,7 +28,7 @@ transform: translateY(-50%);
     background: #A99166;
     color: black;
     font-weight: 300!important;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
@@ -129,11 +131,11 @@ transform: translateY(-50%);
 }
 
 .like-btn a {
-    color: white
+    color: white;
 }
 
 .x-btn a {
-    color: white
+    color: white;
 }
 
 
@@ -293,7 +295,7 @@ input[type=number] {
 
 }
 
-#stuff {
+#appear {
     opacity: 0.0;
     -webkit-transition: all 500ms ease-in-out;
     -moz-transition: all 500ms ease-in-out;
@@ -301,11 +303,34 @@ input[type=number] {
     -o-transition: all 500ms ease-in-out;
     transition: all 500ms ease-in-out;
 }
-/* #hover {
 
-} */
-#hover:hover + #stuff {
+#hover:hover + #appear {
     opacity: 1.0;
+}
+
+/* Testimonials */
+
+.testimonial-bg {
+    background-color: #F6f6f6;
+}
+
+.card-columns {
+    column-gap: 2rem;
+}
+
+
+.card-columns {
+    column-count: 2;
+}
+
+.quote {
+    left: 50%;
+    position: absolute;
+    top: -20px;
+    margin-left: -16px;
+    border-radius: 50%;
+    padding: 10px;
+    color: #A99166!important;
 }
 
 /* Messages */
@@ -334,9 +359,8 @@ input[type=number] {
 
 /* -------------------------------- Media Queries */
 
-/* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-    .container {
+    .container-wide {
       max-width: 80%;
     }
 }
@@ -413,6 +437,7 @@ input[type=number] {
         width: 250px;
         border-radius: 50%;
     }
+
     /* .increase-qty, .decrease-qty {
         padding: .25rem .5rem !important;
     } */
@@ -426,4 +451,13 @@ input[type=number] {
         width: 100%;
         border-radius: 0;
     }
+
+    .card-columns {
+        column-count: 1;
+    }
 }
+
+
+
+
+

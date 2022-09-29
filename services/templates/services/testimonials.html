@@ -12,36 +12,39 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-7 col-md-6 my-auto">
-            <h1 class="display-4 logo-font text-black">
-                Testimonials
-            </h1>
+        <div class="col-12">
+            <h1 class="text-center pt-4">Testimonials</h1>
+        </div>
+        <div class="col-12">
+            <div class="pt-3 text-center">
+                <a href="{% url 'add_testimonial' %}" class="btn btn-sm gold-button py-2" aria-label="add-testimonial">
+                    Add Testimonial
+                </a>
+            </div>
         </div>
     </div>
-
-
+    <br>
     <div class="container">
         <div class="card-columns">
             {% for testimonial in testimonial_list  %}
-            <div class="card">
-
+            <div class="card my-3 testimonial-bg border-0">
+                <div class="text-center quote">
+                    <i class="fas fa-quote-right"></i>
+                </div>
                 <div class="card-body">
-                    <strong>{{ testimonial.service.type }}</strong>
+                    <h4 class="text-center"><strong>{{ testimonial.service.type }}</strong></h4>
                     {{ testimonial.body }}
                 </div>
-                <div class="card-body">By {{ testimonial.name }} on {{ testimonial.created_on }}
+                <div class="card-body">
+                    <strong>{{ testimonial.name }}</strong>
+                    <br>
+                    {{ testimonial.created_on }}
                     {% if user.is_authenticated and testimonial.name == user.username %}
-                    <span>
-                        <a class="btn btn-info" href="{% url 'edit_testimonial' testimonial.id %}"
-                            aria-label="edit-testimonial">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                    </span>
-                    <span>
-                        <a class="btn btn-info" href="{% url 'delete_testimonial' testimonial.id %}"
-                            aria-label="delete-testimonial">
-                            <i class="fas fa-times"></i>
-                        </a>
+                    <span class="align-self-end">
+                        <small class="edit-delete-btns ">
+                            <a href="{% url 'edit_testimonial' testimonial.id %}">Edit</a> |
+                            <a href="{% url 'delete_testimonial' testimonial.id %}">Delete</a>
+                        </small>
                     </span>
                     {% endif %}
                 </div>

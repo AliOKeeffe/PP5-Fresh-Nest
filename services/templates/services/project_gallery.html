@@ -18,17 +18,15 @@
         {% if user.is_superuser %}
         <div class="col-12">
             <div class="pt-3 text-center">
-                <button type="button" class="btn btn btn-outline-dark rounded-pill">
-                    <span><i class="fas fa-plus pr-1"></i></span>
-                    <a href="{% url 'add_project_image' %}" class="stretched-link" aria-label="add-picture"></a>
+                <a href="{% url 'add_project_image' %}" class="btn btn-sm gold-button py-2" aria-label="add-picture">
                     Add Picture
-                </button>
+                </a>
             </div>
         </div>
         {% endif %}
     </div>
     <br>
-    <div class="container">
+    <div class="container container-wide">
         <div class="row card-deck">
             {% for project in previousproject_list  %}
             <div class="col-sm-6 col-md-4">
@@ -42,9 +40,8 @@
                         <img src="{{ project.image.url }}" class="card-img-top" alt="placeholder image">
                         <a href="{{ project.image.url }}" target="_blank" class="stretched-link"
                             aria-label="product-image"></a>
-
                     </div>
-                    <div class="d-none p-2 my-auto d-lg-block pic-text bg-white" id="stuff">
+                    <div class="d-none p-2 my-auto d-lg-block pic-text bg-white" id="appear">
                         <strong>{{ project.service.type }}</strong>
                         <br>
                         {{ project.location }}
@@ -54,9 +51,6 @@
                         <strong>{{ project.service.type }}</strong>
                         {{ project.location }}
                     </div>
-
-
-
                 </div>
             </div>
             {% endfor %}
