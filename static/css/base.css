@@ -158,6 +158,9 @@ transform: translateY(-50%);
     min-height: 400px
 }
 
+.gold-break {
+    border-top: 0.2px solid #A99166 !important;
+}
 
 .product-description {
     background-color: #F5F6F4;

@@ -12,9 +12,9 @@
 {% block content %}
 <div class="container">
     <!-- Product Detail Cards -->
-    <div class="card mb-3 border-0">
+    <div class="card my-5 border-0">
         <div class="row no-gutters">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-6 col-xl-8">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
                     <img src="{{ product.image.url }}" class="product-detail-image" alt="placeholder image">
@@ -23,46 +23,51 @@
                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="product-detail-image">
                 {% endif %}
             </div>
-            <div class="col-12 col-md-4">
-                <div class="card-body py-4 px-0 pl-md-5">
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card-body pt-4 px-0 pl-md-5">
                     <div>
                         <h1 class="card-title text-left">{{ product.name }}</h1>
                     </div>
                     <p class="card-text">{{ product.excerpt }}</p>
-                    <div class="pt-3">
-                        {{ product.price }}
+                    <div class="pt-2">
+                        €{{ product.price }}
                     </div>
                     <div>
-
-                        <hr class="w-80">
+                        <hr class="w-80 gold-break">
                         <h4>Product Details</h4>
                         {{ product.description }}
                     </div>
+                    <div class="pt-2">
+                        <small class="text-muted">Dispatched in {{ product.estimated_dispatch }}</small>
+                    </div>
                     {% if request.user.is_superuser %}
-                    <small>
-                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                    <small class="edit-delete-btns">
+                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                        <a href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
                     {% endif %}
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
-                                <p class="mt-3"><strong>Quantity:</strong></p>
+                                <p class="mt-2"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrease-qty btn rounded-0 decrease-qty_{{ product.id }}"
+                                            <button
+                                                class="decrease-qty btn border-gold btn-outline-dark rounded-0 decrease-qty_{{ product.id }}"
                                                 data-item_id="{{ product.id }}">
                                                 <span>
                                                     <i class="fas fa-minus"></i>
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control qty_input id_qty_{{ product.id }}" type="number" name="quantity" value="1"
-                                            min="1" max="99" data-item_id="{{ product.id }}">
+                                        <input class="form-control border-gold qty_input id_qty_{{ product.id }}"
+                                            type="number" name="quantity" value="1" min="1" max="99"
+                                            data-item_id="{{ product.id }}">
                                         <div class="input-group-append">
-                                            <button class="increase-qty btn rounded-0 increase-qty_{{ product.id }}"
+                                            <button
+                                                class="increase-qty btn border-gold btn-outline-dark rounded-0 increase-qty_{{ product.id }}"
                                                 data-item_id="{{ product.id }}">
                                                 <span>
                                                     <i class="fas fa-plus"></i>
@@ -74,13 +79,15 @@
                             </div>
 
                             <div class="col-12">
-                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                <a href="{% url 'products' %}" class="btn border-gold btn-outline-dark rounded-0 mt-2">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                                <input type="submit"
+                                    class="btn btn-outline-dark border-gold rounded-0 text-uppercase mt-2"
+                                    value="Add to Bag">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
