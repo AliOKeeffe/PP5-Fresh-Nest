@@ -37,3 +37,6 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
+            
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-gold'
