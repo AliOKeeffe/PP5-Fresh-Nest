@@ -237,8 +237,7 @@ input[type=number] {
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
-    margin-top: 1.5rem; /* mt-4 */
-    color: #6c757d; /* text-secondary */
+    margin-top: 1rem;
 }
 
 .allauth-form-inner-content input {
@@ -259,15 +258,15 @@ input[type=number] {
 	/* btn */
 	display: inline-block;
     font-weight: 400;
-    color: #fff;
+    color: #4D4E54;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
+    background-color: white;
+    border: 1px solid #A99166;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -285,9 +284,6 @@ input[type=number] {
     border-color: #222;
 }
 
-.allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
-}
 
 /* Project Gallery */
 
