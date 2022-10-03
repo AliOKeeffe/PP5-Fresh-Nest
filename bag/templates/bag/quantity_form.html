@@ -1,15 +1,15 @@
 <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
-    <div class="form-group">
+    <div class="form-group mx-md-4 mx-lg-5">
         <div class="input-group">
             <div class="input-group-prepend">
                 <button
-                    class="decrease-qty btn btn-sm rounded-0 decrease-qty_{{ item.item_id }}"
+                    class="decrease-qty btn btn-sm border-gold btn-outline-dark rounded-0 decrease-qty_{{ item.item_id }}"
                     data-item_id="{{ item.item_id }}">
                     <span><i class="fas fa-minus fa-sm"></i></span>
                 </button>
             </div>
-            <input class="form-control form-control-sm qty_input id_qty_{{ item.item_id }}"
+            <input class="form-control border-gold form-control-sm qty_input id_qty_{{ item.item_id }}"
                 name="quantity"
                 type="number"
                 value="{{ item.quantity }}"
@@ -19,7 +19,7 @@
             >
             <div class="input-group-append">
                 <button
-                    class="increase-qty btn btn-sm rounded-0 increase-qty_{{ item.item_id }}"
+                    class="increase-qty btn btn-sm border-gold btn-outline-dark rounded-0 increase-qty_{{ item.item_id }}"
                     data-item_id="{{ item.item_id }}">
                     <span><i class="fas fa-plus fa-sm"></i></span>
                 </button>
@@ -28,8 +28,6 @@
     </div>
 </form>
 
-<a class="update-link text-info"><small><i class="fas fa-sync"></i></small></a>
-<a class="remove-btn text-danger float-right remove_{{ item.item_id }}"><small><i class="fas fa-trash-alt"></i></small></a>
-
-<!-- <a class="update-link text-info"><small>Update</small></a>
-<a class="remove-btn text-danger float-right remove_{{ item.item_id }}"><small>Remove</small></a> -->
+<a class="d-md-none mobile-update-link btn p-0"><small><i class="fas fa-sync"></i></small></a>
+<a class="d-md-none remove-btn btn p-0 float-right remove_{{ item.item_id }}"><small><i
+    class="fas fa-trash-alt"></i></small></a>

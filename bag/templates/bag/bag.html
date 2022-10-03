@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col">
             {% if bag_items %}
-            <div class="d-block d-md-none">
+            <div class="d-block d-md-none mx-4 mx-sm-0">
                 <div class="row">
                     <div class="col">
                         {% include "bag/bag_total.html" %}
@@ -30,25 +30,23 @@
                 <div class="row">
                     <div class="col">
                         {% include "bag/checkout_buttons.html" %}
-                        <p class="text-muted mb-5">A summary of your bag contents is below</p>
+                        <p class="text-muted my-3">A summary of your bag contents is below</p>
                     </div>
                 </div>
                 {% for item in bag_items %}
                 <div class="row">
-                    <div class="col-12 col-sm-6 mb-2">
+                    <div class="col-12 col-sm-6 mb-3">
                         {% include "bag/product_image.html" %}
                     </div>
-                    <div class="col-12 col-sm-6 mb-2">
+                    <div class="col-12 col-sm-6 mb-3">
                         {% include "bag/product_info.html" %}
                     </div>
                     <div class="col-12 col-sm-6 order-sm-last">
-                        <p class="my-0">Price Each: ${{ item.product.price }}</p>
-                        <p><strong>Subtotal: </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        <p class="my-0">Price Each: €{{ item.product.price }}</p>
+                        <p><strong>Subtotal: </strong>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                     </div>
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-6 edit-delete-btns">
                         {% include "bag/quantity_form.html" %}
-                        <a class="update-link text-info"><small><i class="fas fa-sync"></i></small></a>
-                        <a class="remove-btn text-danger float-right remove_{{ item.item_id }}"><small><i class="fas fa-trash-alt"></i></small></a>
                     </div>
                 </div>
                 <div class="row">
@@ -72,7 +70,6 @@
                             <th scope="col">Unit Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Total</th>
-                            <th scope="col">Total</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -87,35 +84,41 @@
                         <td class="py-3 text-center">
                             <p class="my-0">€{{ item.product.price }}</p>
                         </td>
-                        <td class="py-3 w-25">
+                        <td class="py-3 w-25 mx-auto">
                             {% include "bag/quantity_form.html" %}
                         </td>
                         <td class="py-3 text-center">
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
-                        <td class="py-3">       </td>
+                        <td class="py-3 edit-delete-btns">
+                            <a class="update-link btn p-0"><small><i class="fas fa-sync"></i></small></a>
+                            <a class="remove-btn btn p-0 float-right remove_{{ item.item_id }}"><small><i
+                                        class="fas fa-trash-alt"></i></small></a>
+                        </td>
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td colspan="5" class="pt-5 text-right">
+                        <td colspan="6" class="pt-5 text-right">
                             {% include "bag/bag_total.html" %}
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="text-right">
+                        <td colspan="6" class="text-right">
                             {% include "bag/checkout_buttons.html" %}
                         </td>
                     </tr>
                 </table>
             </div>
             {% else %}
-            <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
-                <span class="text-uppercase">Keep Shopping</span>
-            </a>
+            <p class="lead mx-4 mx-sm-0 mb-4">Your bag is empty.</p>
+            <div class="mx-4 mx-sm-0">
+                <a href="{% url 'products' %}" class="btn btn-outline-dark border-gold rounded-0 ">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+            </div>
             {% endif %}
         </div>
     </div>
@@ -126,8 +129,8 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
-    $('.btt-link').click(function(e) {
-        window.scrollTo(0,0)
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
     })
 </script>
 {% include 'products/includes/quantity_input_script.html' %}
@@ -135,9 +138,17 @@
 <script type="text/javascript">
     // update quantity on click
     $('.update-link').click(function (e) {
+        var form = $(this).parent().siblings().children('.update-form')
+        form.submit();
+    })
+
+    $('.mobile-update-link').click(function (e) {
         var form = $(this).prev('.update-form')
         form.submit();
     })
+
+
+
 
     // $('.increase-qty, .decrease-qty').click(function(e) {
     //     var quantity = $('.qty_input').val();
