@@ -75,10 +75,11 @@ transform: translateY(-50%);
 
 /* home page */
 
-.gold-border {
+.home-gold-border {
     border: 2px solid #A99166;
 
 }
+
 .logo-font {
     font-size: 4rem;
     line-height: 100px;
@@ -226,6 +227,13 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.bag-image {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
+    min-height: 150px;
+}
+
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
@@ -344,10 +352,6 @@ input[type=number] {
     overflow: visible;
 }
 
-.toast-capper {
-    height: 2px;
-}
-
 .bag-notification-wrapper {
     height: 100px;
     overflow-x: hidden;
@@ -453,6 +457,12 @@ input[type=number] {
     .card-columns {
         column-count: 1;
     }
+
+    .bag-image {
+        height: 100%;
+        max-height: 250px;
+    }
+
 }
 
 

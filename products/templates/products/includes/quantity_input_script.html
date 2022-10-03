@@ -22,28 +22,28 @@
     });
 
     // Increase quantity
-    // $('.increase-qty').click(function(e) {
-    //    e.preventDefault();
-    //    var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-    //    var currentValue = parseInt($(closestInput).val());
-    //    $(closestInput).val(currentValue + 1);
-    //    var itemId = $(this).data('item_id');
-    //    handleEnableDisable(itemId);
-    // });
-
-    $('.increase-qty').click(function (e) {
-        e.preventDefault();
-        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-        var currentValue = parseInt($(closestInput).val());
-        $(closestInput).val(currentValue + 1);
-        var updatedValue = parseInt($(closestInput).val());
-        var itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
-
-        if (window.location.toString().includes("bag")) {
-            updateBag(itemId, updatedValue);
-        }
+    $('.increase-qty').click(function(e) {
+       e.preventDefault();
+       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       var currentValue = parseInt($(closestInput).val());
+       $(closestInput).val(currentValue + 1);
+       var itemId = $(this).data('item_id');
+       handleEnableDisable(itemId);
     });
+
+    // $('.increase-qty').click(function (e) {
+    //     e.preventDefault();
+    //     var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+    //     var currentValue = parseInt($(closestInput).val());
+    //     $(closestInput).val(currentValue + 1);
+    //     var updatedValue = parseInt($(closestInput).val());
+    //     var itemId = $(this).data('item_id');
+    //     handleEnableDisable(itemId);
+
+    //     if (window.location.toString().includes("bag")) {
+    //         updateBag(itemId, updatedValue);
+    //     }
+    // });
 
     // Decrease quantity
     $('.decrease-qty').click(function (e) {
@@ -51,13 +51,13 @@
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue - 1);
-        var updatedValue = parseInt($(closestInput).val())
+        // var updatedValue = parseInt($(closestInput).val())
         var itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
 
-        if (window.location.toString().includes("bag")) {
-            updateBag(itemId, updatedValue);
-        }
+        // if (window.location.toString().includes("bag")) {
+        //     updateBag(itemId, updatedValue);
+        // }
     });
 
     // $('.qty_input').change(function () {
@@ -88,17 +88,17 @@
     // })
 
     // update bag automatically
-    function updateBag(itemId, quantity) {
-        var csrfToken = "{{ csrf_token }}";
-        var url = `/bag/adjust/${itemId}/`
-        var data = {
-            'csrfmiddlewaretoken': csrfToken,
-            'quantity': quantity,
-        };
+    // function updateBag(itemId, quantity) {
+    //     var csrfToken = "{{ csrf_token }}";
+    //     var url = `/bag/adjust/${itemId}/`
+    //     var data = {
+    //         'csrfmiddlewaretoken': csrfToken,
+    //         'quantity': quantity,
+    //     };
 
-        $.post(url, data)
-            .done(function () {
-                location.reload();
-            });
-    };
+    //     $.post(url, data)
+    //         .done(function () {
+    //             location.reload();
+    //         });
+    // };
 </script>

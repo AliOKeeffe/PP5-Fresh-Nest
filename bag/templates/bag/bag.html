@@ -14,10 +14,9 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="page-title">Shopping Bag</h1>
+            <h1 class="text-center pt-4">Shopping Bag</h1>
         </div>
     </div>
-    <hr>
     <br>
     <div class="row">
         <div class="col">
@@ -48,6 +47,8 @@
                     </div>
                     <div class="col-12 col-sm-6">
                         {% include "bag/quantity_form.html" %}
+                        <a class="update-link text-info"><small><i class="fas fa-sync"></i></small></a>
+                        <a class="remove-btn text-danger float-right remove_{{ item.item_id }}"><small><i class="fas fa-trash-alt"></i></small></a>
                     </div>
                 </div>
                 <div class="row">
@@ -65,12 +66,14 @@
             <div class="table-responsive rounded d-none d-md-block">
                 <table class="table table-sm table-borderless">
                     <thead>
-                        <tr>
+                        <tr class="bg-light text-center">
                             <th scope="col">Product</th>
                             <th scope="col"></th>
                             <th scope="col">Unit Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Total</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     {% for item in bag_items %}
@@ -81,15 +84,16 @@
                         <td class="py-3">
                             {% include "bag/product_info.html" %}
                         </td>
-                        <td class="py-3">
+                        <td class="py-3 text-center">
                             <p class="my-0">€{{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-25">
                             {% include "bag/quantity_form.html" %}
                         </td>
-                        <td class="py-3">
+                        <td class="py-3 text-center">
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
+                        <td class="py-3">       </td>
                     </tr>
                     {% endfor %}
                     <tr>
@@ -128,12 +132,12 @@
 </script>
 {% include 'products/includes/quantity_input_script.html' %}
 
-<script>
-    // // update quantity on click
-    // $('.update-link').click(function (e) {
-    //     var form = $(this).prev('.update-form')
-    //     form.submit();
-    // })
+<script type="text/javascript">
+    // update quantity on click
+    $('.update-link').click(function (e) {
+        var form = $(this).prev('.update-form')
+        form.submit();
+    })
 
     // $('.increase-qty, .decrease-qty').click(function(e) {
     //     var quantity = $('.qty_input').val();
