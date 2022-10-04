@@ -240,9 +240,12 @@ input[type=number] {
     margin-top: 1rem;
 }
 
+.allauth-form-inner-content a:not(.btn) {
+    color: #A99166;
+}
+
 .allauth-form-inner-content input {
-    border-color: #000;
-    border-radius: 0;
+    border-color: #A99166;
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
@@ -335,6 +338,12 @@ input[type=number] {
     color: #A99166!important;
 }
 
+/* Profile */
+
+.order-number a {
+    color: #A99166;
+}
+
 /* Messages */
 
 .message-container {
@@ -420,10 +429,10 @@ input[type=number] {
         font-size: .75rem;
     }
 
-    .btn.btn-outline-dark.border-gold.rounded-0 {
+    /* .btn.btn-outline-dark.border-gold.rounded-0 {
         padding: .350rem .350rem;
         font-size: .75rem;
-    }
+    } */
 
     .product-card {
         width: 80%;
