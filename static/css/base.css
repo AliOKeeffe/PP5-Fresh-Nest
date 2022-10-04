@@ -100,7 +100,7 @@ transform: translateY(-50%);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    min-height: 800px;
+    min-height: 900px;
     border-top: 2px solid #A99166;
     border-bottom: 2px solid #A99166;
     border-left: 2px solid #A99166;
@@ -481,7 +481,6 @@ input[type=number] {
         background-position: center;
         background-size: cover;
         height: 100vh;
-        min-height: 800px;
     }
 
     .home-text-container {
