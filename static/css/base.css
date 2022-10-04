@@ -30,6 +30,7 @@ transform: translateY(-50%);
     font-weight: 300!important;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    padding: 10px;
 }
 
 .gold-button:hover {
@@ -425,8 +426,8 @@ input[type=number] {
     }
 
     .btn.gold-button {
-        padding: .375rem .375rem;
-        font-size: .75rem;
+        padding: 5px;
+        /* font-size: .75rem; */
     }
 
     /* .btn.btn-outline-dark.border-gold.rounded-0 {
@@ -447,6 +448,7 @@ input[type=number] {
     .increase-qty, .decrease-qty {
         padding: .25rem .5rem !important;
     }
+
 }
 
 /* Small devices (landscape phones, less than 768px */
@@ -465,6 +467,26 @@ input[type=number] {
     .bag-image {
         height: 100%;
         max-height: 250px;
+    }
+
+
+
+    .background-image {
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/media/pexels-houzlook-com-3356416.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        min-height: 800px;
+    }
+
+    .home-text-container {
+        background-color: rgba(52, 52, 52, 0.5); 
+        color: white;
     }
 
 }

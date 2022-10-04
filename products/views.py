@@ -1,7 +1,11 @@
 """Product Views"""
+from django.views import generic
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test, PermissionDenied
 from django.contrib import messages
+from django.urls import reverse_lazy
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -130,11 +134,40 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
-@login_required
-@user_passes_test(superuser_check)
-def delete_product(request, product_id):
-    """ Delete a product from the store """
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
-    messages.success(request, 'Product Deleted!')
-    return redirect(reverse('products'))
+# @login_required
+# @user_passes_test(superuser_check)
+# def delete_product(request, product_id):
+#     """ Delete a product from the store """
+#     product = get_object_or_404(Product, pk=product_id)
+#     product.delete()
+#     messages.success(request, 'Product Deleted!')
+#     return redirect(reverse('products'))
+
+
+
+class DeleteProduct(
+        LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    """
+    This view is used to allow the superuser to delete a service
+    """
+    model = Product
+    template_name = 'products/delete_product.html'
+    success_message = "Product deleted successfully"
+    success_url = reverse_lazy('products')
+
+    def test_func(self):
+        """
+       Ensure only superuser can edit service details
+        """
+        if self.request.user.is_superuser:
+            return True
+
+    def delete(self, request, *args, **kwargs):
+        """
+        This function is used to display sucess message given
+        SucessMessageMixin cannot be used in generic.DeleteView.
+        Credit: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        messages.success(self.request, self.success_message)
+        return super(DeleteProduct, self).delete(request, *args, **kwargs)
