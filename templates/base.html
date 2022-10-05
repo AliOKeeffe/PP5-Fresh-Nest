@@ -9,6 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="Fresh Nest - Luxurious home décor and interior design services to make your home unique to you.">
+    <meta name="keywords"
+        content="Fresh Nest, luxurious homeware, home décor, high-end furniture, designer furniture, designer homeware, interior design service Dublin, interior design consultation, bespoke interior design">
+    <meta name="author" content="Ali O'Keeffe">
     {% endblock %}
 
     {% block extra_meta %}
@@ -42,15 +47,15 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>{% block extra_title %}Fresh Nest{% endblock %}</title>
+    <title>{% block extra_title %}Fresh Nest | Home Décor and Interior Design Service{% endblock %}</title>
 </head>
 
 <body>
     <header class="container-fluid bg-white fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row pt-lg-2 d-none d-lg-flex">
                 <div class="col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                    <a href="{% url 'home' %}" class="text-jet nav-link">
+                    <a href="{% url 'home' %}" class="text-jet nav-link" aria-label="home">
                         <h2 class="my-0">Fresh Nest</h2>
                     </a>
                 </div>
@@ -58,9 +63,10 @@
                     <form method="GET" action="{% url 'products' %}">
                         <div class="input-group w-100">
                             <input class="form-control border-gold rounded-0" type="text" name="q"
-                                placeholder="Search our site">
+                                placeholder="Search our site" aria-label="Search">
                             <div class="input-group-append">
-                                <button class="form-control btn btn-black border-gold rounded-0" type="submit">
+                                <button class="form-control btn btn-black border-gold rounded-0" type="submit"
+                                    aria-label="Search Button">
                                     <span class="icon">
                                         <i class="fas fa-search"></i>
                                     </span>
@@ -78,11 +84,11 @@
                                     <div><i class="far fa-user fa-lg"></i></div>
                                 </div>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="user-options">
+                            <div class="dropdown-menu" aria-labelledby="user-options-menu">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                                <a href="{% url 'add_service' %}" class="dropdown-item">Service Management</a>
+                                <a href="{% url 'add_product' %}" class="dropdown-item">Home Decor Management</a>
+                                <a href="{% url 'add_service' %}" class="dropdown-item">Design Service Management</a>
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -93,14 +99,14 @@
                             </div>
                         </li>
                         <li class="list-inline-item">
-                            <a class="text-gold nav-link px-1" href="#">
+                            <a class="text-gold nav-link px-1" href="#" aria-label="My Saved Items">
                                 <div class="text-center">
                                     <div><i class="far fa-heart fa-lg"></i></div>
                                 </div>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="text-gold nav-link px-1" href="{% url 'view_bag' %}">
+                            <a class="text-gold nav-link px-1" href="{% url 'view_bag' %}" aria-label="View Bag">
                                 <div class="text-center">
                                     <div><i class="fas fa-shopping-bag fa-lg"></i>
                                         {% if product_count %}
