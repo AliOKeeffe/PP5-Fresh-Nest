@@ -1,0 +1,72 @@
+{% load static %}
+<footer class="container-fluid">
+    <div class="row">
+        <!-- Footer navigation -->
+        <div class="col-12 col-md-4 p-5 border-right border-left">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="{% url 'products' %}" class="nav-link text-uppercase">Home Décor</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'services' %}" class="nav-link text-uppercase">Interior Design Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-uppercase">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-uppercase">Client Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-uppercase">Privacy Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-uppercase">Terms & Conditions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-uppercase">Sitemap</a>
+                </li>
+            </ul>
+        </div>
+        <!-- External Bodies Links -->
+        <div class="col-12 col-md-4 p-5 text-center">
+            <a href="#" target="_blank">
+                <img src="" alt="" class="m-1" width="150" height="150">
+            </a>
+            <a href="" target="_blank">
+                <img src="" alt="" class="m-1" width="119" height="140">
+            </a>
+        </div>
+        <!-- Keep in touch section -->
+        <div class="col-12 col-md-4 p-5 order-first">
+            <div>
+                <h3 class="mb-4">Stay in touch!</h3>
+                <ul class="list-unstyled list-inline">
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com" rel="external nofollow noopener" target="_blank" aria-label="Twitter link" title="Twitter link"><i class="icon fa-brands fa-twitter bg-light rounded-circle p-2" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://facebook.com" rel="external nofollow noopener" target="_blank" aria-label="Facebook link" title="Facebook link"><i class="icon fa-brands fa-facebook-f bg-light rounded-circle p-2" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://pinterest.com" rel="external nofollow noopener" target="_blank" aria-label="Pinterest link" title="Pinterest link"><i class="icon fa-brands fa-pinterest-p bg-light rounded-circle p-2" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://instagram.com" rel="external nofollow noopener" target="_blank" aria-label="Instagram link" title="Instagram link"><i class="icon fa-brands fa-instagram bg-light rounded-circle p-2" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <span class="small">Keep up to date with you newsletter:</span>
+                <!-- Subscribe modal button-->
+
+            </div>
+        </div>
+    </div>
+    <!-- Copyright section -->
+    <div class="row">
+        <div class="col-12 p-5">
+            <p class="small">Copyright &copy; {% now "Y" %} Fresh Nest<br>
+            Disclaimer: For educational purposes only. No orders will be processed.</p>
+        </div>
+    </div>
+</footer>
