@@ -1,9 +1,9 @@
 {% load static %}
-<footer class="container-fluid">
+<footer class="container-fluid mt-auto">
     <div class="row">
         <!-- Footer navigation -->
-        <div class="col-12 col-md-4 p-5 border-right border-left">
-            <ul class="nav flex-column">
+        <div class="col-12 col-md-4 px-4 px-md-0 py-4">
+            <ul class="nav flex-column divider px-4">
                 <li class="nav-item">
                     <a href="{% url 'products' %}" class="nav-link text-uppercase">Home Décor</a>
                 </li>
@@ -28,30 +28,37 @@
             </ul>
         </div>
         <!-- External Bodies Links -->
-        <div class="col-12 col-md-4 p-5 text-center">
-            <a href="#" target="_blank">
-                <img src="" alt="" class="m-1" width="150" height="150">
+        <div class="col-12 col-md-4 p-4 text-center">
+            <a href="https://www.houzz.ie/" target="_blank">
+                <img src="{{ MEDIA_URL }}houzz_logo.jpeg" alt="Houzz Logo" rel="sponsored" class="m-1 sponsor-logo">
             </a>
-            <a href="" target="_blank">
-                <img src="" alt="" class="m-1" width="119" height="140">
+            <a href="https://www.idi-design.ie/" target="_blank">
+                <img src="{{ MEDIA_URL }}institute_designers_ireland_logo.jpeg" alt="Institute of Designers Ireland Logo" rel="sponsored" class="m-1 sponsor-logo">
+            </a>
+            <a href="https://www.theinteriorsassociation.ie/" target="_blank">
+                <img src="{{ MEDIA_URL }}interiors_association_logo.jpeg" alt="Interiors Association Logo" rel="sponsored" class="m-1 sponsor-logo">
             </a>
         </div>
         <!-- Keep in touch section -->
-        <div class="col-12 col-md-4 p-5 order-first">
+        <div class="col-12 col-md-4 p-4 order-first">
             <div>
                 <h3 class="mb-4">Stay in touch!</h3>
-                <ul class="list-unstyled list-inline">
+                <ul class="list-unstyled list-inline social-networks">
                     <li class="list-inline-item">
-                        <a href="https://twitter.com" rel="external nofollow noopener" target="_blank" aria-label="Twitter link" title="Twitter link"><i class="icon fa-brands fa-twitter bg-light rounded-circle p-2" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                            aria-label="Visit our Facebook page (opens in new tab)"><i class="fab fa-facebook"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://facebook.com" rel="external nofollow noopener" target="_blank" aria-label="Facebook link" title="Facebook link"><i class="icon fa-brands fa-facebook-f bg-light rounded-circle p-2" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                            aria-label="Visit our Instagram page (opens in new tab)"><i class="fab fa-instagram"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://pinterest.com" rel="external nofollow noopener" target="_blank" aria-label="Pinterest link" title="Pinterest link"><i class="icon fa-brands fa-pinterest-p bg-light rounded-circle p-2" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener"
+                            aria-label="Visit our Twitter page (opens in new tab)"><i class="fab fa-twitter"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://instagram.com" rel="external nofollow noopener" target="_blank" aria-label="Instagram link" title="Instagram link"><i class="icon fa-brands fa-instagram bg-light rounded-circle p-2" aria-hidden="true"></i></a>
+                        <a href="https://www.pinterest.com/" target="blank" rel="noopener"
+                            aria-label="Visit out Pinterest page (opens in new tab)"><i class="fab fa-pinterest"></i></a>
                     </li>
                 </ul>
             </div>
@@ -60,13 +67,7 @@
                 <!-- Subscribe modal button-->
 
             </div>
-        </div>
-    </div>
-    <!-- Copyright section -->
-    <div class="row">
-        <div class="col-12 p-5">
             <p class="small">Copyright &copy; {% now "Y" %} Fresh Nest<br>
-            Disclaimer: For educational purposes only. No orders will be processed.</p>
         </div>
     </div>
 </footer>

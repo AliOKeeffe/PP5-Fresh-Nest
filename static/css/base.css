@@ -11,6 +11,10 @@ body {
 
 }
 
+.content {
+    min-height: calc(100vh - 328px);
+}
+
 .text-jet {
     color: #4D4E54 !important;
 }
@@ -364,6 +368,46 @@ input[type=number] {
     overflow-y: auto;
 }
 
+/* footer */
+
+footer {
+    background-color: #343434;
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline !important;
+    color: white;
+}
+
+.divider {
+    border-left: 1px solid rgba(245, 246, 245, 0.2);
+    border-right: 1px solid rgba(245, 246, 245, 0.2);
+}
+
+.sponsor-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.sponsor-logo:hover {
+    opacity: 80%;
+}
+
+.social-networks i {
+    font-size: 160%;
+    padding-right: 20px;
+}
+
+.social-networks i:hover {
+    opacity: 80%;
+}
+
 
 /* -------------------------------- Media Queries */
 
@@ -389,6 +433,8 @@ input[type=number] {
 }
 
 
+
+
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
@@ -397,6 +443,10 @@ input[type=number] {
 
     body {
         height: calc(100vh - 116px);
+    }
+
+    .content {
+        min-height: calc(100vh - 264px);
     }
 
     .nav-link {
@@ -449,6 +499,20 @@ input[type=number] {
         padding: .25rem .5rem !important;
     }
 
+    .sponsor-logo {
+        width: 100px;
+        height: 100px;
+
+    }
+    
+    .sponsor-logo:hover {
+        opacity: 80%;
+    }
+    
+    .social-networks i {
+        font-size: 130%;
+        padding-right: 10px;
+    }
 }
 
 /* Small devices (landscape phones, less than 768px */
@@ -469,8 +533,6 @@ input[type=number] {
         max-height: 250px;
     }
 
-
-
     .background-image {
         display: flex;
         overflow: hidden;
@@ -486,6 +548,12 @@ input[type=number] {
     .home-text-container {
         background-color: rgba(52, 52, 52, 0.5); 
         color: white;
+    }
+
+
+    .divider {
+        border: none;
+        padding: 0 !important;
     }
 
 }
