@@ -39,7 +39,7 @@ Included in the site footer are links to other high quality relevant websites in
 
 In order to build brand trust, a testimonal page for interior design services has been included in the site with a link to the page being included in the page footer as well as the main nav bar. 
 
-The page footer also includes links to terms and conditions and privacy policy which shows the user they can trust the site.
+The page footer also includes links to the privacy policy to inform users about how their data is being collected and processed.
 
 **Sitemap and robots.txt**
 
@@ -57,7 +57,3 @@ For this site, a Facebook business page has been created for organic social medi
 
 ### Email Marketing
 Visitors to the site can sign up to the newsletter and do not need to have an account to do so. A signup box is included in the footer of the site. This allows the business to share news with customers and potential customers including new products/services and special offers. Mailchimp was used to create this service. 
-
-
-## GDPR Considerations
-
