@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Fresh Nest | Enquiries{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container pb-5">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center pt-4">Enquiries</h1>
+    </div>
+  </div>
+  <br>
+  <div class="container justify-content-center">
+    <table class="table enquiry-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Enquiry Type</th>
+          <th scope="col" class="d-none d-md-block">Message</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for enquiry in contact_list  %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>
+            <a href="{% url 'enquiry_detail' enquiry.id %}">{{ enquiry.name }}</a>
+          </td>
+          <td>
+            <a href="{% url 'enquiry_detail' enquiry.id %}">{{ enquiry.enquiry_type }}</a>
+          </td>
+          <td class="d-none d-md-block">
+            <a href="{% url 'enquiry_detail' enquiry.id %}">{{ enquiry.message|truncatechars:15 }}</a>
+          </td>
+          <td>{{ enquiry.date }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

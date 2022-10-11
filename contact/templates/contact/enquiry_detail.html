@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Fresh Nest | Enquiries{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container pb-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center pt-4">Enquiry</h1>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="row justify-content-center ">
+        <div class="col-11 col-md-8 col-lg-6 mt-3">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <th>Name:</th>
+                        <td>{{ contact.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td>{{ contact.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Enquiry Type:</th>
+                        <td>{{ contact.enquiry_type }}</td>
+                    </tr>
+                    <tr>
+                        <th>Message:</th>
+                        <td>{{ contact.message }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date:</th>
+                        <td>{{ contact.date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{%  url 'enquiries' %}">Back</a>
+            <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{% url 'delete_enquiry' contact.id %}">Delete</a>
+        </div>
+    </div>
+
+
+
+
+</div>
+{% endblock %}

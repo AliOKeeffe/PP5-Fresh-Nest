@@ -414,6 +414,18 @@ footer a:hover {
     font: 14px Helvetica, Arial, sans-serif;
 }
 
+
+/* enquiries */
+
+.enquiry-table a {
+    color: black;
+    
+}
+
+.enquiry-table a:visited {
+    color: grey;
+}
+
 /* -------------------------------- Media Queries */
 
 @media (min-width: 1200px) {

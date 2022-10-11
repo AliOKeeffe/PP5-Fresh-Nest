@@ -21,5 +21,9 @@ class Contact(models.Model):
         """Get url after user submits enquiry """
         return reverse('home')
 
+    class Meta:
+        """ To display the equiries by date in ascending order """
+        ordering = ['-date']
+
     def __str__(self):
         return f"Enquiry: {self.enquiry_type} from {self.name}"
