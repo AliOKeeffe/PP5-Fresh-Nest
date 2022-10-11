@@ -16,9 +16,9 @@
     <div class="row">
         <div class="col-12">
             {% if current_categories %}
-                {% for c in current_categories %}
-                <h1 class="text-center pt-4">{{ c.friendly_name }}</h1>
-                {% endfor %}
+            {% for c in current_categories %}
+            <h1 class="text-center pt-4">{{ c.friendly_name }}</h1>
+            {% endfor %}
             {% else %}
             <h1 class="text-center pt-4">All Home Décor</h1>
             {% endif %}
@@ -33,7 +33,7 @@
         </div>
         {% endif %}
     </div>
-    
+
     <br>
     <!-- sort box -->
     <div class="row mb-2">
@@ -86,8 +86,8 @@
                     </small>
                     {% if request.user.is_superuser %}
                     <small class="col text-right pr-0 edit-delete-btns">
-                            <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                            <a href="{% url 'delete_product' product.id %}">Delete</a>
+                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                        <a href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
                     {% endif %}
                 </div>

@@ -24,8 +24,16 @@ body {
 }
 
 .bag-badge {
-position: absolute;
-transform: translateY(-50%);
+    background: #4D4E54;
+    color: #fff;
+    height: 19px;
+    line-height: 19px;
+    border-radius: 50%;
+    margin: 0;
+    min-width: 19px;
+    font-size: 12px;
+    position: absolute;
+    transform: translateY(-50%);
 }
 
 .gold-button {
@@ -477,6 +485,7 @@ footer a:hover {
     .navbar-toggler {
         padding: .6rem .6rem;
         font-size: 1rem;
+        color: #A99166;
     }
 
     .logo-font {

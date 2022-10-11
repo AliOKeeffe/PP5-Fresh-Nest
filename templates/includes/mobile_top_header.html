@@ -1,6 +1,6 @@
 <ul class="my-auto mr-2 pt-1 d-block d-lg-none">
     <li class="list-inline-item align-middle">
-        <a class="nav-link px-1" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true"
+        <a class="text-gold nav-link px-1" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false" aria-label="Search">
             <div class="text-center">
                 <div><i class="fas fa-search fa-lg"></i></div>
@@ -24,7 +24,7 @@
         </div>
     </li>
     <li class="list-inline-item dropdown">
-        <a class="nav-link px-1 d-block d-lg-none" href="#" id="mobile-user-options" data-toggle="dropdown" aria-haspopup="true"
+        <a class="text-gold nav-link px-1 d-block d-lg-none" href="#" id="mobile-user-options" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             <div class="text-center">
                 <div><i class="far fa-user fa-lg"></i></div>
@@ -44,20 +44,19 @@
             {% endif %}
         </div>
     </li>
-    <li class="list-inline-item">
+    <!-- <li class="list-inline-item">
         <a class="nav-link px-1 d-block d-lg-none" href="#" aria-label="My Saved Items">
             <div class="text-center">
                 <div><i class="far fa-heart fa-lg"></i></div>
             </div>
         </a>
-    </li>
+    </li> -->
     <li class="list-inline-item">
-        <!-- include product count here also -->
-        <a class="nav-link px-1 d-block d-lg-none" href="{% url 'view_bag' %}" aria-label="View Bag">
+        <a class="text-gold nav-link px-1 d-block d-lg-none" href="{% url 'view_bag' %}" aria-label="View Bag">
             <div class="text-center">
                 <div><i class="fas fa-shopping-bag fa-lg"></i>
                     {% if product_count %}
-                    <span class='badge badge-info bag-badge px-1'>{{ product_count }}</span>
+                    <span class='bag-badge'>{{ product_count }}</span>
                     {% endif %}
                 </div>
             </div>
