@@ -27,11 +27,12 @@ class ContactUs(View):
         """
         Renders the contact form
         """
+        form = ContactForm(initial={'email': request.user.email})
         return render(
             request,
             "contact/contact.html",
             {
-                "contact_form": ContactForm(),
+                "contact_form": form,
             },
         )
 

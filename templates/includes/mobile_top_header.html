@@ -24,8 +24,8 @@
         </div>
     </li>
     <li class="list-inline-item dropdown">
-        <a class="text-gold nav-link px-1 d-block d-lg-none" href="#" id="mobile-user-options" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
+        <a class="text-gold nav-link px-1 d-block d-lg-none" href="#" id="mobile-user-options" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <div><i class="far fa-user fa-lg"></i></div>
             </div>
@@ -35,6 +35,9 @@
             {% if request.user.is_superuser %}
             <a href="{% url 'add_product' %}" class="dropdown-item">Home Decor Management</a>
             <a href="{% url 'add_service' %}" class="dropdown-item">Design Service Management</a>
+            <a href="{% url 'add_project_image' %}" class="dropdown-item">Previous Project
+                Management</a>
+            <a href="{% url 'enquiries' %}" class="dropdown-item">Enquiries</a>
             {% endif %}
             <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
