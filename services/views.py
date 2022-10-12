@@ -191,6 +191,7 @@ class ProjectGallery(generic.ListView):
         context['plain_message'] = True
         return context
 
+
 class AddProjectImage(
         LoginRequiredMixin, UserPassesTestMixin,
         SuccessMessageMixin, generic.CreateView):
@@ -236,5 +237,3 @@ class DeleteProjectImage(
         """
         messages.success(self.request, self.success_message)
         return super(DeleteProjectImage, self).delete(request, *args, **kwargs)
-
-
