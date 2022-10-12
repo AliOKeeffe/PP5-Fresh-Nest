@@ -1,6 +1,18 @@
+# Fresh Nest
+
+Fresh Nest is a home décor B2C e-commerce store and interior design service provider. The site is targeted towards users who are interested in luxurious interior products and high end interior design services. 
+
+User's can browse and purchase a range of homeware products or check out the different types of interior design services provided and make an enquiry. They can also look at images and testimonials of previously completed design projects or leave a testimonial if they wish.
+
+The payment system uses Stripe. Please note that this website is for educational purposes do not enter any personal credit/debit card details when using the site.
+
+To test this system, test card details can be used. A list of these can be found in Stripe's documentation [here](https://stripe.com/docs/testing#cards).
+
+The live link can be found here - [Fresh Nest](https://fresh-nest.herokuapp.com/)
+
 ## User Experience (UX)
 
-A visitor to Fresh Nest would be someone who is most likely an adult who....
+A visitor to Fresh Nest would be someone who is most likely an adult who is interested in luxurious interior products and high end interior design services.
 
 ### User Stories
 
@@ -47,10 +59,18 @@ A visitor to Fresh Nest would be someone who is most likely an adult who....
 
 
 #### User stories not yet implemented
+
+The following user stories were scoped out of the project due to time constraints and labelled as "Won't Have" on the project board on Github. It is intended that these user stories will be implemented at a later date.
+
 - As a shopper I can add products to my saved items so that I can go back and view them at a later date.
 - As a shopper I can view my saved products so I can find them easily in the one location.
 
 
+## Agile Methodology
+Github projects was used to manage the development process using an agile approach. Please see link to project board [here](https://github.com/users/AliOKeeffe/projects/2)
+
+
+The 5 Epics listed above were documented within the Github project as Milestones. A Github Issue was created for each User Story which was then allocated to a milestone(Epic). Each User Story has defined acceptance criteria to make it clear when the User Story has been completed. The acceptance criteria are further broken down into tasks to facilitate the User Story's execution.
 
 
 
