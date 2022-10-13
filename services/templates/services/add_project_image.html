@@ -32,7 +32,7 @@
                         {{ field }}
                     {% endif %}
                 {% endfor %}
-                <button type="submit" class="btn btn-outline-dark border-gold rounded-0">Submit</button>
+                <button type="submit" class="btn btn-outline-dark border-gold rounded-0">Add Project</button>
                 <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{%  url 'project_gallery' %}">Cancel</a>
             </form>
         </div>
@@ -40,3 +40,8 @@
 </div>
 
 {%endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'services/includes/image_label_script.html' %}
+{% endblock %}

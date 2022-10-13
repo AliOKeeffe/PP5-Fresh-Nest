@@ -10,6 +10,14 @@ class OrderForm(forms.ModelForm):
                   'town_or_city', 'postcode', 'country',
                   'county',)
 
+    # def clean_full_name(self):
+    #     """
+    #     remove all whitespace and strip tags from full name
+    #     """
+    #     full_name = self.cleaned_data['full_name']
+    #     full_name = full_name.replace('&nbsp;', '').strip()
+    #     return full_name
+
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated

@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="text-center pt-4">Add Testimonial mb-3</h1>
+            <h1 class="text-center pt-4">Add Testimonial</h1>
         </div>
     </div>
     <br>
@@ -26,7 +26,7 @@
             <form method="post" enctype="multipart/form-data">
                 {{ form | crispy }}
                 {% csrf_token %}
-                <button type="submit" class="btn btn-outline-dark border-gold rounded-0">Submit</button>
+                <button type="submit" class="btn btn-outline-dark border-gold rounded-0">Add Testimonial</button>
                 <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{%  url 'testimonials' %}">Cancel</a>
             </form>
         </div>

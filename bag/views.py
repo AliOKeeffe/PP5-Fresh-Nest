@@ -40,7 +40,7 @@ def adjust_bag(request, item_id):
 
     if quantity > 99:
         messages.error(
-            request, 'Sorry, value must be less then or equal to 99.')
+            request, 'Sorry, quantity must be less then or equal to 99.')
     elif quantity > 0:
         bag[item_id] = quantity
         messages.success(

@@ -4,16 +4,14 @@
 {% block extra_title %}Fresh Nest | Add Service{% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-{% load crispy_forms_tags %}
-
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -26,13 +24,13 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
-                    {% if field.name != 'image' %}
-                        {{ field | as_crispy_field }}
-                    {% else %}
-                        {{ field }}
-                    {% endif %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
                 {% endfor %}
-                <button type="submit" class="btn btn-outline-dark border-gold rounded-0">Submit</button>
+                <button type="submit" class="btn btn-outline-dark border-gold rounded-0">Add Service</button>
                 <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{%  url 'services' %}">Cancel</a>
             </form>
         </div>
@@ -40,3 +38,8 @@
 </div>
 
 {%endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'services/includes/image_label_script.html' %}
+{% endblock %}
