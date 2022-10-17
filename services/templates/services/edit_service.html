@@ -40,3 +40,8 @@
 </div>
 
 {%endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'services/includes/image_label_script.html' %}
+{% endblock %}
