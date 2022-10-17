@@ -99,8 +99,8 @@ When I initially attempted to deploy to Heroku the build would fail with the err
 prevent whitespace 
 https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces
 
-## Known Bugs
-When testing the Checkout Form, I was able to input white space into into the form fields and submit the form. This would then return a 500 error however the Stripe payment would still get processed. I had followed the steps in the Boutique Ado project for the checkout app and when I tested the Boutique Ado project and a number of other students projects the same situation would arise when I submitted with form with just whitespace in the form fields. 
+### Checkout form
+When testing the Checkout Form, I was able to input white space into into the form text fields and enter text into the phone number field and still submit the form. This would then return a 500 error however the Stripe payment would still get processed. I had followed the steps in the Boutique Ado project for the checkout app and when I tested the Boutique Ado project and a number of other students projects the same situation would arise when I submitted with form with just whitespace in the form fields. 
 
 I wrote a custom `clean_fieldname` method for a number of the form fields in order to `trim` whitespace from the form fields during form validation. 
 
@@ -115,9 +115,22 @@ However this didn't solve the issue as I realised that the form validation wasn'
 
 After a bit of digging I discovered that the reason for this is due to the fact the Stripe Javascript is called when the submit button is clicked due to the event listener on the submit button. The Javascript prevents the default form submission meaning that the card is actually charged before any form validation is done. 
 
-When the response comes back from Stripe, the .then() part of the JS runs, which checks to see if the card was charged successfully, and if so, the form is then submitted and validation is ran. If the form is valid, it saves the order to the database. If the validation fails webhook will create the order in the database anyway.
+When the response comes back from Stripe, the `.then()` part of the JS runs, which checks to see if the card was charged successfully, and if so, the form is then submitted and validation is ran. If the form is valid, it saves the order to the database. If the validation fails webhook will create the order in the database anyway.
 
-Due to time contraints I was unable to figure out a work around for the purpose of this project. If I had more time I would try and figure out a way to validate the form before processing the Stripe Payment. A suggestion would be to create the order in the database `on submit` with a status of "Pending" and then process the Payment. Once the payment is processed successfully, update the order status to "complete" in the database. 
+As a work around in the short term I was able to add a widget to the form fields in the Checkout Form to specify the pattern attribute of the HTML input. This prevents the form from submitted if there is whitespace at the beginning of a text input or if there is letters in the phone field.
+
+```
+        self.fields['full_name'].widget.attrs[
+            'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
+        self.fields['street_address1'].widget.attrs[
+            'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
+        self.fields['town_or_city'].widget.attrs[
+            'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
+```
+
+I found [this](https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces) stackoverflow post helpful when learning about the pattern attribute.
+
+Ideally I would have preferred to find a way to perform full form validation before the payment is processed however due to time contraints I was unable to figure out a work around for the purpose of this project. A suggestion would be to create the order in the database `on submit` with a status of "Pending" and then process the Payment. Once the payment is processed successfully, update the order status to "complete" in the database. 
 
 
 ## Marketing Strategy
