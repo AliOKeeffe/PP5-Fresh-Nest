@@ -39,27 +39,18 @@ class OrderForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
 
-
         # To prevent form being submitted with non-numerical phonenumber  
         self.fields['phone_number'].widget.attrs[
             'pattern'] = "[0-9]{1,15}"
 
-        # To prevent form being submitted with whitespace 
-        # Credit https://github.com/AmyOShea/MS4-ARTstop/blob/main/checkout/forms.py   
-        self.fields['full_name'].widget.attrs.update(
-            {'pattern': '.*\\S+.*'})
-        self.fields['street_address1'].widget.attrs.update(
-            {'pattern': '.*\\S+.*'})
-        self.fields['street_address2'].widget.attrs.update(
-            {'pattern': '.*\\S+.*'})
-        self.fields['town_or_city'].widget.attrs.update(
-            {'pattern': '.*\\S+.*'})
-        self.fields['county'].widget.attrs.update(
-            {'pattern': '.*\\S+.*'})
-        self.fields['postcode'].widget.attrs.update(
-            {'pattern': '.*\\S+.*'})
+        # To prevent form being submitted with whitespace
+        # https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces
+        self.fields['full_name'].widget.attrs[
+            'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
+        self.fields['street_address1'].widget.attrs[
+            'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
+        self.fields['town_or_city'].widget.attrs[
+            'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-gold'
-
-

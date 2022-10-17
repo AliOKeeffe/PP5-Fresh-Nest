@@ -9,7 +9,7 @@ from django.urls import reverse
 
 class Contact(models.Model):
     """ Model for Contact """
-    name = models.CharField(max_length=122)
+    name = models.CharField(max_length=122, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     enquiry_type = models.ForeignKey(
         Service, on_delete=models.SET_NULL, null=True,

@@ -1,10 +1,11 @@
 from django import forms
 from .models import Contact
+from django.core.exceptions import ValidationError
 
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = '__all__'
+        fields = ('name', 'email', 'enquiry_type', 'message',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

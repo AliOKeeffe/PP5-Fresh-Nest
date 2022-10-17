@@ -27,7 +27,11 @@ class ContactUs(View):
         """
         Renders the contact form
         """
-        form = ContactForm(initial={'email': request.user.email})
+        if request.user.is_authenticated:
+            form = ContactForm(initial={'email': request.user.email})
+        else:
+            form = ContactForm()
+
         return render(
             request,
             "contact/contact.html",
@@ -66,16 +70,20 @@ class ContactUs(View):
             contact_form.save()
             messages.success(self.request, 'Your enquiry has been sent')
 
-        else:
-            contact_form = ContactForm()
+            target = "home/index.html"
+            context = {"plain_message": True}
 
-        return render(
-            request,
-            "home/index.html",
-            {
+        else:
+            messages.error(request, """Form failed. Please ensure the
+            form is valid """)
+
+            target = "contact/contact.html"
+            context = {
                 "plain_message": True,
-            },
-        )
+                "contact_form": contact_form
+                }
+
+        return render(request, target, context)
 
 
 class Enquiries(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
@@ -85,7 +93,7 @@ class Enquiries(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
 
     def test_func(self):
         """
-        ensures only superuser can add view enquiries
+        ensures only superuser can view enquiries
         """
         if self.request.user.is_superuser:
             return True
