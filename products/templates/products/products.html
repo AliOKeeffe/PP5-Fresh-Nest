@@ -63,9 +63,9 @@
         {% for product in products  %}
         <div class="col-sm-6 col-md-4 px-1 d-flex align-items-stretch">
             <div class="card card-detail product-card border-0 mb-3 mx-auto mx-sm-2">
-                <span class="like-btn">
+                <!-- <span class="like-btn">
                     <a href="{% url 'home' %}"><i class="far fa-heart fa-lg"></i></a>
-                </span>
+                </span> -->
                 {% if product.image %}
                 <img src="{{ product.image.url }}" class="card-img-top" alt="placeholder image">
                 {% else %}
