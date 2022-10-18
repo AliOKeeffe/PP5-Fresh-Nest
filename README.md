@@ -18,7 +18,7 @@ A visitor to Fresh Nest would be someone who is most likely an adult who is inte
 
 #### EPIC | Viewing and Navigation
 - As a Site User, I can intuitively navigate around the site so that I can find content.
-- As a Site User, I can view a paginated list of products so that I can select a product to view.
+- As a Site User, I can view a list of products so that I can select a product to view.
 - As a shopper, I can click on a product so that I can read the full product details.
 - As a shopper I can view a specific category of products so I can browse the type of products I'm looking for.
 - As a shopper I can search all products so that I can find what I am looking for.
@@ -118,7 +118,7 @@ Custom Error Pages were created to give the user more information on the error a
 400 Bad Request - Fresh Nest is unable to handle this request.
 403 Page Forbidden - Looks like you're trying to access forbidden content. Please log out and sign in to the correct account.
 404 Page Not Found - The page you're looking for doesn't exist.
-500 Server Error - Fresh Nest is currently unable to handle this request
+500 Server Error - Due to an internal error we are unable to process this request.
 
 
 
