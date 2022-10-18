@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 class Service(models.Model):
@@ -20,9 +21,10 @@ class Service(models.Model):
 
 class Testimonial(models.Model):
     """Model for Testimonial"""
+    name = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="testimonials")
     service = models.ForeignKey(
         Service, on_delete=models.CASCADE, related_name='testimonial')
-    name = models.CharField(max_length=80)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now=True)
 

@@ -57,7 +57,6 @@ A visitor to Fresh Nest would be someone who is most likely an adult who is inte
 - As a site user, I can submit an enquiry form so that I can enquire about a design consultation.
 - As a site user, I can add / edit / delete a testimonial in relation to a consultation I received so that I can give my feedback.
 
-
 #### User stories not yet implemented
 
 The following user stories were scoped out of the project due to time constraints and labelled as "Won't Have" on the project board on Github. It is intended that these user stories will be implemented at a later date.
@@ -65,12 +64,36 @@ The following user stories were scoped out of the project due to time constraint
 - As a shopper I can add products to my saved items so that I can go back and view them at a later date.
 - As a shopper I can view my saved products so I can find them easily in the one location.
 
+## Design
+
+The site has a elegant and clean design with the use of gold detail to give the idea of luxury and opulence. 
+
+### Colour Scheme
+Colour palette from Coolors
+
+![Colour Scheme](docs/readme_images/colour_scheme.png)
+
+The colour scheme of the site is mainly gold and light and dark greys. The colours chosen are quite neutral in order to showcase the Homeware Products and Interior Design Services with minimal distraction. 
+
+Great care was taken to establish a good contrast between background colours and text at all times to ensure maximum user accessibility.
+
+### Imagery
+There is only one main static image on the site which is of a luxurious dining room on the home page. The color scheme of the site ties in with this main homepage image which largely consists of golds and greys. The rest of the imagery will be uploaded by the site owner for individual products, services and previous interior projects. 
+
+### Fonts
+The Raleway font is the main font used for the body of the website. This font was imported via Google Fonts. Sans Serif is the backup font, in case for any reason the main font isn't being imported into the site correctly.
 
 ## Agile Methodology
 Github projects was used to manage the development process using an agile approach. Please see link to project board [here](https://github.com/users/AliOKeeffe/projects/2)
 
 
 The 5 Epics listed above were documented within the Github project as Milestones. A Github Issue was created for each User Story which was then allocated to a milestone(Epic). Each User Story has defined acceptance criteria to make it clear when the User Story has been completed. The acceptance criteria are further broken down into tasks to facilitate the User Story's execution.
+
+
+## Database Schema 
+
+Two relational databases were used to create this site - during production SQLite was used and then Postgres was used for the deployed Heroku version. Below is an image of how the database models relate to each other:
+
 
 
 
