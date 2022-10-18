@@ -55,11 +55,20 @@ body {
 
 /* Nav */
 
+.nav-icons i:hover {
+    color: #4D4E54;;
+}
+
+
 .navbar ul a {
     text-transform: uppercase;
     color: #4D4E54;
     font-size: 14px;
     font-weight: 400 !important;
+}
+
+.navbar ul a:hover {
+    color: #A99166;
 }
 
 /* .navbar ul a {

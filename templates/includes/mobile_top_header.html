@@ -2,17 +2,17 @@
     <li class="list-inline-item align-middle">
         <a class="text-gold nav-link px-1" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false" aria-label="Search">
-            <div class="text-center">
+            <div class="text-center nav-icons">
                 <div><i class="fas fa-search fa-lg"></i></div>
             </div>
         </a>
         <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
             <form class="form" method="GET" action="{% url 'products' %}">
                 <div class="input-group w-100">
-                    <input class="form-control border border-black rounded-0" type="text" name="q"
+                    <input class="form-control border-gold rounded-0" type="text" name="q"
                         placeholder="Search our site">
                     <div class="input-group-append">
-                        <button class="form-control form-control btn btn-black border border-black rounded-0"
+                        <button class="form-control form-control btn btn-outline-dark border-gold rounded-0"
                             type="submit" aria-label="Search Button">
                             <span class="icon">
                                 <i class="fas fa-search fa-lg"></i>
@@ -23,7 +23,7 @@
             </form>
         </div>
     </li>
-    <li class="list-inline-item dropdown">
+    <li class="list-inline-item dropdown nav-icons">
         <a class="text-gold nav-link px-1 d-block d-lg-none" href="#" id="mobile-user-options" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
@@ -54,7 +54,7 @@
             </div>
         </a>
     </li> -->
-    <li class="list-inline-item">
+    <li class="list-inline-item nav-icons">
         <a class="text-gold nav-link px-1 d-block d-lg-none" href="{% url 'view_bag' %}" aria-label="View Bag">
             <div class="text-center">
                 <div><i class="fas fa-shopping-bag fa-lg"></i>
