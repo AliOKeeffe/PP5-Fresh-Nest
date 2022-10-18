@@ -94,9 +94,31 @@ The 5 Epics listed above were documented within the Github project as Milestones
 
 Two relational databases were used to create this site - during production SQLite was used and then Postgres was used for the deployed Heroku version. Below is an image of how the database models relate to each other:
 
+![Database Schema](docs/readme_images/database_schema.png)
 
 
+## Security Features and Defensive Design
+### User Authentication
 
+Where I have used Django's Class-based-views; Django's LoginRequiredMixin is used to make sure that any requests to access secure pages by non-authenticated users are redirected to the login page. Django's UserPassesTestMixin is used to limit access based on certain permissions i.e. to ensure users can only edit/delete Testimonials for which they are the author or if the user is the superuser. If the user doesn't pass the test they are shown an HTTP 403 Forbidden error.
+
+Where I have used function based views I have used Django's login_required and user_passes_test decoraters to restrict access as required. 
+
+### Form Validation
+If incorrect or empty data is added to a form, the form won't submit and a warning will appear to the user informing them what field raised the error.
+
+### Database Security
+The database url and secret key are stored in the env.py file to prevent unwanted connections to the database. Stripe keys and wh secret are also stored in the env.py file. 
+
+Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
+
+### Custom error pages:
+Custom Error Pages were created to give the user more information on the error and to provide them with buttons to guide them back to the site.
+
+400 Bad Request - Fresh Nest is unable to handle this request.
+403 Page Forbidden - Looks like you're trying to access forbidden content. Please log out and sign in to the correct account.
+404 Page Not Found - The page you're looking for doesn't exist.
+500 Server Error - Fresh Nest is currently unable to handle this request
 
 
 
