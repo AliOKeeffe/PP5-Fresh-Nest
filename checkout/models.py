@@ -80,7 +80,7 @@ class OrderLineItem(models.Model):
     quantity = models.IntegerField(
         null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False,
+        max_digits=7, decimal_places=2, null=False, blank=False,
         editable=False)
 
     def save(self, *args, **kwargs):

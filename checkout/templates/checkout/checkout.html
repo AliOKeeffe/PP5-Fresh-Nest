@@ -92,7 +92,7 @@
 								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
                                 <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
 							{% else %}
-								<label class="form-check-label" for="id-save-info">
+								<label class="form-check-label">
                                     <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
                                     <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
                                 </label>
@@ -135,11 +135,11 @@
         </div>
     </div>
     <div id="loading-overlay">
-        <h1 class="text-light logo-font loading-spinner">
+        <div class="text-light logo-font loading-spinner">
             <span class="icon">
                 <i class="fas fa-3x fa-spinner fa-spin fa-pulse"></i>
             </span>
-        </h1>
+        </div>
     </div>
 {% endblock %}
 
