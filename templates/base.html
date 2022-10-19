@@ -86,7 +86,7 @@
                                         <div><i class="far fa-user fa-lg"></i></div>
                                     </div>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="user-options-menu">
+                                <div class="dropdown-menu" aria-labelledby="user-options">
                                     {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                     <a href="{% url 'add_product' %}" class="dropdown-item">Home Decor Management</a>
@@ -168,14 +168,14 @@
     {% include 'includes/footer.html' %}
 
     {% block postloadjs %}
-    <script type="text/javascript">
+    <script>
         $('.toast').toast('show');
     </script>
 
     <!-- mailchip script -->
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
+    <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
     </script>
-    <script type='text/javascript'>
+    <script>
         (function ($) {
             window.fnames = new Array();
             window.ftypes = new Array();

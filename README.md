@@ -56,6 +56,7 @@ A visitor to Fresh Nest would be someone who is most likely an adult who is inte
 #### EPIC | User Interaction
 - As a site user, I can submit an enquiry form so that I can enquire about a design consultation.
 - As a site user, I can add / edit / delete a testimonial in relation to a consultation I received so that I can give my feedback.
+- As a site user, I can sign up for the website's newsletter so that I can keep up to date with new products and promotions.
 
 #### User stories not yet implemented
 

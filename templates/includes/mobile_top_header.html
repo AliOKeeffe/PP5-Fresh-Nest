@@ -30,7 +30,7 @@
                 <div><i class="far fa-user fa-lg"></i></div>
             </div>
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-options-menu">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mobile-user-options">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
             <a href="{% url 'add_product' %}" class="dropdown-item">Home Decor Management</a>

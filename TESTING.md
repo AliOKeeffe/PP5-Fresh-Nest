@@ -39,8 +39,6 @@
 - When the user views the page on mobile, the type of design service and location will display below the image.
 
 
-
-
 #### EPIC | User Account and Profile
 *As a site user I can register an account so that I can have a personal account.*
 - A sign up button is located in the user options drop down menu in the Navbar. When the user clicks the button they are taken to the sign up page.
@@ -48,33 +46,97 @@
 *As a site user I can log in or log out of my account so that I can keep my account secure.*
 - If the user has registered an account they can access the the user options drop down menu in the Navbar.
 
-
 *As a site user I can see my login status so that I know if I'm logged in or out.*
 
+- Whenever a user logs in or logs out a toast message will appear notifying the user or their action.
+- When signed in the options in the user menu will change to show Profile and Log Out buttons.
+
 *As a site user I can save my personal details in my user profile so that I do not have to fill them out for future orders.*
+- Users can fill in their personal details on their profile page. This information will be prepopulated for any future orders.
+- When placing a new order, a checkbox under the delivery information can be checked to save the information just added.
 
 *As a site user I can view my order history so that I can remember what purchases I've made.*
 
+- Once a user has created an account and placed an order, they can view the order history on their profile page.
+- Clicking the order number will take you to a summary page of that order.
+
 *As a site user I can recover my password in case I forget it so that I can recover access to my account.*
+- On the sign-in page, a link to recover your password is located underneath the sign-in button. This uses the AllAuth functionality to reset the user's password. 
 
 #### EPIC | Purchasing
-- As a shopper, I can add a number of products in different quantities to my shopping bag so that I can purchase them all together when I am ready.
-- As a shopper I can view a running total of my shopping bag as I am shopping so that I can see how much it costs in total.
-- As a shopper I can view a the contents of my shopping bag at any time so I can see what is included and the total cost.
-- As a shopper I can adjust the quantity of individual products in my bag so that I can easily make changes before I purchase.
-- As a shopper, I can see a summary of my shopping cart when I checkout so that I know what products are included and the total cost before I commit to purchasing.
-- As a shopper, I can easily enter my payment information securely so that I can purchase my chosen products quickly with no issues.
-- As a shopper checkout as a guest so I don't have to sign up for an account.
-- As a shopper, I can view an order confirmation after checkout so that I know my purchase was successful.
-- As a shopper, I can receive an email confirmation of my order so that I have a record of my purchase.
+*As a shopper, I can add a number of products in different quantities to my shopping bag so that I can purchase them all together when I am ready.*
 
+-Within the product detail page there is a quantity selector and an Add to Bag button. Shoppers can adjust the quantity by using the buttons located on either side of the input, or by typing in the amount.
+-When the user clicks on the add to bag button, the chosen quantity of the product is added to the user's shopping bag.
+
+*As a shopper I can view a running total of my shopping bag as I am shopping so that I can see how much it costs in total.*
+
+- As the user adds products to their bag, a toast message appears in the top right-hand corner of the screen informing the user that the item has been added, giving them a snapshot of the bag contents and the total cost of the bag.
+
+*As a shopper I can view a the contents of my shopping bag at any time so I can see what is included and the total cost.*
+- When the user clicks on the shopping bag icon in the nav bar they are taken to the shopping bag page which shows the products which the user has added to their cart, unit price, quantity and subtotal.
+- The bottom of the page shows the bag total, delivery costs and then the grand total.
+
+*As a shopper I can adjust the quantity of individual products in my bag so that I can easily make changes before I purchase.*
+- When the user is viewing the shopping bag, they are able to adjust the quantity of each product line item and update the subtotal by clicking the update icon.
+- The user is able to delete the product by clicking the trash icon and the bag should be updated accordingly.
+
+*As a shopper, I can see a summary of my shopping cart when I checkout so that I know what products are included and the total cost before I commit to purchasing.*
+- On the Checkout page the user can see a summary of the line items within their order including a thumbnail image, the product name, the quantity, the unit cost and the overall total order cost on the right-hand side.
+
+*As a shopper, I can easily enter my payment information securely so that I can purchase my chosen products quickly with no issues.*
+- When the user navigates to the checkout page, they can see the Stripe Elements UI where they can enter their card details securely and pay for their order.
+- The user receives feedback if the card number is valid/invalid.
+
+*As a shopper checkout as a guest so I don't have to sign up for an account.*
+- Shoppers do not need an account to purchase any items. Regardless of whether a user is signed in, the checkout process remains the same.
+-  When the user completes the checkout form and presses submit their order should be completed.
+
+*As a shopper, I can view an order confirmation after checkout so that I know my purchase was successful.*
+- When the user submits the checkout form, they are redirected to a Checkout Success page where they can see an order confirmation and a summary of their order.
+
+*As a shopper, I can receive an email confirmation of my order so that I have a record of my purchase.*
+- When the user has submitted their order they will receive a confirmation email to the email address they entered in their order form containing all the details of the order.
 
 #### EPIC | Admin & Store Management
-- As a store owner, I can add/edit/delete products through an easy-to-use interface so that I can manage the store's contents.
-- As a site owner, I can add/edit/delete interior design services provided through an easy-to-use interface so that I can manage the site's contents.
-- As a site owner, I can add/delete images and location of previous design projects so that I can manage the site's contents.
-- As a site owner, I can view and delete customer enquiries on the front-end without having to access the admin panel.
+*As a store owner, I can add/edit/delete products through an easy-to-use interface so that I can manage the store's contents.*
+- When the site owner is logged in, a Home Decor Management option appears in the User drop-down menu.
+- When the site owner navigates to the Home Decor Management page they can add a new product to the store through a user-friendly form. 
+- The site owner is able to edit and delete products by clicking buttons on both the main Home Decor page and also the product detail page.
+- The edit form is pre-populated with the product information.
+
+*As a site owner, I can add/edit/delete interior design services provided through an easy-to-use interface so that I can manage the site's contents.*
+- When the site owner is logged in, a Design Service Management option appears in the User drop-down menu.
+- When the site owner navigates to the Design Service Management page they can add a new design service to the site through a user-friendly form. 
+- The site owner is able to edit and delete services by clicking buttons on the Interior Design Services page.
+-  The edit forms fields are pre-populated with all service information. 
+
+*As a site owner, I can add/delete images and location of previous design projects so that I can manage the site's contents.*
+- When the site owner is logged in, a Previous Project Management option appears in the User drop-down menu.
+- When the site owner navigates to the Previous Project Management page they can add details of a previous project to the site. through a user-friendly form. 
+- The site owner is able to delete project images from the Previous Projects page by clicking the 'x' in the top right-hand corner of the picture.
+
+*As a site owner, I can view and delete customer enquiries on the front-end without having to access the admin panel.*
+- When the site owner is logged in, an Enquiries Management option appears in the User drop-down menu.
+- When the site owner navigates to the Enquiries Management page they can see a list of user enquiries sorted from newest to oldest.
+- Emails that have been read should be greyed out.
+- When the site owner clicks on an enquiry they should be taken to the individual enquiry detail.
+- The site owner can choose to delete the enquiry or to go back to the list of enquiries.
 
 #### EPIC | User Interaction
-- As a site user, I can submit an enquiry form so that I can enquire about a design consultation.
-- As a site user, I can add / edit / delete a testimonial in relation to a consultation I received so that I can give my feedback.
+*As a site user, I can submit an enquiry form so that I can contact the site owner.*
+- A user can open up the contact form by clicking on the "Enquire Now" button on the Interior Design Services page or by clicking the 'Contact' button in the Nav bar.
+- The user can select the type of enquiry from a drop-down menu so that the site owner knows what the enquiry is about.
+- If the user is logged in, their email address is prepopulated.
+- When the form is submitted, the user receives an email confirmation of their enquiry so that they have a record of it.
+
+*As a site user, I can add / edit / delete a testimonial in relation to a consultation I received so that I can give my feedback.*
+- When a logged-in user clicks on the "Add Testimonial" button on the Testimonials page, they can see a user-friendly form where they can add a new Testimonial to the site.
+- If the user is not logged in they are redirected to the log-in page.
+- The user is able to edit and delete their own testimonials from buttons on the Testimonials Page.
+- The edit forms fields are pre-populated with testimonial information.
+- The completed testimonial is automatically populated with the user's username and date underneath the body.
+
+
+*As a user, I can sign up for the website's newsletter so that I can keep up to date with new products and promotions*
+- In the footer is a 'Newsletter' section. Here the user can input their email address to sign up.
