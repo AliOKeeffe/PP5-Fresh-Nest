@@ -322,7 +322,7 @@ input[type=number] {
 
 }
 
-#appear {
+.appear {
     opacity: 0.0;
     -webkit-transition: all 500ms ease-in-out;
     -moz-transition: all 500ms ease-in-out;
@@ -331,7 +331,7 @@ input[type=number] {
     transition: all 500ms ease-in-out;
 }
 
-#hover:hover + #appear {
+.hover:hover + .appear {
     opacity: 1.0;
 }
 

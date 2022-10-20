@@ -38,12 +38,12 @@
                         <a href="{% url 'delete_project_image' project.id %}"><i class="fas fa-times fa-lg"></i></a>
                     </span>
                     {% endif %}
-                    <div id="hover">
+                    <div class="hover">
                         <img src="{{ project.image.url }}" class="card-img-top" alt="placeholder image">
                         <a href="{{ project.image.url }}" target="_blank" class="stretched-link"
                             aria-label="product-image"></a>
                     </div>
-                    <div class="d-none p-2 my-auto d-lg-block pic-text bg-white" id="appear">
+                    <div class="d-none p-2 my-auto d-lg-block pic-text bg-white appear">
                         <strong>{{ project.service.type }}</strong>
                         <br>
                         {{ project.location }}
@@ -56,23 +56,6 @@
                 </div>
             </div>
             {% endfor %}
-            <!-- {% if user.is_superuser %}
-            <div class="col-sm-6 col-md-4">
-                <div class="card h-100 text-jet">
-                    <span class="x-btn">
-                        <a href=""><i class="fas fa-times fa-lg"></i></a>
-                    </span>
-                   
-                    <div class="card-img-overlay d-flex">
-                        <i class="text-center align-self-center fas fa-plus fa-6x card-img"></i>
-
-                        <a href="{% url 'add_project_image' %}" class="stretched-link" aria-label="add-picture"></a>
-                    </div>
-                </div>
-            </div>
-            {% endif %} -->
-
-
         </div>
     </div>
 </div>
