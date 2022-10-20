@@ -228,11 +228,9 @@ body {
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #dc3545;
-    border-color: #dc3545;
+    border: black;
     border-radius: 0;
 }
-
-
 
 
 /* bag */
@@ -306,7 +304,6 @@ input[type=number] {
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
     background-color: #222;
-    border-color: #222;
 }
 
 
@@ -465,8 +462,6 @@ footer a:hover {
         padding-top: 157px;
     }
 }
-
-
 
 
 /* pad the top a bit when navbar is collapsed on mobile */

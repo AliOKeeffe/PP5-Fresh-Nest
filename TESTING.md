@@ -1,5 +1,8 @@
 # Testing
 
+
+
+
 ## User Story Testing
 
 #### EPIC | Viewing and Navigation
@@ -140,3 +143,62 @@
 
 *As a user, I can sign up for the website's newsletter so that I can keep up to date with new products and promotions*
 - In the footer is a 'Newsletter' section. Here the user can input their email address to sign up.
+
+## Validator Testing
+### HTML
+All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/). See results in below table.
+
+| Page                           | Logged Out | Logged In |
+|--------------------------------|------------|-----------|
+| Home                           | No Errors  | No Errors |
+| Products                       | No Errors  | No Errors |
+| Product Detail                 | No Errors  | No Errors |
+| Add Product                    | N/A        | Note      |
+| Edit Product                   | N/A        | Note      |
+| Confirm Delete Product         | N/A        | No Errors |
+| Bag                            | No Errors  | No Errors |
+| Checkout                       | No Errors  | No Errors |
+| Checkout Success               | No Errors  | No Errors |
+| Profile                        | N/A        | No Errors |
+| Order History                  | N/A        | No Errors |
+| Interior Design Services       | No Errors  | No Errors |
+| Add Interior Design Service    | N/A        | Note      |
+| Edit Interior Design Service   | N/A        | Note      |
+| Delete Interior Design Service | N/A        | No Errors |
+| Interior Design Projects       | No Errors  | No Errors |
+| Add Interior Design Project    | N/A        | Note      |
+| Delete Interior Design         | N/A        | No Errors |
+| Testimonials                   | No Errors  | No Errors |
+| Add Testimonial                | N/A        | No Errors |
+| Edit Testimonial               | N/A        | No Errors |
+| Delete Testimonial             | N/A        | No Errors |
+| Contact                        | No Errors  | No Errors |
+| Enquiries Dashboard            | N/A        | No Errors |
+| Enquiry Detail                 | N/A        | No Errors |
+| Sign In                        | No Errors  | N/A       |
+| Sign Up                        | No Errors  | N/A       |
+| Log Out                        | N/A        | No Errors |
+| Password Reset                 | No Errors  | N/A       |
+| 400.html                       | No errors  | No errors |
+| 403.html                       | N/A        | No errors |
+| 404.html                       | No errors  | No errors |
+| 500.html                       | No errors  | No errors |
+
+Note: Image upload widget errors
+
+All forms which include an image upload field show the same error below. This relates to the image upload widget on the form and thus changing the code breaks the field.
+
+![HTML Error](docs/readme_images/add_image_html_error.png)
+
+## CSS
+
+No errors were found when passing my CSS files through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+*base.css*
+![base.ccs validation](docs/readme_images/base_css_validation.png)
+
+*checkout.css*
+![checkout.ccs validation](docs/readme_images/checkout_css_validation.png)
+
+*profile.css*
+![profile.ccs validation](docs/readme_images/profile_css_validation.png)
