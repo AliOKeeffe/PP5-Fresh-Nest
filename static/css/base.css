@@ -53,6 +53,10 @@ body {
 
 /* Nav */
 
+.logo-image {
+    height: 90px;
+}
+
 .nav-icons i:hover {
     color: #4D4E54;;
 }
