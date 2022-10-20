@@ -17,12 +17,12 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="text-center pt-4">Edits Testimonial</h1>
+            <h1 class="text-center pt-4">Edit Testimonial</h1>
         </div>
     </div>
     <br>
     <div class="row justify-content-center mb-3">
-        {% if user.is_authenticated and testimonial.name == user.username  %}
+        {% if user.is_authenticated and testimonial.name == user or user.is_superuser  %}
         <!-- Ensure the user is signed in, and the testminonial they're trying to access is owned by them -->
         <div class="col-11 col-md-8 col-lg-6 mt-3">
             <form method="post" enctype="multipart/form-data">

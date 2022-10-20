@@ -41,7 +41,7 @@
                     <strong>{{ testimonial.name }}</strong>
                     <br>
                     {{ testimonial.created_on }}
-                    {% if user.is_authenticated and testimonial.name == user.username %}
+                    {% if user.is_authenticated and testimonial.name == user or user.is_superuser %}
                     <span class="align-self-end">
                         <small class="edit-delete-btns ">
                             <a href="{% url 'edit_testimonial' testimonial.id %}">Edit</a> |

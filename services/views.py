@@ -150,7 +150,7 @@ class EditTestimonial(
         Prevent another user from editing user's testminonial
         """
         testimonial = self.get_object()
-        return testimonial.name == self.request.user.username
+        return testimonial.name == self.request.user or self.request.user.is_superuser
 
 
 class DeleteTestimonial(
@@ -168,7 +168,7 @@ class DeleteTestimonial(
         Prevent another user from deleting another user's testminonial
         """
         testimonial = self.get_object()
-        return testimonial.name == self.request.user.username
+        return testimonial.name == self.request.user or self.request.user.is_superuser
 
     def delete(self, request, *args, **kwargs):
         """
