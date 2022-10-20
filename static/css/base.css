@@ -195,6 +195,8 @@ body {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    z-index: 1;
+    background-color: white;
 }
 
 .btt-link {

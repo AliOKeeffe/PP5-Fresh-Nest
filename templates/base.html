@@ -168,6 +168,13 @@
     {% include 'includes/footer.html' %}
 
     {% block postloadjs %}
+    <!-- Scroll up button script -->
+    <script>
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0, 0)
+        })
+    </script>
+     <!-- Shows toasts -->
     <script>
         $('.toast').toast('show');
     </script>
