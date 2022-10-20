@@ -58,19 +58,19 @@
                                         <div class="input-group-prepend">
                                             <button
                                                 class="decrease-qty btn border-gold btn-outline-dark rounded-0 decrease-qty_{{ product.id }}"
-                                                data-item_id="{{ product.id }}">
+                                                data-item_id="{{ product.id }}" aria-label="Decrease Quantity">
                                                 <span>
                                                     <i class="fas fa-minus"></i>
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control border-gold qty_input id_qty_{{ product.id }}"
+                                        <input class="form-control border-gold qty_input id_qty_{{ product.id }}" aria-label="Quantity"
                                             type="number" name="quantity" value="1" min="1" max="99"
                                             data-item_id="{{ product.id }}">
                                         <div class="input-group-append">
                                             <button
                                                 class="increase-qty btn border-gold btn-outline-dark rounded-0 increase-qty_{{ product.id }}"
-                                                data-item_id="{{ product.id }}">
+                                                data-item_id="{{ product.id }}" aria-label="Increase Quantity">
                                                 <span>
                                                     <i class="fas fa-plus"></i>
                                                 </span>

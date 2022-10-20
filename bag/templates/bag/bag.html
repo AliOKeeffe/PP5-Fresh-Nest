@@ -58,9 +58,9 @@
                 </div>
                 {% endfor %}
                 <div class="btt-button shadow-sm rounded-0 border-gold">
-                    <a class="btt-link d-flex h-100">
+                    <div class="btt-link d-flex h-100">
                         <i class="fas fa-arrow-up text-jet mx-auto my-auto"></i>
-                    </a>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive rounded d-none d-md-block">
@@ -93,9 +93,9 @@
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
                         <td class="py-3 edit-delete-btns">
-                            <a class="update-link btn p-0"><small><i class="fas fa-sync"></i></small></a>
-                            <a class="remove-btn btn p-0 float-right remove_{{ item.item_id }}"><small><i
-                                        class="fas fa-trash-alt"></i></small></a>
+                            <span class="update-link btn p-0"><small><i class="fas fa-sync"></i></small></span>
+                            <span class="remove-btn btn p-0 float-right remove_{{ item.item_id }}"><small><i
+                                        class="fas fa-trash-alt"></i></small></span>
                         </td>
                     </tr>
                     {% endfor %}
@@ -130,11 +130,6 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script>
-    $('.btt-link').click(function (e) {
-        window.scrollTo(0, 0)
-    })
-</script>
 {% include 'products/includes/quantity_input_script.html' %}
 
 <script>

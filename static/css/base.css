@@ -161,6 +161,10 @@ body {
     color: #A99166 !important;
 }
 
+.edit-delete-btns span {
+    color: #A99166;
+}
+
 .edit-delete-btns a {
     color: #A99166;
 }

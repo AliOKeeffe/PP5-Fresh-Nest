@@ -3,21 +3,18 @@
     <div class="form-group mx-md-4 mx-lg-5">
         <div class="input-group input-group-{{ item.item_id }}">
             <div class="input-group-prepend">
-                <button class="decrease-qty btn btn-sm border-gold btn-outline-dark rounded-0 decrease-qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}">
+                <button
+                    class="decrease-qty btn btn-sm border-gold btn-outline-dark rounded-0 decrease-qty_{{ item.item_id }}"
+                    data-item_id="{{ item.item_id }}" aria-label="Decrease Quantity">
                     <span><i class="fas fa-minus fa-sm"></i></span>
                 </button>
             </div>
-            <input class="form-control border-gold form-control-sm qty_input id_qty_{{ item.item_id }}"
-                name="quantity"
-                type="number"
-                value="{{ item.quantity }}"
-                min="1"
-                max="99"
-                data-item_id="{{ item.item_id }}">
+            <input class="form-control border-gold form-control-sm qty_input id_qty_{{ item.item_id }}" name="quantity"
+                type="number" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" aria-label="Quantity">
             <div class="input-group-append">
                 <button
                     class="increase-qty btn btn-sm border-gold btn-outline-dark rounded-0 increase-qty_{{ item.item_id }}"
-                    data-item_id="{{ item.item_id }}">
+                    data-item_id="{{ item.item_id }}" aria-label="Increase Quantity">
                     <span><i class="fas fa-plus fa-sm"></i></span>
                 </button>
             </div>
@@ -25,7 +22,6 @@
     </div>
 </form>
 
-<a class="d-md-none mobile-update-link btn p-0"><small><i class="fas fa-sync"></i></small></a>
-<a class="d-md-none remove-btn btn p-0 float-right remove_{{ item.item_id }}"><small><i
-    class="fas fa-trash-alt"></i></small></a>
-
+<span class="d-md-none mobile-update-link btn p-0"><small><i class="fas fa-sync"></i></small></span>
+<span class="d-md-none remove-btn btn p-0 float-right remove_{{ item.item_id }}"><small><i
+            class="fas fa-trash-alt"></i></small></span>

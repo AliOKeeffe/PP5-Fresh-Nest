@@ -40,7 +40,7 @@
             <a href="{% url 'enquiry_detail' enquiry.id %}">{{ enquiry.name }}</a>
           </td>
           <td>
-            <a href="{% url 'enquiry_detail' enquiry.id %}">{{ enquiry.enquiry_type }}</a>
+            <a href="{% url 'enquiry_detail' enquiry.id %}">{{ enquiry.get_enquiry_type_display }}</a>
           </td>
           <td class="d-none d-md-table-cell">
             <a href="{% url 'enquiry_detail' enquiry.id %}">{{ enquiry.message|truncatechars:15 }}</a>

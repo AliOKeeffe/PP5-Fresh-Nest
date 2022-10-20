@@ -35,7 +35,7 @@
                 <div class="card border-0 mx-0 py-lg-3">
                     {% if user.is_superuser %}
                     <span class="x-btn">
-                        <a href="{% url 'delete_project_image' project.id %}"><i class="fas fa-times fa-lg"></i></a>
+                        <a href="{% url 'delete_project_image' project.id %}" aria-label="Delete Image"><i class="fas fa-times fa-lg"></i></a>
                     </span>
                     {% endif %}
                     <div class="hover">
