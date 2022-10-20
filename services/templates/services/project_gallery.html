@@ -32,7 +32,7 @@
         <div class="row card-deck mb-5">
             {% for project in previousproject_list  %}
             <div class="col-sm-6 col-md-4">
-                <div class="card border-0 mx-0 py-3">
+                <div class="card border-0 mx-0 py-lg-3">
                     {% if user.is_superuser %}
                     <span class="x-btn">
                         <a href="{% url 'delete_project_image' project.id %}"><i class="fas fa-times fa-lg"></i></a>
@@ -48,7 +48,6 @@
                         <br>
                         {{ project.location }}
                     </div>
-
                     <div class="card-body text-center d-lg-none">
                         <strong>{{ project.service.type }}</strong>
                         {{ project.location }}
