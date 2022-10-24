@@ -1,6 +1,6 @@
 {% if widget.is_initial %}
     <p>{{ widget.initial_text }}:</p>
-    <a href="{{ widget.value.url }}">
+    <a href="{{ widget.value.url }}" target="_blank">
         <img width="96" height="96" class="rounded shadow-sm" src="{{ widget.value.url }}" alt="Thumbnail Image">
     </a>
     {% if not widget.required %}
