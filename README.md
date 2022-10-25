@@ -121,11 +121,158 @@ Custom Error Pages were created to give the user more information on the error a
 404 Page Not Found - The page you're looking for doesn't exist.
 500 Server Error - Due to an internal error we are unable to process this request.
 
+## Features
+
+### Header
+
+**Logo**
+- A customised logo was created using Hatchful by Shopify which is a free logo generator.
+- This logo is positioned in the top left of the navigation bar. The logo is linked to the home page for ease of navigation for the user.
+
+**Navigation Bar**
+
+- The navigation bar is present at the top of every page and includes all links to the various other pages.
+
+![header](docs/readme_images/features/header.png)
+**User Icon**
+- The User icon navigation link is a drop down menu which includes the Sign up and Log in links. 
+- The options to Sign up or Log in will change to the option to log out once a user has logged in.
+- Once a user has signed in, the 'My Profile' option becomes available in the User dropdown.
+- If the superuser has signed in, more options such as 'Home Decor Management', 'Design Service Management', 'Previous Project Management' and 'Enquiries' become available in the User dropdown.
+- The navigation bar is fully responsive, collapsing into a hamburger menu when the screen size becomes too small.
+- Hovering over the links will turn the font gold.
+
+**Bag Icon**
+- Located on the right side of the navbar next to the Uuer icon is the bag Icon.
+- Once a product is added to the bag, a number displaying the total quantity of items appears, located at the top right of the bag icon.
+- Clicking the bag icon navigates the user to the shopping bag page which displays a summary of what's been added.
+
+**Search Bar**
+- Located above the navbar is a search bar. On smaller screens, this bar becomes a search icon which when clicked will drop down the full bar.
+- Any searched word will match itself to any text in the product's title, or description and display the results on the product's page.
+
+### Footer
+
+![header](docs/readme_images/features/footer.png)
+
+- The footer appears at the bottom of every page.
+- The footer section includes links to Facebook, Instagram, Twitter and Pinterest
+- There is a newletter signup section powered by Mailchimp where the user can input their email address to signup to the monthly newsletter.
+- The Quick Links section has links to the main parts of the site including 'Contact Us' and 'Privacy Policy'.
+- On the right hand side of the footer there are links high quality relevant websites including Houzz, Institute of Designers Ireland, and The Interiors Association. These links were included to increase the search rating of the website.
+- Clicking all external links will open up the respective website in another tab to avoid pulling the user away from the site.
+
+### Home Page
+
+**Call to Action Section**
+
+![header](docs/readme_images/features/call_out.png)
+
+- The home page includes a call to action section which encourages the user to 'shop now' or to browse "design services" with the message "Style Your Space" and an image of stylish dining room. 
+
+**What We Do Section**
+
+![header](docs/readme_images/features/what_we_do.png)
+
+- The "What We Do' section gives a brief overview of what the site has to offer and includes relevant keywords in `<strong></strong>` tags to improve the site's search ranking.
+
+### User Account Pages
+
+**Sign Up**
+
+![header](docs/readme_images/features/signup.png)
+
+**Log In**
+
+![header](docs/readme_images/features/login.png)
+
+**Log Out**
+
+![header](docs/readme_images/features/logout.png)
+
+- Django allauth was installed and used to create the Sign up, Log in and Log out functionality. 
+- Success messages inform the user if they have logged in/ logged out successfully.
+- When a user signs up for an account they must verify their email address by clicking on the authentication link emailed  to the address they provided.
+- If a user forgets thier password they can reset it by clicking the 'Forgot Password' on the long in page.
 
 
+### Profile
+**Delivery Details**
+- The delivery details section stores the user's delivery address and phone number.
+- The information provided here is used to autofill the delivery address when placing an order.
 
+**Order History**
+- The order history section a list of every order the user has placed.
+- The table displays the order number, date it was ordered and the order total.
+- Clicking the order number will take the user to a summary page of that order.
 
+### Home Decor (Products)
 
+- When clicking the 'Home Decor' link in the navbar the dropdown menu will show all the different categories including 'Sofas', 'Tables', 'Chairs', 'Lighting' and 'Textiles'. 
+- The 'All' link will display a list of all products from the database.
+- Clicking any of the categories will filter the products to only show products from the category selected. 
+- The category selected will display as the page heading.
+- Each product card shows an image of the product, its title, excerpt and price.
+- If the user is a superuser, edit and delte buttons will appear at the bottom of the product card.
+- The products page is fully responsive, adjusting how many products are on each row depending on the user's screen size.
+
+- A sort box is located on the products page where users can sort all products by price in ascending or descending order and by title (A-Z).
+
+### Product Detail
+- When the user clicks on an individual product card they are taken to the full product details. The link is a bootstrap stretched link so clicking anywhere on the card will work.
+- The product detail page displays the product image, title, excerpt, price, product details and estimated dispatch time.
+- If the user is a superuser, edit and delte buttons will appear below these details.
+
+**Quantity Buttons**
+- The quantity buttons are located underneath the product details and are used to add items to the bag.
+- The plus and minus buttons increase and decrease the input value.
+- If the value is set to 1 the minus quantity will be disabled. Respectively if the value is set to 99 the plus button is disabled.
+- If the user manually types in a negative number or a number >99 and clicks "Add to Bag" an error button will appear informing the user of the parameters needed to be successful.
+- Clicking the 'Add to Bag' button takes the number in the input field and adds that amount of products to the bag.
+- Clickin the 'Keep Shopping' button takes the user back to the store.
+
+### Home Decor Management
+**Add Product**
+- The add product page can be accessed by clicking the 'Add Product' button on the Home Decor page or in the user dropdown menu, under Home Decor Management. These options are only visible to superusers.
+- If a user tries to add a product (by changing the url) without being a superuser they are redirected to a customer 403 page.
+- The user must fill out all the fields that have an Asterix. If the form is submitted with any of these fields left blank or with just whitespace then an error message will appear above that particular field, notifying the user of the issue.
+- The SKU field must be unique. An error message will appear if the SKU already exists.
+- If a price is added with more than 6 digits the form will fail and an error message will appear under the price field.
+- The user can upload a photo if they wish. If they choose not to, a default image displays as their product image.
+- Clicking the 'Add Product' button at the bottom of the form will create the product providing there are no errors on the form.
+-  The user will receive a success message notifying them that the product has been successfully added.
+
+**Edit Product**
+- The superuser can choose to edit a Product by clicking the edit button on the product card or on the product detail page. 
+- The form opens with all fields populated with the original content.
+- The image field displays a thumbnail of the current image and has a checkbox option to remove it. Checking this will change the image to the default image.
+- If a user tries to add a product (by changing the url) without being a superuser they are redirected to a customer 403 page.
+- The superuser will receive a success message notifying them that the product has been successfully updated.
+
+**Delete Product**
+- The superuser can choose to delete a Product by clicking the delete button on the product card or on the product detail page. 
+- The superuser is asked to confirm if they wish to delete the product or cancel.
+- The superuser will receive a success message notifying them that the product has been successfully deleted.
+
+### Bag
+- When the user clicks on the shopping bag icon in the nav bar they are taken to the shopping bag page which shows the products which the user has added to their cart, unit price, quantity and subtotal.
+
+**Quantity Buttons**
+- The quantity input box displays the product quantity the user has added to their bag.
+- The plus and minus buttons increase and decrease the input value.
+- If the value is set to 1 the minus quantity will be disabled. Respectively if the value is set to 99 the plus button is disabled.
+
+**Update and Delete Buttons**
+- Clicking the 'update' icon button saves any changes to the quantity and updates the item's subtotal.
+- Clicking the 'Bin' icon button removes the item completely from the user's bag.
+- If the user manually types in a negative number and clicks 'update', the item will be removed from the item from the bag.
+- If the user manually types in a number >99 and clicks 'update' an error message will display informing the user of the correct parameters.
+
+**Total Section**
+At the end of the line items is a summary of the costs.
+The summary features the bags total, delivery charges and the grand total to pay.
+In between the bag total and the delivery total, users will either find a message informing them of how much more they need to spend to receive free delivery, or it will show how much delivery they would have paid if they didn't receive the offer. This message will also be different if it is the user's first ever order, in which case it will display 'FREE DELIVERY on your first order!'.
+Beneath the grand total is two buttons. From here the user can either continue to the checkout or return to the products page by clicking 'Continue Shopping'.
 
 
 ## Fixed Bugs
