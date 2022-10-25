@@ -38,7 +38,7 @@ A visitor to Fresh Nest would be someone who is most likely an adult who is inte
 #### EPIC | Purchasing
 - As a shopper, I can add a number of products in different quantities to my shopping bag so that I can purchase them all together when I am ready.
 - As a shopper I can view a running total of my shopping bag as I am shopping so that I can see how much it costs in total.
-- As a shopper I can view a the contents of my shopping bag at any time so I can see what is included and the total cost.
+- As a shopper I can view the contents of my shopping bag at any time so I can see what is included and the total cost.
 - As a shopper I can adjust the quantity of individual products in my bag so that I can easily make changes before I purchase.
 - As a shopper, I can see a summary of my shopping cart when I checkout so that I know what products are included and the total cost before I commit to purchasing.
 - As a shopper, I can easily enter my payment information securely so that I can purchase my chosen products quickly with no issues.
@@ -135,6 +135,8 @@ Custom Error Pages were created to give the user more information on the error a
 - The navigation bar is visible at the top of every page and includes links to the other pages.
 
 **Search Bar**
+
+![Search](docs/readme_images/features/search.png)
 - The search bar displays above the nav bar.
 - On smaller screens, this bar becomes a search icon which when clicked will drop down the full bar.
 - Any searched word will match itself to any text in the product's title, or description and display the results on the product's page.
