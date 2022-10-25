@@ -221,7 +221,7 @@ Custom Error Pages were created to give the user more information on the error a
 ### Product Detail
 - When the user clicks on an individual product card they are taken to the full product details. The link is a bootstrap stretched link so clicking anywhere on the card will work.
 - The product detail page displays the product image, title, excerpt, price, product details and estimated dispatch time.
-- If the user is a superuser, edit and delte buttons will appear below these details.
+- If the user is a superuser, edit and delete buttons will appear below these details.
 
 **Quantity Buttons**
 - The quantity buttons are located underneath the product details and are used to add items to the bag.
@@ -234,7 +234,7 @@ Custom Error Pages were created to give the user more information on the error a
 ### Home Decor Management
 **Add Product**
 - The add product page can be accessed by clicking the 'Add Product' button on the Home Decor page or in the user dropdown menu, under Home Decor Management. These options are only visible to superusers.
-- If a user tries to add a product (by changing the url) without being a superuser they are redirected to a customer 403 page.
+- If a user tries to add a product (by changing the url) without being a superuser they are redirected to a custom 403 page.
 - The user must fill out all the fields that have an Asterix. If the form is submitted with any of these fields left blank or with just whitespace then an error message will appear above that particular field, notifying the user of the issue.
 - The SKU field must be unique. An error message will appear if the SKU already exists.
 - If a price is added with more than 6 digits the form will fail and an error message will appear under the price field.
@@ -245,8 +245,8 @@ Custom Error Pages were created to give the user more information on the error a
 **Edit Product**
 - The superuser can choose to edit a Product by clicking the edit button on the product card or on the product detail page. 
 - The form opens with all fields populated with the original content.
-- The image field displays a thumbnail of the current image and has a checkbox option to remove it. Checking this will change the image to the default image.
-- If a user tries to add a product (by changing the url) without being a superuser they are redirected to a customer 403 page.
+- The image field displays a thumbnail of the existing image and has a checkbox option to remove it. Checking this will change the image to the default image.
+- If a user tries to add a product (by changing the url) without being a superuser they are redirected to a custom 403 page.
 - The superuser will receive a success message notifying them that the product has been successfully updated.
 
 **Delete Product**
@@ -302,6 +302,52 @@ This page summarises the completed order.
 - An email wil be sent to the user with their order confirmation
 - At the end of the summary is a 'Keep Shopping' button that takes the user back to the Home Decor page.
 
+### Interior Design Services
+- The Interior Design Services page can be accessed by clicking on the link in the nav bar. 
+- When the user navigates to the Interior Design Services page they are presented with a list of all Interior Design Services from the database including image, title and detailed description. 
+- An "Enquire Now" button displays beside each service which will take the user to the Contact form when clicked.
+- If the user is a superuser, edit and delete buttons will display below each services details instead of the enquire now button.
+
+### Design Services Management
+**Add Servce**
+- The add service page can be accessed by clicking the 'Add Service' button on the Interior Design Services page or in the user dropdown menu, under Design Services Management. These options are only visible to superusers.
+- If a user tries to add a service (by changing the url) without being a superuser they are redirected to a custom 403 page.
+- The user must fill out all the fields that have an Asterix. If the form is submitted with any of these fields left blank or with just whitespace then an error message will appear above that particular field, notifying the user of the issue.
+- The user can upload a photo if they wish. If they choose not to, a default image displays as their service image.
+- Clicking the 'Add Service' button at the bottom of the form will create the service providing there are no errors on the form.
+-  The user will receive a success message notifying them that the service has been successfully added.
+
+**Edit Service**
+- The superuser can choose to edit a Service by clicking the edit button under the service description on the Interior Design Services Page. 
+- The form opens with all fields populated with the original content.
+- The image field displays a thumbnail of the existing image and has a checkbox option to remove it. Checking this will change the image to the default image.
+- If a user tries to add a service (by changing the url) without being a superuser they are redirected to a custom 403 page.
+- The superuser will receive a success message notifying them that the service has been successfully updated.
+
+**Delete Product**
+- The superuser can choose to delete a Service by clicking the delete button under the service description on the Interior Design Services Page.
+- The superuser is asked to confirm if they wish to delete the service or cancel.
+- The superuser will receive a success message notifying them that the service has been successfully deleted.
+
+### Interior Design Projects
+- When the user clicks on the Interior Design Projects tab in the nav bar they are taken to a page displaying pictures of previous projects completed by Fresh Nest.
+- When the user hovers over the image on Desktop view, the type of design service and location will appear in the centre of the image.
+- When the user views the page on mobile, the type of design service and location will display below the image.
+- When the user clicks on the image it will open up in a new tab.
+
+### Previous Projects Management
+**Add Previous Project**
+- The add project page can be accessed by clicking the 'Add Picture' button on the Interior Design Projects page or in the user dropdown menu, under Previous Project Management. These options are only visible to the superuser.
+- If a user tries to add a Previous Project (by changing the url) without being a superuser they are redirected to a custom 403 page.
+- The form contains a drop down menu where the user can select the type of Interior Design Service that the project relates to.
+- The user must enter a project location and can upload a project photo.
+- Clicking the 'Add Project' button at the bottom of the form will create the project providing there are no errors on the form.
+-  The user will receive a success message notifying them that the project has been successfully added.
+
+**Delete Product**
+- The superuser can choose to delete a Service by clicking the delete button under the service description on the Interior Design Services Page.
+- The superuser is asked to confirm if they wish to delete the service or cancel.
+- The superuser will receive a success message notifying them that the service has been successfully deleted.
 
 
 ## Fixed Bugs

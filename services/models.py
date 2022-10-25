@@ -44,7 +44,7 @@ class PreviousProject(models.Model):
     """Model for previous projects"""
     service = models.ForeignKey(
         Service, on_delete=models.CASCADE, related_name='previous_project')
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=False)
     location = models.CharField(max_length=254)
 
     def get_absolute_url(self):
