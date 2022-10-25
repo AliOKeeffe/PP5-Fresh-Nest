@@ -269,10 +269,39 @@ Custom Error Pages were created to give the user more information on the error a
 - If the user manually types in a number >99 and clicks 'update' an error message will display informing the user of the correct parameters.
 
 **Total Section**
-At the end of the line items is a summary of the costs.
-The summary features the bags total, delivery charges and the grand total to pay.
-In between the bag total and the delivery total, users will either find a message informing them of how much more they need to spend to receive free delivery, or it will show how much delivery they would have paid if they didn't receive the offer. This message will also be different if it is the user's first ever order, in which case it will display 'FREE DELIVERY on your first order!'.
-Beneath the grand total is two buttons. From here the user can either continue to the checkout or return to the products page by clicking 'Continue Shopping'.
+- At the end of the line items is a summary of the costs.
+- The summary features the bags total, delivery cost and the grand total to pay.
+- Underneath the grand total users will find a message informing them of how much more they need to spend to receive free delivery if they haven't already met the free delivery threshold (€250). 
+- Beneath the grand total is two buttons. From here the user can either continue to the checkout or return to the products page by clicking 'Continue Shopping'.
+
+### Checkout 
+
+**Details**
+- Within the details dection the user can fill out their contact details, delivery address, and card number.
+- If the user is a guest, a link to create an account or login will be present.
+- If the user is signed in a checkbox to save the delivery information can be checked.
+- If the user is signed in and has delivery information saved, the delivery details and email address will be automatically filled in.
+- If a user leaves a required field empty, inputs whitespace in a required field or includes text in the phone number field an error message will prompt the user to 'Fill in the field' or 'match the format requested'
+
+**Order Summary**
+- The order summary section details all the items about to be purchased, along with the quantity, subtotal and a grand total.
+- Next to the order summary title will be a number reflecting the total number of items that appear in the order.
+- Clicking the product image in the summary will take the user to that product's detail page.
+
+**Payment**
+- The card payment is handled by Stripe to ensure secure payment.
+- Incorrect card numbers will automatically show an invalid card number error.
+- A loading screen will appear when a payment is being processed to stop the user clicking away.
+- There is a warning message at the bottom of the page informing the user of how much their card is about to be charged.
+- If the payment form doesn't submit properly or the user closes the browser during the wait animation, the order will still be created in the database through the webhook. 
+- Once the payment is processed, the webhook will search the database to confirm the order exists. If it cannot find it, it will create one using the payment information.
+
+**Confirmation**
+- Once the order has been processed the user is taken to the checkout success page.
+This page summarises the completed order.
+- An email wil be sent to the user with their order confirmation
+- At the end of the summary is a 'Keep Shopping' button that takes the user back to the Home Decor page.
+
 
 
 ## Fixed Bugs
