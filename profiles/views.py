@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
-from .forms import UserProfileForm
 
 from checkout.models import Order
+from .models import UserProfile
+from .forms import UserProfileForm
 
 
 @login_required
@@ -22,7 +22,7 @@ def profile(request):
             form is valid """)
     else:
         form = UserProfileForm(instance=profile)
-    # this can access all orders for the current user given the "orders" is the related name on the user_profile field in the order model
+
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
@@ -33,6 +33,7 @@ def profile(request):
     }
 
     return render(request, template, context)
+
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)

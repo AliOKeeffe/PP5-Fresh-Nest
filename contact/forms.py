@@ -1,6 +1,6 @@
 from django import forms
 from .models import Contact
-from django.core.exceptions import ValidationError
+
 
 class ContactForm(forms.ModelForm):
     class Meta:

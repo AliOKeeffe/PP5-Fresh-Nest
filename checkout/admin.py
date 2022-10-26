@@ -1,13 +1,17 @@
+"""imports for admin page"""
+
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """Allows admin to manage order line items via the admin panel"""
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """Allows admin to manage orders via the admin panel"""
     inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = ('order_number', 'date',
@@ -25,5 +29,6 @@ class OrderAdmin(admin.ModelAdmin):
                     'grand_total',)
 
     ordering = ('-date',)
+
 
 admin.site.register(Order, OrderAdmin)

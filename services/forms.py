@@ -2,6 +2,7 @@ from django import forms
 from .models import Service, Testimonial, PreviousProject
 from products.widgets import CustomClearableFileInput
 
+
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service

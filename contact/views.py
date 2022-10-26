@@ -9,13 +9,6 @@ from django.urls import reverse_lazy
 from .forms import ContactForm
 from .models import Contact
 
-# Create your views here.
-
-# class ViewEnquiries(generic.ListView):
-#     """ This view is used to display contact form """
-#     model = Contact
-#     template_name = 'contact/contact.html'
-
 
 class ContactUs(View):
     """
@@ -107,7 +100,8 @@ class Enquiries(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
         return context
 
 
-class EnquiryDetail(LoginRequiredMixin, UserPassesTestMixin, generic.DetailView):
+class EnquiryDetail(
+        LoginRequiredMixin, UserPassesTestMixin, generic.DetailView):
     """ This view is used to display selected enquiry detail """
     model = Contact
     template_name = 'contact/enquiry_detail.html'

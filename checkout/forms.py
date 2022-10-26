@@ -1,15 +1,18 @@
+"""Order Form Imports"""
+
 from django import forms
 from .models import Order
-from django.core.exceptions import ValidationError
+
 
 class OrderForm(forms.ModelForm):
+    """ Create Order Form """
     class Meta:
+        """Get order model, choose fields to display"""
         model = Order
         fields = ('full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',
                   'town_or_city', 'postcode', 'country',
                   'county',)
-
 
     def __init__(self, *args, **kwargs):
         """
@@ -39,18 +42,18 @@ class OrderForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
 
-        # To prevent form being submitted with non-numerical phonenumber  
+        # To prevent form being submitted with non-numerical phonenumber
         self.fields['phone_number'].widget.attrs[
             'pattern'] = "[0-9]{1,15}"
 
-        # To prevent form being submitted with whitespace
-        # https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces
+        """
+        To prevent form being submitted with whitespace
+        Credit:
+        https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces
+        """
         self.fields['full_name'].widget.attrs[
             'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
         self.fields['street_address1'].widget.attrs[
             'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
         self.fields['town_or_city'].widget.attrs[
             'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
-
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-gold'

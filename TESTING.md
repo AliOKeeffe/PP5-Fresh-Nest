@@ -95,8 +95,8 @@
 #### EPIC | Purchasing
 *As a shopper, I can add a number of products in different quantities to my shopping bag so that I can purchase them all together when I am ready.*
 
--Within the product detail page there is a quantity selector and an Add to Bag button. Shoppers can adjust the quantity by using the buttons located on either side of the input, or by typing in the amount.
--When the user clicks on the add to bag button, the chosen quantity of the product is added to the user's shopping bag.
+- Within the product detail page there is a quantity selector and an Add to Bag button. Shoppers can adjust the quantity by using the buttons located on either side of the input, or by typing in the amount.
+- When the user clicks on the add to bag button, the chosen quantity of the product is added to the user's shopping bag.
 
 ![Product Detail](docs/readme_images/features/product_detail.png)
 
@@ -104,7 +104,7 @@
 
 - As the user adds products to their bag, a toast message appears in the top right-hand corner of the screen informing the user that the item has been added, giving them a snapshot of the bag contents and the total cost of the bag.
 
-![Product Detail](docs/readme_images/features/bag_total.png)
+![bag total](docs/readme_images/features/bag_total.png)
 
 *As a shopper I can view the contents of my shopping bag at any time so I can see what is included and the total cost.*
 - When the user clicks on the shopping bag icon in the nav bar they are taken to the shopping bag page which shows the products which the user has added to their cart, unit price, quantity and subtotal.
@@ -114,7 +114,7 @@
 
 *As a shopper I can adjust the quantity of individual products in my bag so that I can easily make changes before I purchase.*
 - When the user is viewing the shopping bag, they are able to adjust the quantity of each product line item and update the subtotal by clicking the update icon.
-- The user is able to delete the product by clicking the trash icon and the bag should be updated accordingly.
+- The user is able to delete the product by clicking the bin icon and the bag should be updated accordingly.
 
 ![Update Delete buttons](docs/readme_images/features/update_delete_buttons.png)
 
@@ -147,25 +147,40 @@
 ![add product](docs/readme_images/features/add_product.png)
 - The site owner is able to edit and delete products by clicking buttons on both the main Home Decor page and also the product detail page.
 - The edit form is pre-populated with the product information.
+
 ![edit product](docs/readme_images/features/edit_product.png)
+![delete product](docs/readme_images/features/delete_product.png)
 
 *As a site owner, I can add/edit/delete interior design services provided through an easy-to-use interface so that I can manage the site's contents.*
 - When the site owner is logged in, a Design Service Management option appears in the User drop-down menu.
 - When the site owner navigates to the Design Service Management page they can add a new design service to the site through a user-friendly form. 
+
+![Add Service](docs/readme_images/features/add_service.png)
 - The site owner is able to edit and delete services by clicking buttons on the Interior Design Services page.
 -  The edit forms fields are pre-populated with all service information. 
+
+![edit Service](docs/readme_images/features/edit_service.png)
+![Delete Service](docs/readme_images/features/delete_service.png)
 
 *As a site owner, I can add/delete images and location of previous design projects so that I can manage the site's contents.*
 - When the site owner is logged in, a Previous Project Management option appears in the User drop-down menu.
 - When the site owner navigates to the Previous Project Management page they can add details of a previous project to the site. through a user-friendly form. 
+
+![Add Project](docs/readme_images/features/add_project.png)
 - The site owner is able to delete project images from the Previous Projects page by clicking the 'x' in the top right-hand corner of the picture.
+
+![Delete Project](docs/readme_images/features/delete_project.png)
 
 *As a site owner, I can view and delete customer enquiries on the front-end without having to access the admin panel.*
 - When the site owner is logged in, an Enquiries Management option appears in the User drop-down menu.
 - When the site owner navigates to the Enquiries Management page they can see a list of user enquiries sorted from newest to oldest.
-- Emails that have been read should be greyed out.
-- When the site owner clicks on an enquiry they should be taken to the individual enquiry detail.
+- Emails that have been read are greyed out.
+
+![Enquiries Dashboard](docs/readme_images/features/enquiry_dashboard.png)
+- When the site owner clicks on an enquiry they are taken to the individual enquiry detail.
 - The site owner can choose to delete the enquiry or to go back to the list of enquiries.
+
+![Enquiry Detail](docs/readme_images/features/enquiry_detail.png)
 
 #### EPIC | User Interaction
 *As a site user, I can submit an enquiry form so that I can contact the site owner.*
@@ -174,16 +189,26 @@
 - If the user is logged in, their email address is prepopulated.
 - When the form is submitted, the user receives an email confirmation of their enquiry so that they have a record of it.
 
+![Enquiry Form](docs/readme_images/features/enquiry_form.png)
+
 *As a site user, I can add / edit / delete a testimonial in relation to a consultation I received so that I can give my feedback.*
 - When a logged-in user clicks on the "Add Testimonial" button on the Testimonials page, they can see a user-friendly form where they can add a new Testimonial to the site.
+
+![Add Testimonial](docs/readme_images/features/add_testimonial.png)
 - If the user is not logged in they are redirected to the log-in page.
 - The user is able to edit and delete their own testimonials from buttons on the Testimonials Page.
 - The edit forms fields are pre-populated with testimonial information.
+
+![Edit Testimonial](docs/readme_images/features/edit_testimonial.png)
+![Delete Testimonial](docs/readme_images/features/delete_testimonial.png)
 - The completed testimonial is automatically populated with the user's username and date underneath the body.
 
+![Testimonials](docs/readme_images/features/testimonials.png)
 
 *As a user, I can sign up for the website's newsletter so that I can keep up to date with new products and promotions*
 - In the footer is a 'Newsletter' section. Here the user can input their email address to sign up.
+
+![footer](docs/readme_images/features/footer.png)
 
 ## Validator Testing
 ### HTML

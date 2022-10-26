@@ -144,11 +144,15 @@ Custom Error Pages were created to give the user more information on the error a
 
 **User Icon**
 
-![user menu](docs/readme_images/features/superuser_login.png)
+
 - The User icon navigation link is a drop down menu which includes the Sign up and Log in links. 
 - The options to Sign up or Log in will change to the option to log out once a user has logged in.
 - Once a user has signed in, the 'My Profile' option becomes available in the User dropdown.
+
+![Logged In](docs/readme_images/features/logged_in.png)
 - If the superuser has signed in, more options such as 'Home Decor Management', 'Design Service Management', 'Previous Project Management' and 'Enquiries' become available in the User dropdown.
+
+![user menu](docs/readme_images/features/superuser_login.png)
 - The navigation bar is fully responsive, collapsing into a hamburger menu when the screen size becomes too small.
 - Hovering over the links will turn the font gold.
 
@@ -157,6 +161,9 @@ Custom Error Pages were created to give the user more information on the error a
 ![bag](docs/readme_images/features/bag.png)
 - Located on the right side of the navbar next to the User icon is the bag Icon.
 - Once a product is added to the bag, a number displaying the total quantity of items appears, located at the top right of the bag icon.
+- As the user adds products to their bag, a toast message appears in the top right-hand corner of the screen informing the user that the item has been added, giving them a snapshot of the bag contents and the total cost of the bag.
+
+![bag total](docs/readme_images/features/bag_total.png)
 - Clicking the bag icon navigates the user to the shopping bag page which displays a summary of what's been added.
 
 ### Footer
@@ -222,16 +229,21 @@ Custom Error Pages were created to give the user more information on the error a
 
 ![all products](docs/readme_images/features/products_all.png)
 - When clicking the 'Home Decor' link in the navbar the dropdown menu will show all the different categories including 'Sofas', 'Tables', 'Chairs', 'Lighting' and 'Textiles'. 
+
+![Categories](docs/readme_images/features/categories.png)
 - The 'All' link will display a list of all products from the database.
-- Clicking any of the categories will filter the products to only show products from the category selected. 
+- Clicking any of the categories will filter the products to only show products from the category selected.
+- The category selected will display as the page heading.
 
 ![products](docs/readme_images/features/products.png)
 
-- The category selected will display as the page heading.
+
 - Each product card shows an image of the product, its title, excerpt and price.
 - If the user is a superuser, edit and delete buttons will appear at the bottom of the product card.
 - The products page is fully responsive, adjusting how many products are on each row depending on the user's screen size.
 - A sort box is located on the products page where users can sort all products by price in ascending or descending order and by title (A-Z).
+
+![sort](docs/readme_images/features/sort.png)
 
 ### Product Detail
 
@@ -453,7 +465,7 @@ This page summarises the completed order.
 ### Error Pages
 Custom Error Pages were created to give the user more information on the error and to guide them back to the site.
 
-![header](docs/readme_images/features/403_error.png)
+![403 error](docs/readme_images/features/403_error.png)
 
 
 - 400 Bad Request - Fresh Nest is unable to handle this request.
