@@ -135,15 +135,15 @@
 <script>
     // update quantity on click
     $('.update-link').click(function (e) {
-        var form = $(this).parent().siblings().children('.update-form')
+        var form = $(this).parent().siblings().children('.update-form');
         form.submit();
-    })
+    });
 
+    // update quantity on click mobile
     $('.mobile-update-link').click(function (e) {
-        var form = $(this).prev('.update-form')
+        var form = $(this).prev('.update-form');
         form.submit();
-    })
-
+    });
 
     // Remove item and reload on click
     $('.remove-btn').click(function (e) {
@@ -158,6 +158,6 @@
             .done(function () {
                 location.reload();
             });
-    })
+    });
 </script>
 {% endblock %}

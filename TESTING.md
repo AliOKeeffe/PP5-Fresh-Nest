@@ -1,8 +1,5 @@
 # Testing
 
-
-
-
 ## User Story Testing
 
 #### EPIC | Viewing and Navigation
@@ -268,3 +265,45 @@ No errors were found when passing my CSS files through the official [W3C CSS Val
 
 *profile.css*
 ![profile.ccs validation](docs/readme_images/profile_css_validation.png)
+
+
+## JSHINT
+All Javascript was passed through [Jshint](https://jshint.com/) with no issues.
+
+**Base**
+
+![base.html JS validation](docs/readme_images/js_validation/base.html_js.png)
+
+**Products**
+
+![products.html JS validation](docs/readme_images/js_validation/products_js.png)
+
+**Profile**
+
+![profile JS validation](docs/readme_images/js_validation/profile_js.png)
+
+**Checkout**
+
+![Checkout JS validation](docs/readme_images/js_validation/stripe_elements.js_js.png)
+
+**Bag**
+
+![Bag JS validation](docs/readme_images/js_validation/bag.html_js.png)
+
+**Quantity Input**
+
+![Quantity Input JS validation](docs/readme_images/js_validation/quantity_input_script.html_js.png)
+
+**Image Selector**
+
+![Image Selector JS validation](docs/readme_images/js_validation/add_image_js.png)
+
+
+## Python Validation - Pycodestyle
+Python testing was done using Pycodestyle to ensure there were no syntax errors.
+
+The only errors displayed (as per below screenshot) can be ignored as the are within automatically generated files with the exception of env.py. 
+
+I have ignored the the formatting errors related to env.py as they relate to my Secret Keys and Database URL being to long. This file is not committed to github.
+
+![Python Linter Errors](docs/readme_images/python_linter_errors.png)
