@@ -24,6 +24,7 @@
 - When clicking the 'Home Decor' link in the navbar the dropdown menu will show all the different categories. Clicking any of these will take the user to the products page, showing only items from the category selected. The category selected will display as the page heading.
 
 ![Categories](docs/readme_images/features/categories.png)
+
 ![products](docs/readme_images/features/products.png)
  
 *As a shopper I can search all products so that I can find what I am looking for*
