@@ -412,6 +412,7 @@ Custom Error Pages were created to give the user more information on the error a
 ### Checkout 
 
 ![checkout](docs/readme_images/features/checkout.png)
+
 **Details**
 - Within the details dection the user can fill out their contact details, delivery address, and card number.
 - If the user is a guest, a link to create an account or login will be present.
@@ -664,3 +665,209 @@ For this site, a Facebook business page has been created for organic social medi
 
 ### Email Marketing
 Visitors to the site can sign up to the newsletter and do not need to have an account to do so. A signup box is included in the footer of the site. This allows the business to share news with customers and potential customers including new products/services and special offers. Mailchimp was used to create this service. 
+
+## Testing
+Testing and results can be found [here](/TESTING.md)
+
+## Deployment - Heroku
+
+To deploy this page to Heroku from its GitHub repository, the following steps were taken:
+
+### Create the Heroku App:
+- Log in to [Heroku](https://dashboard.heroku.com/apps) or create an account.
+- On the main page click the button labelled New in the top right corner and from the drop-down menu select "Create New App".
+- Enter a unique and meaningful app name.
+- Next select your region.
+- Click on the Create App button.
+
+### Attach the Postgres database:
+- In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+- Copy the DATABASE_URL located in Config Vars in the Settings Tab.
+- Go back to your IDE and install 2 more requirements:
+    - `pip3 install dj_databse_url`
+    - `pip3 install psycopg2-binary` 
+- Create requirements.txt file by typing `pip3 freeze --local > requirements.txt`
+- In settings.py file import dj_database_url, comment out the default configurations within database settings and add the following: 
+- 
+```
+DATABASES = {
+    'default': dj_database_url.parse(*Enter Database URL here*)
+}
+```
+- Run migrations and create a superuser for the new database. 
+- Create an if statement in settings.py to run the postgres database when using the app on heroku or sqlite if not
+
+```
+    if 'DATABASE_URL' in os.environ:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+    }
+```
+
+- Create requirements.txt file by typing `pip3 freeze --local > requirements.txt`
+- Create a file named "Procfile" in the main directory and add the following: `web: gunicorn project-name.wsgi:application`
+- Add Heroku to the ALLOWED_HOSTS list in settings.py in the format ['app_name.heroku.com', 'localhost']
+
+- Push these changes to Github.
+
+### Update Heroku Config Vars
+Add the following Config Vars in Heroku:
+
+|     Variable name     |                           Value/where to find value                           |
+|:---------------------:|:-----------------------------------------------------------------------------:|
+| AWS_ACCESS_KEY_ID     | AWS CSV file(instuctions below)                                               |
+| AWS_SECRET_ACCESS_KEY | AWS CSV file(instuctions below)                                               |
+| DATABASE_URL          | Postgres generated (as per step above)                                        |
+| EMAIL_HOST_PASS       | Password from email client                                                    |
+| EMAIL_HOST_USER       | Site's email address                                                          |
+| SECRET_KEY            | Random key generated online                                                   |
+| STRIPE_PUBLIC_KEY     | Stripe Dashboard > Developers tab > API Keys > Publishable key                |
+| STRIPE_SECRET_KEY     | Stripe Dashboard > Developers tab > API Keys > Secret key                     |
+| STRIPE_WH_SECRET      | Stripe Dashboard > Developers tab > Webhooks > site endpoint > Signing secret |
+| USE_AWS               | True (when AWS set up - instructions below)                                   |
+
+### Deploy
+- NB: Ensure in Django settings, DEBUG is False
+- Go to the deploy tab on Heroku and connect to GitHub, then to the required repository. 
+- Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Manually deployed branches will need re-deploying each time the repo is updated.
+- Click View to view the deployed site.
+
+The site is now live and operational.
+
+
+## Set up AWS
+### AWS S3 Bucket
+- Create an AWS account.
+- From the 'Services' tab on the AWS Management Console, search 'S3' and select it.
+- Click 'Create a new bucket', give it a name(match your Heroku app name if possible), and choose the region closest to you.
+- Under 'Object Ownership' select 'ACLs enabled' and leave the Object Ownership as Bucket owner preferred.
+- Uncheck block all public access and acknowledge that the bucket will be public.
+- Click 'Create bucket'.
+- Open the created bucket, go to the 'Properties' tab. Scroll to the bottom and under 'Static website hosting' click 'edit' and change the Static website hosting option to 'enabled'. Copy the default values for the index and error documents and click 'save changes'.
+- Open the 'Permissions' tab, locate the CORS configuration section and add the following code:
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+- In the 'Bucket Policy' section and select 'Policy Generator'.
+- Choose 'S3 Bucket Policy' from the type dropdown.
+- In 'Step 2: Add Statements', add the following settings:
+    - Effect: Allow
+    - Principal: *
+    - Actions: GetObject
+    - ARN: Bucket ARN (copy from S3 Bucket page)
+- Click 'Add Statement'.
+- Click 'Generate Policy'.
+- Copy the policy from the popup that appears
+- Paste the generated policy into the Permissions > Bucket Policy area.
+- Add '/*' at the end of the 'Resource' key, and save.
+- Go to the 'Access Control List' section click edit and enable List for Everyone (public access) and accept the warning box.
+
+
+### IAM
+
+- From the 'Services' tab on the AWS Management Console, search IAM and select it.
+- Once on the IAM page, click 'User Groups' from the side bar, then click 'Create group'. Choose a name(associated with the S3 Bucket name) and click 'Create'.
+- Go to 'Policies' > 'Create New Policy' > 'JSON' > 'Import Managed Policy' > search 'S3' > select 'AmazonS3FullAccess' > Click 'Import'.
+- Get the bucket ARN from 'S3 Permissions'
+- Delete the '*' from the 'Resource' key and add the following code into the area:
+
+```
+"Resource": [
+    "YOUR-ARN-NO-HERE",
+    "YOUR-ARN-NO-HERE/*"
+]
+```
+
+- Click 'Next' > 'Review' > provide a name and description(associated with the S3 Bucket name), and click 'Create Policy'.
+- Go to 'User Groups'> Open the created group > 'Permissions' > 'Add Permissions' > 'Attach Policies' > search for the policy you created and click 'Add Permissions'.
+- Finally you need to create a user to put in the group. Select users from the sidebar and click 'Add user'.
+- Give your user a user name, check 'Programmatic Access'.
+- Click 'Next' and select the group you created.
+- Keep clicking 'Next' until you reach the 'Create user' button and click that.
+- Download the CSV file which contains the AWS_SECRET_ACCESS_KEY and your AWS_ACCESS_KEY_ID needed in the Heroku variables.
+- This will be the only time that you will be able to access and download this file. If you don't download it, you'll have to start the AWS process again
+
+## Forking this repository
+- Locate the repository at this link [The Easy Eater](https://github.com/AliOKeeffe/PP4_My_Meal_Planner).
+- At the top of the repository, on the right side of the page, select "Fork" from the buttons available. 
+- A copy of the repository is now created.
+
+## Cloning this repository
+To clone this repository follow the below steps: 
+
+1. Locate the repository at this link [The Easy Eater](https://github.com/AliOKeeffe/PP4_My_Meal_Planner). 
+2. Under **'Code'**, see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the prefered cloning option, and then copy the link provided. 
+3. Open **Terminal**.
+4. In Terminal, change the current working directory to the desired location of the cloned directory.
+5. Type **'git clone'**, and then paste the URL copied from GitHub earlier. 
+6. Type **'Enter'** to create the local clone. 
+
+## Languages
+
+- Python
+- HTML5
+- CSS3
+- Javascript
+
+## Frameworks - Libraries - Programs Used
+- [Django](https://www.djangoproject.com/): Main python framework used in the development of this project
+- [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html): authentication library used to create the user accounts
+- [JQuery](https://jquery.com/)
+- [PostgreSQL](https://www.postgresql.org/) was used as the database for this project.
+- [SQLite](https://www.sqlite.org/index.html) - was used as the database during production.
+- [Stripe](https://stripe.com/ie) used for the payments system.
+- [AWS](https://aws.amazon.com/?nc2=h_lg) used for file storage.
+- [Heroku](https://dashboard.heroku.com/login) - was used as the cloud based platform to deploy the site on.
+- [Responsinator](http://www.responsinator.com/) - Used to verify responsiveness of website on different devices.
+- [Balsamiq](https://balsamiq.com/) - Used to generate Wireframe images.
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used for overall development and tweaking, including testing responsiveness and performance.
+- [Font Awesome](https://fontawesome.com/) - Used for icons in information bar.
+- [GitHub](https://github.com/) - Used for version control and agile tool.
+- [Google Fonts](https://fonts.google.com/) - Used to import and alter fonts on the page.
+- [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
+- [Jshint](https://jshint.com/) - used to validate javascript
+- [Coolors](https://coolors.co/) - Used to create colour palette.
+- [Favicon](https://favicon.io/) - Used to create the favicon.
+- [Lucidchart](https://lucid.app/documents#/dashboard) - used to create the database schema design
+- [Grammerly](https://app.grammarly.com/) - used to proof read the README.md
+- [Techsini](https://techsini.com/multi-mockup/index.php) - Site mockup generator
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) used to manage Django Forms
+- [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/): CSS Framework for developing responsiveness and styling
+- [Hatchful](https://hatchful.shopify.com/): Used to generate custom logo
+- [Tables Generator](https://www.tablesgenerator.com/markdown_tables): Used to convert excel testing tables to markdown
+
+
+## Credits
+
+- [W3Schools](https://www.w3schools.com/)
+- [Django Docs](https://docs.djangoproject.com/en/4.0/)
+- [Bootstrap 4.6 Docs](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- [Stack Overflow](https://stackoverflow.com/)
+- [Pexels](https://www.pexels.com/): All imagery on the site was sourced from Pexels.com
+- [Unsplashed]
+- [Code Institute - Blog Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog)
+
+
+## Acknowledgments
+
+Many thanks to my mentor Antonio for his support and advice. Thanks to The Code Institute slack community for their quick responses and very helpful feedback.
