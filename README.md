@@ -862,6 +862,7 @@ To clone this repository follow the below steps:
 - [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/): CSS Framework for developing responsiveness and styling
 - [Hatchful](https://hatchful.shopify.com/): Used to generate custom logo
 - [Tables Generator](https://www.tablesgenerator.com/markdown_tables): Used to convert excel testing tables to markdown
+- [Sitemap Generator](www.xml-sitemaps.com): used to create sitemap.xml 
 
 privacy policy generator
 
