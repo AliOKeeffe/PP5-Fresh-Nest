@@ -414,13 +414,13 @@ footer a:hover {
     border-right: 1px solid rgba(245, 246, 245, 0.2);
 }
 
-.sponsor-logo {
+.member-logo {
     width: 120px;
     height: 120px;
     object-fit: cover;
 }
 
-.sponsor-logo:hover {
+.member-logo:hover {
     opacity: 80%;
 }
 
@@ -540,13 +540,13 @@ footer a:hover {
         padding: .25rem .5rem !important;
     }
 
-    .sponsor-logo {
+    .member-logo {
         width: 100px;
         height: 100px;
 
     }
     
-    .sponsor-logo:hover {
+    .member-logo:hover {
         opacity: 80%;
     }
     
