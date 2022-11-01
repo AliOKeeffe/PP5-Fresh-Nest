@@ -242,6 +242,7 @@ Custom Error Pages were created to give the user more information on the error a
 
 
 - The User icon navigation link is a drop down menu which includes the Sign up and Log in links. 
+- Once a user has signed in, their username will display beside the user icon.
 - The options to Sign up or Log in will change to the option to log out once a user has logged in.
 - Once a user has signed in, the 'My Profile' option becomes available in the User dropdown.
 

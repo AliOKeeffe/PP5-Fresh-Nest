@@ -70,6 +70,7 @@
 *As a site user I can see my login status so that I know if I'm logged in or out.*
 
 - Whenever a user logs in or logs out a toast message will appear notifying the user or their action.
+- Their user name will display in the navbar.
 - When signed in the options in the user menu will change to show Profile and Log Out buttons.
 
 ![Logged In](docs/readme_images/features/logged_in.png)
