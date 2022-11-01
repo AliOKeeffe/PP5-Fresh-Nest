@@ -61,6 +61,9 @@ body {
     color: #4D4E54;;
 }
 
+.username:hover {
+    color: #4D4E54;;
+}
 
 .navbar ul a {
     text-transform: uppercase;

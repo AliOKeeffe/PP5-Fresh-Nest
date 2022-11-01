@@ -83,7 +83,7 @@
                                 <a class="text-gold nav-link px-1" href="#" id="user-options" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false" aria-label="user options menu">
                                     <div class="text-center">
-                                        <div><i class="far fa-user fa-lg"></i></div>
+                                        <div><span class="pr-3 text-capitalize username">{{ user.username }}</span><i class="fas fa-user fa-lg"></i></div>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="user-options">
@@ -104,13 +104,6 @@
                                     {% endif %}
                                 </div>
                             </li>
-                            <!-- <li class="list-inline-item">
-                                <a class="text-gold nav-link px-1" href="#" aria-label="My Saved Items">
-                                    <div class="text-center">
-                                        <div><i class="far fa-heart fa-lg"></i></div>
-                                    </div>
-                                </a>
-                            </li> -->
                             <li class="list-inline-item nav-icons">
                                 <a class="text-gold nav-link px-1" href="{% url 'view_bag' %}" aria-label="View Bag">
                                     <div class="text-center">

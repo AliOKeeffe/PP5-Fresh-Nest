@@ -570,58 +570,6 @@ Custom Error Pages were created to give the user more information on the error a
 - 404 Page Not Found - The page you're looking for doesn't exist.
 - 500 Server Error - Due to an internal error we are unable to process this request.
 
-
-## Fixed Bugs
-
-### Update bag quantity
-
-I wanted the bag subtotal to automatically update when the product quantity was changed rather than clicking an 'update' link. To do this I wrote an AJAX Post method to request the 'adjust bag' url and populate it with the updated quantity and item id and reload the page. 
-
-When I first attempted to do this I put a click listener on the + and - buttons so the page would automatically update when these were clicked. However I quickly ran into issues due to the fact that there was already a click listener on those buttons (which updates the quantity in the box). After some research I discovered that this issue is called a race condition "an undesirable situation that occurs when a device or system attempts to perform two or more operations at the same time".
-
-In order to solve this problem I removed the click listener which updated the bag total and instead created a new function 'Update Bag' which is called when the +/- is clicked (but after the quantity box is updated). Two parameters are passed into the function (quantity and item ID) and the AJAX method within the function uses these parameters to update the bag total. 
-
-### Deployment
-
-When I initially attempted to deploy to Heroku the build would fail with the error message "Could not build wheels for backports.zoneinfo". This was due to the fact that Heroku by default uses python version 3.10 which isn't compatible with backports.zoneinfo. In order to fix this I had to create a runtime.txt to specify the Python version for Heroku to install (python-3.8.13). However the next time I tried to deploy I got a further error "Requested runtime 'python-3.8.13' is not available for this stack (heroku-22)". After some research I realised that in order to use this version of Python I would have to use heroku-20 instead of heroku-22. I was able to downgrade the heroku version using the command `heroku stack:set heroku-20 -a app name` which resolved the issue and I was able to deploy the site. 
-
-prevent whitespace 
-https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces
-
-### Checkout form
-When testing the Checkout Form, I was able to input white space into into the form text fields and enter text into the phone number field and still submit the form. This would then return a 500 error however the Stripe payment would still get processed. I had followed the steps in the Boutique Ado project for the checkout app and when I tested the Boutique Ado project and a number of other students projects the same situation would arise when I submitted with form with just whitespace in the form fields. 
-
-I wrote a custom `clean_fieldname` method for a number of the form fields in order to `trim` whitespace from the form fields during form validation. 
-
-``` 
-    def clean_full_name(self):
-        if not self.cleaned_data['full_name'].strip():
-            raise ValidationError("You must enter a fullname")
-        return self.cleaned_data['full_name']
-```
-
-However this didn't solve the issue as I realised that the form validation wasn't actually getting called before the payment was processed. 
-
-After a bit of digging I discovered that the reason for this is due to the fact the Stripe Javascript is called when the submit button is clicked due to the event listener on the submit button. The Javascript prevents the default form submission meaning that the card is actually charged before any form validation is done. 
-
-When the response comes back from Stripe, the `.then()` part of the JS runs, which checks to see if the card was charged successfully, and if so, the form is then submitted and validation is ran. If the form is valid, it saves the order to the database. If the validation fails webhook will create the order in the database anyway.
-
-As a work around in the short term I was able to add a widget to the form fields in the Checkout Form to specify the pattern attribute of the HTML input. This prevents the form from submitted if there is whitespace at the beginning of a text input or if there is letters in the phone field.
-
-```
-        self.fields['full_name'].widget.attrs[
-            'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
-        self.fields['street_address1'].widget.attrs[
-            'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
-        self.fields['town_or_city'].widget.attrs[
-            'pattern'] = "([^\\s][A-z0-9À-ž\x27\\s]+)"
-```
-
-I found [this](https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces) stackoverflow post helpful when learning about the pattern attribute.
-
-Ideally I would have preferred to find a way to perform full form validation before the payment is processed however due to time contraints I was unable to figure out a work around for the purpose of this project. A suggestion would be to create the order in the database `on submit` with a status of "Pending" and then process the Payment. Once the payment is processed successfully, update the order status to "complete" in the database. 
-
-
 ## Marketing Strategy
 
 A number of different marketing strategies have been utilised to promote Fresh Nest including SEO, content marketing, social media marketing and email marketing. Each of these strategies have been discussed individually below:  
@@ -687,11 +635,12 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
     - `pip3 install dj_databse_url`
     - `pip3 install psycopg2-binary` 
 - Create requirements.txt file by typing `pip3 freeze --local > requirements.txt`
+- Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file. 
 - In settings.py file import dj_database_url, comment out the default configurations within database settings and add the following: 
-- 
+
 ```
 DATABASES = {
-    'default': dj_database_url.parse(*Enter Database URL here*)
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 ```
 - Run migrations and create a superuser for the new database. 
@@ -727,7 +676,7 @@ Add the following Config Vars in Heroku:
 | DATABASE_URL          | Postgres generated (as per step above)                                        |
 | EMAIL_HOST_PASS       | Password from email client                                                    |
 | EMAIL_HOST_USER       | Site's email address                                                          |
-| SECRET_KEY            | Random key generated online                                                   |
+| SECRET_KEY            | Random key generated as above                                                 |
 | STRIPE_PUBLIC_KEY     | Stripe Dashboard > Developers tab > API Keys > Publishable key                |
 | STRIPE_SECRET_KEY     | Stripe Dashboard > Developers tab > API Keys > Secret key                     |
 | STRIPE_WH_SECRET      | Stripe Dashboard > Developers tab > Webhooks > site endpoint > Signing secret |
@@ -784,11 +733,11 @@ The site is now live and operational.
 
 
 ### IAM
-
-- From the 'Services' tab on the AWS Management Console, search IAM and select it.
-- Once on the IAM page, click 'User Groups' from the side bar, then click 'Create group'. Choose a name(associated with the S3 Bucket name) and click 'Create'.
-- Go to 'Policies' > 'Create New Policy' > 'JSON' > 'Import Managed Policy' > search 'S3' > select 'AmazonS3FullAccess' > Click 'Import'.
-- Get the bucket ARN from 'S3 Permissions'
+- From the 'Services' menu, search IAM and select it.
+- Once on the IAM page, click 'User Groups' from the side bar, then click 'Create group'. Choose a name and click 'Create'.
+- Go to 'Policies', click 'Create New Policy'. Go to the 'JSON' tab and click 'Import Managed Policy'. 
+- Search 'S3' and select 'AmazonS3FullAccess'. Click 'Import'.
+- Get the bucket ARN from 'S3 Permissions' as per above.
 - Delete the '*' from the 'Resource' key and add the following code into the area:
 
 ```
@@ -798,24 +747,81 @@ The site is now live and operational.
 ]
 ```
 
-- Click 'Next' > 'Review' > provide a name and description(associated with the S3 Bucket name), and click 'Create Policy'.
-- Go to 'User Groups'> Open the created group > 'Permissions' > 'Add Permissions' > 'Attach Policies' > search for the policy you created and click 'Add Permissions'.
+- Click 'Next Tags' > 'Next Review' and then provide a name and description and click 'Create Policy'.
+- Click'User Groups' and open the created group. Go to the 'Permissions' tab and click 'Add Permissions' and then 'Attach Policies'.
+- Search for the policy you created and click 'Add Permissions'.
 - Finally you need to create a user to put in the group. Select users from the sidebar and click 'Add user'.
 - Give your user a user name, check 'Programmatic Access'.
 - Click 'Next' and select the group you created.
 - Keep clicking 'Next' until you reach the 'Create user' button and click that.
-- Download the CSV file which contains the AWS_SECRET_ACCESS_KEY and your AWS_ACCESS_KEY_ID needed in the Heroku variables.
-- This will be the only time that you will be able to access and download this file. If you don't download it, you'll have to start the AWS process again
+- Download the CSV file which contains the AWS_SECRET_ACCESS_KEY and your AWS_ACCESS_KEY_ID needed in the Heroku variables as per above list and also in your env.py.
+
+
+### Connecting S3 to Django 
+- Go back to your IDE and install 2 more requirements:
+    - `pip3 install boto3`
+    - `pip3 install django-storages` 
+- Update your requirements.txt file by typing `pip3 freeze --local > requirements.txt` and add storages to your installed apps.
+- Create an if statement in settings.py 
+
+```
+if 'USE_AWS' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = 'insert-your-bucket-name-here'
+    AWS_S3_REGION_NAME = 'insert-your-region-here'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+```
+- Then add the line 
+
+    - `AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'` to tell django where our static files will be coming from in production.
+
+
+- Create a file called custom storages and import both our settings from django.con as well as the s3boto3 storage class from django storages. 
+- Create the following classes:
+
+```
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+```
+
+- In settings.py add the following inside the if statement:
+
+```
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATICFILES_LOCATION = 'static'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIAFILES_LOCATION = 'media'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+```
+
+- and then add the following at the top of the if statement:
+```
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
+```
+
+- Go to S3, go to your bucket and click 'Create folder'. Name the folder 'media' and click 'Save'.
+- Inside the folder, click 'Upload', 'Add files', and then select all the images that you are using for your site.
+- Then under 'Permissions' select the option 'Grant public-read access' and click upload.
+- Your static files and media files should be automatically linked from django to your S3 bucket.
 
 ## Forking this repository
-- Locate the repository at this link [The Easy Eater](https://github.com/AliOKeeffe/PP4_My_Meal_Planner).
+- Locate the repository at this link [Fresh Nest](https://github.com/AliOKeeffe/PP5-Fresh-Nest).
 - At the top of the repository, on the right side of the page, select "Fork" from the buttons available. 
 - A copy of the repository is now created.
 
 ## Cloning this repository
 To clone this repository follow the below steps: 
 
-1. Locate the repository at this link [The Easy Eater](https://github.com/AliOKeeffe/PP4_My_Meal_Planner). 
+1. Locate the repository at this link [Fresh Nest](https://github.com/AliOKeeffe/PP5-Fresh-Nest). 
 2. Under **'Code'**, see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the prefered cloning option, and then copy the link provided. 
 3. Open **Terminal**.
 4. In Terminal, change the current working directory to the desired location of the cloned directory.
@@ -856,6 +862,8 @@ To clone this repository follow the below steps:
 - [Hatchful](https://hatchful.shopify.com/): Used to generate custom logo
 - [Tables Generator](https://www.tablesgenerator.com/markdown_tables): Used to convert excel testing tables to markdown
 
+privacy policy generator
+
 
 ## Credits
 
@@ -863,9 +871,9 @@ To clone this repository follow the below steps:
 - [Django Docs](https://docs.djangoproject.com/en/4.0/)
 - [Bootstrap 4.6 Docs](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 - [Stack Overflow](https://stackoverflow.com/)
-- [Pexels](https://www.pexels.com/): All imagery on the site was sourced from Pexels.com
-- [Unsplashed]
-- [Code Institute - Blog Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog)
+- [Pexels](https://www.pexels.com/): Imagery on the site was sourced from Pexels.com
+- [Unsplashed](https://unsplash.com/): Imagery on the site was sourced from Unsplash
+- [Code Institute - Boutique Ado Walkthrough Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1)
 
 
 ## Acknowledgments
