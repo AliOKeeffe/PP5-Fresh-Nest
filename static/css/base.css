@@ -474,7 +474,6 @@ footer a:hover {
     }
 }
 
-
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
@@ -543,7 +542,6 @@ footer a:hover {
     .member-logo {
         width: 100px;
         height: 100px;
-
     }
     
     .member-logo:hover {
@@ -596,10 +594,13 @@ footer a:hover {
         border: none;
         padding: 0 !important;
     }
-
 }
 
-
+@media screen and (orientation: landscape) {
+    .background-image {
+        height: initial;
+    }
+}
 
 
 
