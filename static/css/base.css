@@ -6,7 +6,6 @@ body {
     height: calc(100vh - 164px);
     font-family: 'Raleway', sans-serif;
     color: #4D4E54;
-
 }
 
 .content {
@@ -75,13 +74,6 @@ body {
 .navbar ul a:hover {
     color: #A99166;
 }
-
-/* .navbar ul a {
-    color: #442E10;
-    font-weight: bold;
-    font-size: 14px;
-    text-transform: uppercase;
-} */
 
 
 /* Service Cards */
@@ -199,7 +191,6 @@ body {
     height: 15vw;
 }
 
-
 .btt-button {
     height: 42px;
     width: 42px;
@@ -242,7 +233,6 @@ body {
     border: black;
     border-radius: 0;
 }
-
 
 /* bag */
 
@@ -310,13 +300,11 @@ input[type=number] {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
     background-color: #222;
 }
-
 
 /* Project Gallery */
 
@@ -439,7 +427,6 @@ footer a:hover {
     font: 14px Helvetica, Arial, sans-serif;
 }
 
-
 /* enquiries */
 
 .enquiry-table a {
@@ -451,7 +438,7 @@ footer a:hover {
     color: grey;
 }
 
-/* -------------------------------- Media Queries */
+/*  Media Queries */
 
 @media (min-width: 1200px) {
     .container-wide {
@@ -459,7 +446,6 @@ footer a:hover {
     }
 }
   
-/* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -474,7 +460,6 @@ footer a:hover {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 70px;
@@ -520,11 +505,6 @@ footer a:hover {
         /* font-size: .75rem; */
     }
 
-    /* .btn.btn-outline-dark.border-gold.rounded-0 {
-        padding: .350rem .350rem;
-        font-size: .75rem;
-    } */
-
     .product-card {
         width: 80%;
     }
@@ -553,8 +533,6 @@ footer a:hover {
         padding-right: 10px;
     }
 }
-
-/* Small devices (landscape phones, less than 768px */
 
 @media screen and (max-width: 767.98px) {
     .service-img {
@@ -588,7 +566,6 @@ footer a:hover {
         background-color: rgba(52, 52, 52, 0.5); 
         color: white;
     }
-
 
     .divider {
         border: none;
