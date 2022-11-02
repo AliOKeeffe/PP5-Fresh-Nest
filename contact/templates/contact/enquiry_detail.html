@@ -12,8 +12,6 @@
 {% endblock %}
 
 {% block content %}
-
-
 <div class="container pb-5">
     <div class="row">
         <div class="col-12">
@@ -21,8 +19,6 @@
         </div>
     </div>
     <br>
-
-
     <div class="row justify-content-center ">
         <div class="col-11 col-md-8 col-lg-6 mt-3">
             <table class="table table-borderless">
@@ -50,12 +46,9 @@
                 </tbody>
             </table>
             <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{%  url 'enquiries' %}">Back</a>
-            <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{% url 'delete_enquiry' contact.id %}">Delete</a>
+            <a class="btn btn btn-outline-dark border-gold rounded-0 m-2"
+                href="{% url 'delete_enquiry' contact.id %}">Delete</a>
         </div>
     </div>
-
-
-
-
 </div>
 {% endblock %}

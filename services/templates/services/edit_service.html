@@ -4,11 +4,11 @@
 {% block extra_title %}Fresh Nest | Edit Service{% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -26,11 +26,11 @@
             <form method="post" action="{% url 'edit_service' service.id %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
-                    {% if field.name != 'image' %}
-                        {{ field | as_crispy_field }}
-                    {% else %}
-                        {{ field }}
-                    {% endif %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
                 {% endfor %}
                 <button type="submit" class="btn btn-outline-dark border-gold rounded-0">Edit Service</button>
                 <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{%  url 'services' %}">Cancel</a>
@@ -38,8 +38,7 @@
         </div>
     </div>
 </div>
-
-{%endblock%}
+{% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}

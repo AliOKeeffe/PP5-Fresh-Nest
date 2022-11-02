@@ -2,7 +2,7 @@
 
 ## User Story Testing
 
-#### EPIC | Viewing and Navigation
+### EPIC | Viewing and Navigation
 *As a Site User, I can intuitively navigate around the site so that I can find content.*
 
 - A navigation bar is visible on every page of the site which is fully responsive on different screen sizes.
@@ -55,7 +55,7 @@
 ![Design Projects](docs/readme_images/features/design_projects.png)
 
 
-#### EPIC | User Account and Profile
+### EPIC | User Account and Profile
 *As a site user I can register an account so that I can have a personal account.*
 - A sign up button is located in the user options drop down menu in the Navbar. When the user clicks the button they are taken to the sign up page.
 
@@ -91,7 +91,7 @@
 *As a site user I can recover my password in case I forget it so that I can recover access to my account.*
 - On the sign-in page, a link to recover your password is located underneath the sign-in button. This uses the AllAuth functionality to reset the user's password. 
 
-#### EPIC | Purchasing
+### EPIC | Purchasing
 *As a shopper, I can add a number of products in different quantities to my shopping bag so that I can purchase them all together when I am ready.*
 
 - Within the product detail page there is a quantity selector and an Add to Bag button. Shoppers can adjust the quantity by using the buttons located on either side of the input, or by typing in the amount.
@@ -138,7 +138,7 @@
 *As a shopper, I can receive an email confirmation of my order so that I have a record of my purchase.*
 - When the user has submitted their order they will receive a confirmation email to the email address they entered in their order form containing all the details of the order.
 
-#### EPIC | Admin & Store Management
+### EPIC | Admin & Store Management
 *As a store owner, I can add/edit/delete products through an easy-to-use interface so that I can manage the store's contents.*
 - When the site owner is logged in, a Home Decor Management option appears in the User drop-down menu.
 - When the site owner navigates to the Home Decor Management page they can add a new product to the store through a user-friendly form. 
@@ -181,7 +181,7 @@
 
 ![Enquiry Detail](docs/readme_images/features/enquiry_detail.png)
 
-#### EPIC | User Interaction
+### EPIC | User Interaction
 *As a site user, I can submit an enquiry form so that I can contact the site owner.*
 - A user can open up the contact form by clicking on the "Enquire Now" button on the Interior Design Services page or by clicking the 'Contact' button in the Nav bar.
 - The user can select the type of enquiry from a drop-down menu so that the site owner knows what the enquiry is about.
@@ -309,8 +309,6 @@ The only errors displayed (as per below screenshot) can be ignored as the are wi
 I have ignored the the formatting errors related to env.py as they relate to my Secret Keys and Database URL being to long. This file is not committed to github.
 
 ![Python Linter Errors](docs/readme_images/python_linter_errors.png)
-
-
 
 ## Fixed Bugs
 

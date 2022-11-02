@@ -52,7 +52,6 @@ class ContactUs(View):
                 'contact/confirmation_emails/confirmation_email_body.txt',
                 {'cust_name': cust_name, 'message': message}
             )
-            # Sends confimation email to customer
             send_mail(
                 subject,
                 message,

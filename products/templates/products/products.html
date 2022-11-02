@@ -33,9 +33,7 @@
         </div>
         {% endif %}
     </div>
-
     <br>
-    <!-- sort box -->
     <div class="row mb-2">
         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
             <div class="sort-select-wrapper w-50">
@@ -58,20 +56,15 @@
             </p>
         </div>
     </div>
-    <!-- Product Cards -->
     <div class="row card-deck">
         {% for product in products  %}
         <div class="col-sm-6 col-md-4 px-1 d-flex align-items-stretch">
             <div class="card card-detail product-card border-0 mb-3 mx-auto mx-sm-2">
-                <!-- <span class="like-btn">
-                    <a href="{% url 'home' %}"><i class="far fa-heart fa-lg"></i></a>
-                </span> -->
                 {% if product.image %}
                 <img src="{{ product.image.url }}" class="card-img-top" alt="placeholder image">
                 {% else %}
                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top">
                 {% endif %}
-
                 <div class="row card-body py-2">
                     <div class="col pl-0 card-text">
                         <strong>{{ product.name }}</strong>
@@ -91,7 +84,6 @@
                     </small>
                     {% endif %}
                 </div>
-
             </div>
         </div>
         {% endfor %}

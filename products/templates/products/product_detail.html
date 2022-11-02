@@ -13,7 +13,6 @@
 
 {% block content %}
 <div class="container">
-    <!-- Product Detail Cards -->
     <div class="card my-5 border-0">
         <div class="row no-gutters">
             <div class="col-12 col-md-6 col-xl-8">
@@ -64,9 +63,9 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control border-gold qty_input id_qty_{{ product.id }}" aria-label="Quantity"
-                                            type="number" name="quantity" value="1" min="1" max="99"
-                                            data-item_id="{{ product.id }}">
+                                        <input class="form-control border-gold qty_input id_qty_{{ product.id }}"
+                                            aria-label="Quantity" type="number" name="quantity" value="1" min="1"
+                                            max="99" data-item_id="{{ product.id }}">
                                         <div class="input-group-append">
                                             <button
                                                 class="increase-qty btn border-gold btn-outline-dark rounded-0 increase-qty_{{ product.id }}"
@@ -79,7 +78,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-12">
                                 <a href="{% url 'products' %}" class="btn border-gold btn-outline-dark rounded-0 mt-2">
                                     <span class="icon">

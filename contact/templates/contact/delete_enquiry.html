@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_title %}Fresh Nest | Delete Service{% endblock %}
+{% block extra_title %}Fresh Nest | Delete Enquiry{% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -28,13 +28,10 @@
                 {%  csrf_token  %}
                 <div>
                     <button class="btn btn-outline-dark border-gold rounded-0 m-2" type="submit">Delete</button>
-                    <a class="btn btn-outline-dark border-gold rounded-0 m-2"
-                        href="{%  url 'enquiries' %}">Cancel</a>
+                    <a class="btn btn-outline-dark border-gold rounded-0 m-2" href="{%  url 'enquiries' %}">Cancel</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-
-{%endblock%}
+{% endblock %}

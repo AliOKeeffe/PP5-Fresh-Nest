@@ -4,11 +4,11 @@
 {% block extra_title %}Fresh Nest | Add Testimonial{% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -27,10 +27,10 @@
                 {{ form | crispy }}
                 {% csrf_token %}
                 <button type="submit" class="btn btn-outline-dark border-gold rounded-0">Add Testimonial</button>
-                <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{%  url 'testimonials' %}">Cancel</a>
+                <a class="btn btn btn-outline-dark border-gold rounded-0 m-2"
+                    href="{%  url 'testimonials' %}">Cancel</a>
             </form>
         </div>
     </div>
 </div>
-
-{%endblock%}
+{% endblock %}

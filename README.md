@@ -10,9 +10,11 @@ To test this system, test card details can be used. A list of these can be found
 
 The live link can be found here - [Fresh Nest](https://fresh-nest.herokuapp.com/)
 
+![Site Mockup](docs/readme_images/site_mockup.png)
+
 ## User Experience (UX)
 
-A visitor to Fresh Nest would be someone who is most likely an adult who is interested in luxurious interior products and high end interior design services.
+A visitor to Fresh Nest would be someone who is most likely an adult who is interested in buying luxurious interior products and high end interior design services.
 
 ### User Stories
 
@@ -178,21 +180,17 @@ The Raleway font is the main font used for the body of the website. This font wa
 </details>
 
 
-
-
 ## Agile Methodology
 Github projects was used to manage the development process using an agile approach. Please see link to project board [here](https://github.com/users/AliOKeeffe/projects/2)
 
 
 The 5 Epics listed above were documented within the Github project as Milestones. A Github Issue was created for each User Story which was then allocated to a milestone(Epic). Each User Story has defined acceptance criteria to make it clear when the User Story has been completed. The acceptance criteria are further broken down into tasks to facilitate the User Story's execution.
 
-
 ## Database Schema 
 
 Two relational databases were used to create this site - during production SQLite was used and then Postgres was used for the deployed Heroku version. Below is an image of how the database models relate to each other:
 
 ![Database Schema](docs/readme_images/database_schema.png)
-
 
 ## Security Features and Defensive Design
 ### User Authentication
@@ -571,6 +569,11 @@ Custom Error Pages were created to give the user more information on the error a
 - 404 Page Not Found - The page you're looking for doesn't exist.
 - 500 Server Error - Due to an internal error we are unable to process this request.
 
+## Business Model
+
+Fresh Nest's Business Model is Business to Consumer (B2C). Products and services are sold directly from Fresh Nest to consumers who are the end-users. 
+A customer of Fresh Nest would be someone who is most likely an adult who is interested in buying luxurious interior products and high end interior design services.
+
 ## Marketing Strategy
 
 A number of different marketing strategies have been utilised to promote Fresh Nest including SEO, content marketing, social media marketing and email marketing. Each of these strategies have been discussed individually below:  
@@ -863,6 +866,8 @@ To clone this repository follow the below steps:
 - [Hatchful](https://hatchful.shopify.com/): Used to generate custom logo
 - [Tables Generator](https://www.tablesgenerator.com/markdown_tables): Used to convert excel testing tables to markdown
 - [Sitemap Generator](www.xml-sitemaps.com): used to create sitemap.xml 
+- [Privacy Policy Generator](https://www.privacypolicygenerator.info/): Used to create the site's privacy policy
+- [Mailchimp](https://mailchimp.com/?currency=EUR): Used to create the newsletter signup functionality.
 
 privacy policy generator
 

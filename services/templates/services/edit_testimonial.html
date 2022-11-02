@@ -4,11 +4,11 @@
 {% block extra_title %}Fresh Nest | Edit Testimonial{% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -23,17 +23,16 @@
     <br>
     <div class="row justify-content-center mb-3">
         {% if user.is_authenticated and testimonial.name == user or user.is_superuser  %}
-        <!-- Ensure the user is signed in, and the testminonial they're trying to access is owned by them -->
         <div class="col-11 col-md-8 col-lg-6 mt-3">
             <form method="post" enctype="multipart/form-data">
                 {{ form | crispy }}
                 {% csrf_token %}
                 <button type="submit" class="btn btn-outline-dark border-gold rounded-0">Edit Testimonial</button>
-                <a class="btn btn btn-outline-dark border-gold rounded-0 m-2" href="{%  url 'testimonials' %}">Cancel</a>
+                <a class="btn btn btn-outline-dark border-gold rounded-0 m-2"
+                    href="{%  url 'testimonials' %}">Cancel</a>
             </form>
         </div>
         {% endif %}
     </div>
 </div>
-
-{%endblock%}
+{% endblock %}
