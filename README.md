@@ -869,8 +869,6 @@ To clone this repository follow the below steps:
 - [Privacy Policy Generator](https://www.privacypolicygenerator.info/): Used to create the site's privacy policy
 - [Mailchimp](https://mailchimp.com/?currency=EUR): Used to create the newsletter signup functionality.
 
-privacy policy generator
-
 
 ## Credits
 
@@ -881,6 +879,7 @@ privacy policy generator
 - [Pexels](https://www.pexels.com/): Imagery on the site was sourced from Pexels.com
 - [Unsplashed](https://unsplash.com/): Imagery on the site was sourced from Unsplash
 - [Code Institute - Boutique Ado Walkthrough Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1)
+- [Stack Overflow](https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces): To prevent form being submitted with whitespace
 
 
 ## Acknowledgments
