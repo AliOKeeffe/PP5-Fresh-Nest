@@ -79,6 +79,10 @@ body {
     transform: translateY(-50%);
 }
 
+.dropdown-menu-right a {
+    font-size: 12px !important;
+}
+
 /* home page */
 
 .home-gold-border {

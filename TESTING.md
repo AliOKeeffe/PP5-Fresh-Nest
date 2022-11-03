@@ -304,11 +304,18 @@ All Javascript was passed through [Jshint](https://jshint.com/) with no issues.
 ## Python Validation - Pycodestyle
 Python testing was done using Pycodestyle to ensure there were no syntax errors.
 
-The only errors displayed (as per below screenshot) can be ignored as the are within automatically generated files with the exception of env.py. 
+The only errors displayed (as per below screenshot) can be ignored. The majority are within automatically generated files with the exception of env.py and webhooks.py. 
 
 I have ignored the the formatting errors related to env.py as they relate to my Secret Keys and Database URL being to long. This file is not committed to github.
 
 ![Python Linter Errors](docs/readme_images/python_linter_errors.png)
+
+## Lighthouse
+
+Lighthouse validation was run on all pages in order to check accessibility and performance. Many warnings were fixed including 'Background and foreground colors do not have a sufficient contrast ratio' and the below scores were achieved.
+
+
+
 
 ## Fixed Bugs
 
