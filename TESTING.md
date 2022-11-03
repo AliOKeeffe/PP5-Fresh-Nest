@@ -314,7 +314,39 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 
 Lighthouse validation was run on all pages in order to check accessibility and performance. Many warnings were fixed including 'Background and foreground colors do not have a sufficient contrast ratio' and the below scores were achieved.
 
-
+| Page                           | Performance  | Accessibility | Best Practices  | SEO |
+|--------------------------------|:------------:|:-------------:|:---------------:|:---:|
+|                                |              |               |                 |     |
+| Desktop                        |              |               |                 |     |
+| Home                           |           98 |           100 |             100 | 100 |
+| Products                       |           98 |           100 |             100 | 100 |
+| Product Detail                 |           98 |            98 |             100 | 100 |
+| Add Product                    |           99 |           100 |             100 | 100 |
+| Edit Product                   |           99 |           100 |             100 | 100 |
+| Confirm Delete Product         |           99 |           100 |             100 | 100 |
+| Bag                            |           98 |            98 |             100 | 100 |
+| Checkout                       |           94 |            96 |             100 | 100 |
+| Checkout Success               |           99 |            98 |             100 | 100 |
+| Profile                        |           98 |           100 |             100 | 100 |
+| Order History                  |           97 |            98 |             100 | 100 |
+| Interior Design Services       |           99 |           100 |             100 | 100 |
+| Add Interior Design Service    |           99 |           100 |             100 | 100 |
+| Edit Interior Design Service   |           99 |           100 |             100 | 100 |
+| Delete Interior Design Service |           99 |           100 |             100 | 100 |
+| Interior Design Projects       |           99 |           100 |             100 | 100 |
+| Add Interior Design Project    |           99 |           100 |             100 | 100 |
+| Delete Interior Design         |           99 |           100 |             100 | 100 |
+| Testimonials                   |           99 |            98 |             100 | 100 |
+| Add Testimonial                |           99 |           100 |             100 | 100 |
+| Edit Testimonial               |           99 |           100 |             100 | 100 |
+| Delete Testimonial             |           99 |           100 |             100 | 100 |
+| Contact                        |           99 |           100 |             100 | 100 |
+| Enquiries Dashboard            |           99 |           100 |             100 | 100 |
+| Enquiry Detail                 |           99 |           100 |             100 | 100 |
+| Sign In                        |           99 |            98 |              98 | 100 |
+| Sign Up                        |           99 |            98 |             100 | 100 |
+| Log Out                        |           99 |           100 |             100 | 100 |
+| Password Reset                 |           98 |           100 |             100 | 100 |
 
 
 ## Fixed Bugs
