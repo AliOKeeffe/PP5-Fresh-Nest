@@ -104,7 +104,7 @@ body {
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    background-image: url('/static/images/pexels-houzlook-com-3356416.jpg');
+    background-image: url('/static/images/home_image.webp');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -556,7 +556,7 @@ footer a:hover {
         overflow: hidden;
         align-items: center;
         justify-content: center;
-        background-image: url('/static/images/pexels-houzlook-com-3356416.jpg');
+        background-image: url('/static/images/home_image.webp');
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
