@@ -61,7 +61,7 @@
         <div class="col-sm-6 col-md-4 px-1 d-flex align-items-stretch">
             <div class="card card-detail product-card border-0 mb-3 mx-auto mx-sm-2">
                 {% if product.image %}
-                <img src="{{ product.image.url }}" class="card-img-top" alt="placeholder image">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                 {% else %}
                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top">
                 {% endif %}
