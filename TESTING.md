@@ -1,5 +1,37 @@
 # Testing
 
+- [User Story Testing](#user-story-testing)
+- [Validator Testing](#validator-testing)
+  * [HTML](#html)
+- [CSS](#css)
+- [JSHINT](#jshint)
+- [Python Validation - Pycodestyle](#python-validation---pycodestyle)
+- [Lighthouse](#lighthouse)
+- [Device Testing](#device-testing)
+- [Browser Testing](#browser-testing)
+- [Manual Testing](#manual-testing)
+  * [Site Navigation](#site-navigation)
+  * [Home Page](#home-page)
+  * [All Auth Pages](#all-auth-pages)
+  * [Home Decor](#home-decor)
+  * [Product Detail](#product-detail)
+  * [Home Decor Management](#home-decor-management)
+  * [Bag](#bag)
+  * [Checkout](#checkout)
+  * [Profile](#profile)
+  * [Interior Design Services](#interior-design-services)
+  * [Interior Design Management](#interior-design-management)
+  * [Testimonials](#testimonials)
+  * [Testimonial Management](#testimonial-management)
+  * [Contact](#contact)
+  * [Enquiries Dashboard](#enquiries-dashboard)
+- [Fixed Bugs](#fixed-bugs)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+
+
 ## User Story Testing
 
 ### EPIC | Viewing and Navigation
@@ -312,7 +344,7 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 
 ## Lighthouse
 
-Lighthouse validation was run on all pages in order to check accessibility and performance. Many warnings were fixed including 'Background and foreground colors do not have a sufficient contrast ratio' and the below scores were achieved.
+Lighthouse validation was run on all pages in order to check accessibility and performance. Many warnings were fixed including 'Background and foreground colours do not have a sufficient contrast ratio' and the below scores were achieved.
 
 | Page                           | Performance  | Accessibility | Best Practices  | SEO |
 |--------------------------------|:------------:|:-------------:|:---------------:|:---:|
@@ -348,6 +380,14 @@ Lighthouse validation was run on all pages in order to check accessibility and p
 | Log Out                        |           99 |           100 |             100 | 100 |
 | Password Reset                 |           98 |           100 |             100 | 100 |
 
+
+## Device Testing
+
+The website was viewed on a variety of devices such as Desktop, Laptop, iPhone 8, iPhoneXR and iPad to ensure responsiveness on various screen sizes in both portrait and landscape mode. The website performed as intended. The responsive design was also checked using Chrome developer tools across multiple devices with structural integrity holding for the various sizes.
+
+## Browser Testing
+
+The Website was tested on Google Chrome, Firefox, Safari browsers with no issues noted.
 
 ## Manual Testing
 
@@ -839,20 +879,9 @@ Interior Design Projects Management
 
 ## Fixed Bugs
 
-### Update bag quantity
+**Checkout form**
 
-I wanted the bag subtotal to automatically update when the product quantity was changed rather than clicking an 'update' link. To do this I wrote an AJAX Post method to request the 'adjust bag' url and populate it with the updated quantity and item id and reload the page. 
-
-When I first attempted to do this I put a click listener on the + and - buttons so the page would automatically update when these were clicked. However I quickly ran into issues due to the fact that there was already a click listener on those buttons (which updates the quantity in the box). After some research I discovered that this issue is called a race condition "an undesirable situation that occurs when a device or system attempts to perform two or more operations at the same time".
-
-In order to solve this problem I removed the click listener which updated the bag total and instead created a new function 'Update Bag' which is called when the +/- is clicked (but after the quantity box is updated). Two parameters are passed into the function (quantity and item ID) and the AJAX method within the function uses these parameters to update the bag total. 
-
-### Deployment
-
-When I initially attempted to deploy to Heroku the build would fail with the error message "Could not build wheels for backports.zoneinfo". This was due to the fact that Heroku by default uses python version 3.10 which isn't compatible with backports.zoneinfo. In order to fix this I had to create a runtime.txt to specify the Python version for Heroku to install (python-3.8.13). However the next time I tried to deploy I got a further error "Requested runtime 'python-3.8.13' is not available for this stack (heroku-22)". After some research I realised that in order to use this version of Python I would have to use heroku-20 instead of heroku-22. I was able to downgrade the heroku version using the command `heroku stack:set heroku-20 -a app name` which resolved the issue and I was able to deploy the site. 
-
-### Checkout form
-When testing the Checkout Form, I was able to input white space into into the form text fields and enter text into the phone number field and still submit the form. This would then return a 500 error however the Stripe payment would still get processed. I had followed the steps in the Boutique Ado project for the checkout app and when I tested the Boutique Ado project and a number of other students projects the same situation would arise when I submitted with form with just whitespace in the form fields. 
+When testing the Checkout Form, I was able to input white space into the form text fields and enter text into the phone number field and still submit the form. This would then return a 500 error however the Stripe payment would still get processed. I had followed the steps in the Boutique Ado project for the checkout app and when I tested the Boutique Ado project and a number of other students' projects the same situation would arise when I submitted with form with just whitespace in the form fields. 
 
 I wrote a custom `clean_fieldname` method for a number of the form fields in order to `trim` whitespace from the form fields during form validation. 
 
@@ -865,11 +894,11 @@ I wrote a custom `clean_fieldname` method for a number of the form fields in ord
 
 However this didn't solve the issue as I realised that the form validation wasn't actually getting called before the payment was processed. 
 
-After a bit of digging I discovered that the reason for this is due to the fact the Stripe Javascript is called when the submit button is clicked due to the event listener on the submit button. The Javascript prevents the default form submission meaning that the card is actually charged before any form validation is done. 
+After a bit of digging, I discovered that the reason for this is due to the fact the Stripe Javascript is called when the submit button is clicked due to the event listener on the submit button. The Javascript prevents the default form submission meaning that the card is actually charged before any form validation is done. 
 
 When the response comes back from Stripe, the `.then()` part of the JS runs, which checks to see if the card was charged successfully, and if so, the form is then submitted and validation is ran. If the form is valid, it saves the order to the database. If the validation fails webhook will create the order in the database anyway.
 
-As a work around in the short term I was able to add a widget to the form fields in the Checkout Form to specify the pattern attribute of the HTML input. This prevents the form from submitted if there is whitespace at the beginning of a text input or if there is letters in the phone field.
+As a workaround in the short term I was able to add a widget to the form fields in the Checkout Form to specify the pattern attribute of the HTML input. This prevents the form from submitted if there is whitespace at the beginning of a text input or if there is letters in the phone field.
 
 ```
         self.fields['full_name'].widget.attrs[
@@ -884,7 +913,11 @@ I found [this](https://stackoverflow.com/questions/19619428/html5-form-validatio
 
 Ideally I would have preferred to find a way to perform full form validation before the payment is processed however due to time contraints I was unable to figure out a work around for the purpose of this project. A suggestion would be to create the order in the database `on submit` with a status of "Pending" and then process the Payment. Once the payment is processed successfully, update the order status to "complete" in the database. 
 
-### Success Toast
+**Success Toast**
+
 Every time a success message appeared (for adding a testimonial, submitting enquiry etc.) and if the user had items in their shopping bag, the success message would display the bag contents as well as the message in the toast. I only wanted the shopping bag contents to display if the user has successfully added a product to their bag and not for other success messages. 
 After a bit of research I discovered I could add extra context into Django generic views using `get_context_data`, and therefore I was able to add context to only show the simplified message for certain views such as Add Testimonial, Enquiries and Add Project. 
 
+**Deployment**
+
+When I initially attempted to deploy to Heroku the build would fail with the error message "Could not build wheels for backports.zoneinfo". This was due to the fact that Heroku by default uses python version 3.10 which isn't compatible with backports.zoneinfo. In order to fix this I had to create a runtime.txt to specify the Python version for Heroku to install (python-3.8.13). However the next time I tried to deploy I got a further error "Requested runtime 'python-3.8.13' is not available for this stack (heroku-22)". After some research I realised that in order to use this version of Python I would have to use heroku-20 instead of heroku-22. I was able to downgrade the heroku version using the command `heroku stack:set heroku-20 -a app name` which resolved the issue and I was able to deploy the site. 
