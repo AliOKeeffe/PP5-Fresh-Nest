@@ -37,9 +37,9 @@
                     <div class="row no-gutters">
                         <div class="col-12 col-md-5 col-lg-4">
                             {% if service.image %}
-                            <img src="{{ service.image.url }}" class="service-img" alt="{{ service.name }}">
+                            <img src="{{ service.image.url }}" class="service-img" alt="{{ service.type }}">
                             {% else %}
-                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ service.name }}" class="">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ service.type }}" class="">
                             {% endif %}
                         </div>
                         <div class="col-12 col-md-7 col-lg-8">
