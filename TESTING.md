@@ -3,10 +3,10 @@
 - [User Story Testing](#user-story-testing)
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
-- [CSS](#css)
-- [JSHINT](#jshint)
-- [Python Validation - Pycodestyle](#python-validation---pycodestyle)
-- [Lighthouse](#lighthouse)
+  * [CSS](#css)
+  * [JSHINT](#jshint)
+  * [Python Validation - Pycodestyle](#python-validation---pycodestyle)
+  * [Lighthouse](#lighthouse)
 - [Device Testing](#device-testing)
 - [Browser Testing](#browser-testing)
 - [Manual Testing](#manual-testing)
@@ -28,8 +28,6 @@
 - [Fixed Bugs](#fixed-bugs)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
 
 
 ## User Story Testing
@@ -242,6 +240,7 @@
 ![footer](docs/readme_images/features/footer.png)
 
 ## Validator Testing
+
 ### HTML
 All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/). See results in below table.
 
@@ -287,7 +286,7 @@ All forms which include an image upload field show the same error below. This re
 
 ![HTML Error](docs/readme_images/add_image_html_error.png)
 
-## CSS
+### CSS
 
 No errors were found when passing my CSS files through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
@@ -301,7 +300,7 @@ No errors were found when passing my CSS files through the official [W3C CSS Val
 ![profile.ccs validation](docs/readme_images/profile_css_validation.png)
 
 
-## JSHINT
+### JSHINT
 All Javascript was passed through [Jshint](https://jshint.com/) with no issues.
 
 **Base**
@@ -333,7 +332,7 @@ All Javascript was passed through [Jshint](https://jshint.com/) with no issues.
 ![Image Selector JS validation](docs/readme_images/js_validation/add_image_js.png)
 
 
-## Python Validation - Pycodestyle
+### Python Validation - Pycodestyle
 Python testing was done using Pycodestyle to ensure there were no syntax errors.
 
 The only errors displayed (as per below screenshot) can be ignored. The majority are within automatically generated files with the exception of env.py and webhooks.py. 
@@ -342,7 +341,7 @@ I have ignored the the formatting errors related to env.py as they relate to my 
 
 ![Python Linter Errors](docs/readme_images/python_linter_errors.png)
 
-## Lighthouse
+### Lighthouse
 
 Lighthouse validation was run on all pages in order to check accessibility and performance. Many warnings were fixed including 'Background and foreground colours do not have a sufficient contrast ratio' and the below scores were achieved.
 

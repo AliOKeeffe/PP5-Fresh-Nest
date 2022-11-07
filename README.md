@@ -1,8 +1,8 @@
 # Fresh Nest
 
-Fresh Nest is a home décor B2C e-commerce store and interior design service provider. The site is targeted towards users who are interested in luxurious interior products and high end interior design services. 
+Fresh Nest is a home décor B2C e-commerce store and interior design service provider. The site is targeted towards users who are interested in luxurious interior products and high-end interior design services. 
 
-User's can browse and purchase a range of homeware products or check out the different types of interior design services provided and make an enquiry. They can also look at images and testimonials of previously completed design projects or leave a testimonial if they wish.
+Users can browse and purchase a range of homeware products or check out the different types of interior design services provided and make an enquiry. They can also look at images and testimonials of previously completed design projects or leave a testimonial if they wish.
 
 The payment system uses Stripe. Please note that this website is for educational purposes do not enter any personal credit/debit card details when using the site.
 
@@ -12,9 +12,64 @@ The live link can be found here - [Fresh Nest](https://fresh-nest.herokuapp.com/
 
 ![Site Mockup](docs/readme_images/site_mockup.png)
 
+- [User Experience (UX)](#user-experience--ux-)
+  * [User Stories](#user-stories)
+  * [Design](#design)
+    + [Colour Scheme](#colour-scheme)
+    + [Imagery](#imagery)
+    + [Fonts](#fonts)
+    + [Wireframes](#wireframes)
+- [Agile Methodology](#agile-methodology)
+- [Database Schema](#database-schema)
+- [Security Features and Defensive Design](#security-features-and-defensive-design)
+  * [User Authentication](#user-authentication)
+  * [Form Validation](#form-validation)
+  * [Database Security](#database-security)
+  * [Custom error pages:](#custom-error-pages-)
+- [Features](#features)
+  * [Header](#header)
+  * [Footer](#footer)
+  * [Home Page](#home-page)
+  * [User Account Pages](#user-account-pages)
+  * [Profile](#profile)
+  * [Home Decor (Products)](#home-decor--products-)
+  * [Product Detail](#product-detail)
+  * [Home Decor Management](#home-decor-management)
+  * [Bag](#bag)
+  * [Checkout](#checkout)
+  * [Interior Design Services](#interior-design-services)
+  * [Design Services Management](#design-services-management)
+  * [Interior Design Projects](#interior-design-projects)
+  * [Previous Projects Management](#previous-projects-management)
+  * [Testimonials](#testimonials)
+  * [Contact Form](#contact-form)
+  * [Enquiries Dashboard](#enquiries-dashboard)
+  * [Error Pages](#error-pages)
+- [Business Model](#business-model)
+- [Marketing Strategy](#marketing-strategy)
+  * [SEO](#seo)
+  * [Content marketing](#content-marketing)
+  * [Social Media Marketing](#social-media-marketing)
+  * [Email Marketing](#email-marketing)
+- [Testing](#testing)
+- [Deployment - Heroku](#deployment---heroku)
+- [AWS Set Up](#aws-set-up)
+- [Forking this repository](#forking-this-repository)
+- [Cloning this repository](#cloning-this-repository)
+- [Languages](#languages)
+- [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
+- [Credits](#credits)
+- [Acknowledgments](#acknowledgments)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+
+
+
 ## User Experience (UX)
 
-A visitor to Fresh Nest would be someone who is most likely an adult who is interested in buying luxurious interior products and high end interior design services.
+A visitor to Fresh Nest would be someone who is most likely an adult who is interested in buying luxurious interior products and high-end interior design services.
 
 ### User Stories
 
@@ -22,26 +77,26 @@ A visitor to Fresh Nest would be someone who is most likely an adult who is inte
 - As a Site User, I can intuitively navigate around the site so that I can find content.
 - As a Site User, I can view a list of products so that I can select a product to view.
 - As a shopper, I can click on a product so that I can read the full product details.
-- As a shopper I can view a specific category of products so I can browse the type of products I'm looking for.
-- As a shopper I can search all products so that I can find what I am looking for.
+- As a shopper, I can view a specific category of products so I can browse the type of products I'm looking for.
+- As a shopper, I can search all products so that I can find what I am looking for.
 - As a shopper, I can sort all products so that I can view products based on price or title.
 - As a site user, I can view a list of Interior Design Services provided so I can understand what each service entails and make an enquiry if desired.
 - As a site user, I can read testimonials left by other customers so I see what feedback they gave on the Interior Design Services they received.
 - As a site user, I can view pictures of previous interior design projects so that I can see if I like the results and build trust in the service provider.
 
 #### EPIC | User Account and Profile
-- As a site user I can register an account so that I can have a personal account.
-- As a site user I can log in or log out of my account so that I can keep my account secure.
-- As a site user I can see my login status so that I know if I'm logged in or out.
-- As a site user I can save my personal details in my user profile so that I do not have to fill them out for future orders.
-- As a site user I can view my order history so that I can remember what purchases I've made.
-- As a site user I can recover my password in case I forget it so that I can recover access to my account.
+- As a site user, I can register an account so that I can have a personal account.
+- As a site user, I can log in or log out of my account so that I can keep my account secure.
+- As a site user, I can see my login status so that I know if I'm logged in or out.
+- As a site user, I can save my personal details in my user profile so that I do not have to fill them out for future orders.
+- As a site user, I can view my order history so that I can remember what purchases I've made.
+- As a site user, I can recover my password in case I forget it so that I can recover access to my account.
 
 #### EPIC | Purchasing
 - As a shopper, I can add a number of products in different quantities to my shopping bag so that I can purchase them all together when I am ready.
-- As a shopper I can view a running total of my shopping bag as I am shopping so that I can see how much it costs in total.
-- As a shopper I can view the contents of my shopping bag at any time so I can see what is included and the total cost.
-- As a shopper I can adjust the quantity of individual products in my bag so that I can easily make changes before I purchase.
+- As a shopper, I can view a running total of my shopping bag as I am shopping so that I can see how much it costs in total.
+- As a shopper, I can view the contents of my shopping bag at any time so I can see what is included and the total cost.
+- As a shopper, I can adjust the quantity of individual products in my bag so that I can easily make changes before I purchase.
 - As a shopper, I can see a summary of my shopping cart when I checkout so that I know what products are included and the total cost before I commit to purchasing.
 - As a shopper, I can easily enter my payment information securely so that I can purchase my chosen products quickly with no issues.
 - As a shopper checkout as a guest so I don't have to sign up for an account.
@@ -64,14 +119,14 @@ A visitor to Fresh Nest would be someone who is most likely an adult who is inte
 
 The following user stories were scoped out of the project due to time constraints and labelled as "Won't Have" on the project board on Github. It is intended that these user stories will be implemented at a later date.
 
-- As a shopper I can add products to my saved items so that I can go back and view them at a later date.
-- As a shopper I can view my saved products so I can find them easily in the one location.
+- As a shopper, I can add products to my saved items so that I can go back and view them at a later date.
+- As a shopper, I can view my saved products so I can find them easily in the one location.
 
-## Design
+### Design
 
 The site has a elegant and clean design with the use of gold detail to give the idea of luxury and opulence. 
 
-### Colour Scheme
+#### Colour Scheme
 Colour palette from Coolors
 
 ![Colour Scheme](docs/readme_images/colour_scheme.png)
@@ -80,13 +135,13 @@ The colour scheme of the site is mainly gold and light and dark greys. The colou
 
 Great care was taken to establish a good contrast between background colours and text at all times to ensure maximum user accessibility.
 
-### Imagery
-There is only one main static image on the site which is of a luxurious dining room on the home page. The color scheme of the site ties in with this main homepage image which largely consists of golds and greys. The rest of the imagery will be uploaded by the site owner for individual products, services and previous interior projects. 
+#### Imagery
+There is only one main static image on the site which is of a luxurious dining room on the home page. The colour scheme of the site ties in with this main homepage image which largely consists of golds and greys. The rest of the imagery will be uploaded by the site owner for individual products, services and previous interior projects. 
 
-### Fonts
+#### Fonts
 The Raleway font is the main font used for the body of the website. This font was imported via Google Fonts. Sans Serif is the backup font, in case for any reason the main font isn't being imported into the site correctly.
 
-### Wireframes
+#### Wireframes
 
 <details>
 
@@ -197,7 +252,7 @@ Two relational databases were used to create this site - during production SQLit
 
 Where I have used Django's Class-based-views; Django's LoginRequiredMixin is used to make sure that any requests to access secure pages by non-authenticated users are redirected to the login page. Django's UserPassesTestMixin is used to limit access based on certain permissions i.e. to ensure users can only edit/delete Testimonials for which they are the author or if the user is the superuser. If the user doesn't pass the test they are shown an HTTP 403 Forbidden error.
 
-Where I have used function based views I have used Django's login_required and user_passes_test decoraters to restrict access as required. 
+Where I have used function based views I have used Django's login_required and user_passes_test decorators to restrict access as required. 
 
 ### Form Validation
 If incorrect or empty data is added to a form, the form won't submit and a warning will appear to the user informing them what field raised the error.
@@ -267,7 +322,7 @@ Custom Error Pages were created to give the user more information on the error a
 
 - The footer appears at the bottom of every page.
 - The footer section includes links to Facebook, Instagram, Twitter and Pinterest
-- There is a newletter signup section powered by Mailchimp where the user can input their email address to signup to the monthly newsletter.
+- There is a newsletter signup section powered by Mailchimp where the user can input their email address to signup to the monthly newsletter.
 - The Quick Links section has links to the main parts of the site including 'Contact Us' and 'Privacy Policy'.
 - On the right hand side of the footer there are links high quality relevant websites including Houzz, Institute of Designers Ireland, and The Interiors Association. These links were included to increase the search rating of the website.
 - Clicking all external links will open up the respective website in another tab to avoid pulling the user away from the site.
@@ -303,7 +358,7 @@ Custom Error Pages were created to give the user more information on the error a
 - Django allauth was installed and used to create the Sign up, Log in and Log out functionality. 
 - Success messages inform the user if they have logged in/ logged out successfully.
 - When a user signs up for an account they must verify their email address by clicking on the authentication link emailed  to the address they provided.
-- If a user forgets thier password they can reset it by clicking the 'Forgot Password' on the long in page.
+- If a user forgets their password they can reset it by clicking the 'Forgot Password' on the log in page.
 
 
 ### Profile
@@ -316,7 +371,7 @@ Custom Error Pages were created to give the user more information on the error a
 **Order History**
 
 ![Order History](docs/readme_images/features/order_history.png)
-- The order history section a list of every order the user has placed.
+- The order history section displays a list of every order the user has placed.
 - The table displays the order number, date it was ordered and the order total.
 - Clicking the order number will take the user to a summary page of that order.
 
@@ -353,7 +408,7 @@ Custom Error Pages were created to give the user more information on the error a
 - If the value is set to 1 the minus quantity will be disabled. Respectively if the value is set to 99 the plus button is disabled.
 - If the user manually types in a negative number or a number >99 and clicks "Add to Bag" an error button will appear informing the user of the parameters needed to be successful.
 - Clicking the 'Add to Bag' button takes the number in the input field and adds that amount of products to the bag.
-- Clickin the 'Keep Shopping' button takes the user back to the store.
+- Clicking the 'Keep Shopping' button takes the user back to the store.
 
 ### Home Decor Management
 **Add Product**
@@ -413,7 +468,7 @@ Custom Error Pages were created to give the user more information on the error a
 ![checkout](docs/readme_images/features/checkout.png)
 
 **Details**
-- Within the details dection the user can fill out their contact details, delivery address, and card number.
+- Within the details section the user can fill out their contact details, delivery address, and card number.
 - If the user is a guest, a link to create an account or login will be present.
 - If the user is signed in a checkbox to save the delivery information can be checked.
 - If the user is signed in and has delivery information saved, the delivery details and email address will be automatically filled in.
@@ -437,7 +492,7 @@ Custom Error Pages were created to give the user more information on the error a
 ![order_confirmation](docs/readme_images/features/order_confirmation.png)
 - Once the order has been processed the user is taken to the checkout success page.
 This page summarises the completed order.
-- An email wil be sent to the user with their order confirmation
+- An email will be sent to the user with their order confirmation
 - At the end of the summary is a 'Keep Shopping' button that takes the user back to the Home Decor page.
 
 ### Interior Design Services
@@ -446,10 +501,10 @@ This page summarises the completed order.
 - The Interior Design Services page can be accessed by clicking on the link in the nav bar. 
 - When the user navigates to the Interior Design Services page they are presented with a list of all Interior Design Services from the database including image, title and detailed description. 
 - An "Enquire Now" button displays beside each service which will take the user to the Contact form when clicked.
-- If the user is a superuser, edit and delete buttons will display below each services details instead of the enquire now button.
+- If the user is a superuser, edit and delete buttons will display below each services' details instead of the enquire now button.
 
 ### Design Services Management
-**Add Servce**
+**Add Service**
 
 ![Add Service](docs/readme_images/features/add_service.png)
 - The add service page can be accessed by clicking the 'Add Service' button on the Interior Design Services page or in the user dropdown menu, under Design Services Management. These options are only visible to superusers.
@@ -494,10 +549,10 @@ This page summarises the completed order.
 - Clicking the 'Add Project' button at the bottom of the form will create the project providing there are no errors on the form.
 -  The user will receive a success message notifying them that the project has been successfully added.
 
-**Delete Product**
+**Delete Project**
 
 ![Delete Project](docs/readme_images/features/delete_project.png)
-- The superuser can choose to delete a Project by clicking the X Icon button uon the top right hand corner of the image.
+- The superuser can choose to delete a Project by clicking the X Icon button on the top right hand corner of the image.
 
 ![Delete Image](docs/readme_images/features/delete_image.png)
 - The superuser is asked to confirm if they wish to delete the project or cancel.
@@ -593,11 +648,11 @@ The most relevant keywords have been added to the site's meta-keywords and meta-
 
 **External Links:**
 
-Included in the site footer are links to other high quality relevant websites including Houzz, Institute of Designers Ireland, and The Interiors Association. Thes links show search engines that the page is of good quality improving the site's ranking futher. 
+Included in the site footer are links to other high quality relevant websites including Houzz, Institute of Designers Ireland, and The Interiors Association. These links show search engines that the page is of good quality improving the site's ranking further. 
 
 **Building Trust:**
 
-In order to build brand trust, a testimonal page for interior design services has been included in the site with a link to the page being included in the page footer as well as the main nav bar. 
+In order to build brand trust, a testimonial page for interior design services has been included in the site with a link to the page being included in the page footer as well as the main nav bar. 
 
 The page footer also includes links to the privacy policy to inform users about how their data is being collected and processed.
 
@@ -605,7 +660,7 @@ The page footer also includes links to the privacy policy to inform users about 
 
 A sitemap file with a list of important page URLs was created to ensure that search engines are able to understand the site's structure and easily navigate through the site. This was made using xml-sitemaps.com.
 
-A robots.txt file was created to tell search engines where the are not allowed to go on the website. This improves SEO by increasing the quality of the site
+A robots.txt file was created to tell search engines where they are not allowed to go on the website. This improves SEO by increasing the quality of the site
 
 ### Content marketing 
 The site showcases high quality images of previous interior design projects projects in order to attract potential new clients. The photos allow the business to show off their expertise and style and build up trust with the customer.
@@ -629,7 +684,7 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
 - Log in to [Heroku](https://dashboard.heroku.com/apps) or create an account.
 - On the main page click the button labelled New in the top right corner and from the drop-down menu select "Create New App".
 - Enter a unique and meaningful app name.
-- Next select your region.
+- Next, select your region.
 - Click on the Create App button.
 
 ### Attach the Postgres database:
@@ -675,8 +730,8 @@ Add the following Config Vars in Heroku:
 
 |     Variable name     |                           Value/where to find value                           |
 |:---------------------:|:-----------------------------------------------------------------------------:|
-| AWS_ACCESS_KEY_ID     | AWS CSV file(instuctions below)                                               |
-| AWS_SECRET_ACCESS_KEY | AWS CSV file(instuctions below)                                               |
+| AWS_ACCESS_KEY_ID     | AWS CSV file(instructions below)                                               |
+| AWS_SECRET_ACCESS_KEY | AWS CSV file(instructions below)                                               |
 | DATABASE_URL          | Postgres generated (as per step above)                                        |
 | EMAIL_HOST_PASS       | Password from email client                                                    |
 | EMAIL_HOST_USER       | Site's email address                                                          |
@@ -695,7 +750,7 @@ Add the following Config Vars in Heroku:
 The site is now live and operational.
 
 
-## Set up AWS
+## AWS Set Up
 ### AWS S3 Bucket
 - Create an AWS account.
 - From the 'Services' tab on the AWS Management Console, search 'S3' and select it.
@@ -754,7 +809,7 @@ The site is now live and operational.
 - Click 'Next Tags' > 'Next Review' and then provide a name and description and click 'Create Policy'.
 - Click'User Groups' and open the created group. Go to the 'Permissions' tab and click 'Add Permissions' and then 'Attach Policies'.
 - Search for the policy you created and click 'Add Permissions'.
-- Finally you need to create a user to put in the group. Select users from the sidebar and click 'Add user'.
+- You need to create a user to put in the group. Select users from the sidebar and click 'Add user'.
 - Give your user a user name, check 'Programmatic Access'.
 - Click 'Next' and select the group you created.
 - Keep clicking 'Next' until you reach the 'Create user' button and click that.
